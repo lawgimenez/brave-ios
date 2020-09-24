@@ -1,17 +1,48 @@
+/* The body of the screen explaining Brave Shields
+   The title of the screen explaining Brave Shields */
+"AboutBraveShields" = "Mengenai Pelindung Brave";
+
+/* No comment provided by engineer. */
+"BraveShieldsAdvancedControls" = "Kawalan lanjutan";
+
+/* The number of ads and trackers blocked will be next to this */
+"BraveShieldsBlockedCountLabel" = "Iklan dan perkara menakutkan yang lain disekat";
+
+/* What the screen reader will read out when the user has VoiceOver on and taps on the question-mark info button on the shields panel */
+"BraveShieldsBlockedInfoButtonAccessibilityLabel" = "Ketahui lebih lanjut";
+
+/* No comment provided by engineer. */
+"BraveShieldsGlobalChangeButton" = "Ubah kegagalan pelindung global";
+
+/* No comment provided by engineer. */
+"BraveShieldsGlobalControls" = "Kawalan Global";
+
+/* No comment provided by engineer. */
+"BraveShieldsSiteBroken" = "Jika laman ini kelihatan rosak, cubalah Pelindung di bawah";
+
+/* Context: 'Brave Shields Up' or 'Brave Shields Down' */
+"BraveShieldsStatusTitle" = "Menahan Pelindung";
+
+/* Context: The 'Down' in 'Brave Shields Down' */
+"BraveShieldsStatusValueDown" = "Bawah";
+
+/* Context: The 'Up' in 'Brave Shields Up' */
+"BraveShieldsStatusValueUp" = "Atas";
+
 /* The body of the notification that goes out monthly to users who can claim an ads grant */
-"MonthlyAdsClaimNotificationBody" = "Masa untuk mendapat ganjaran untuk iklan-iklan yang telah anda lihat dalam Brave.";
+"MonthlyAdsClaimNotificationBody" = "Ketik untuk menuntut token percuma anda.";
 
 /* The title of the notification that goes out monthly to users who can claim an ads grant */
-"MonthlyAdsClaimNotificationTitle" = "Tuntut hadiah iklan Brave anda";
+"MonthlyAdsClaimNotificationTitle" = "Brave Rewards 💵🎁";
 
 /* For search suggestions prompt. This string should be short so it fits nicely on the prompt row. */
 "No" = "Tidak";
 
 /* Message when opting into brave Ads when region becomes available */
-"OBAdsOptInMessage" = "Dapatkan token dengan menonton iklan yang menghormati privasi.";
+"OBAdsOptInMessage" = "Dapatkan token dan beri ganjaran kepada pencipta untuk kandungan hebat sambil anda menyemak lalu.";
 
 /* Message when opting into brave Ads when region becomes available */
-"OBAdsOptInMessageJapan" = "Dapatkan poin dengan menonton iklan yang menghormati privasi.";
+"OBAdsOptInMessageJapan" = "Dapatkan mata dan beri ganjaran kepada pencipta untuk kandungan hebat sambil anda menyemak lalu.";
 
 /* Title when opting into brave Ads when region becomes available */
 "OBAdsOptInTitle" = "Iklan Brave tersedia!";
@@ -40,6 +71,21 @@
 /* Button to join Brave Rewards. */
 "OBJoinButton" = "Sertai";
 
+/* No comment provided by engineer. */
+"OBPrivacyConsentClipboardPermission" = "Benarkan Brave untuk menyemak papan klip saya untuk kod rujukan yang sepadan";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentDetail" = "Anda mungkin telah memuat turun Brave untuk menyokong perujuk anda. Untuk mengesan perujuk anda, Brave melakukan pemeriksaan satu kali pada papan klip anda untuk mengetahui kod rujukan yang sepadan. Pemeriksaan ini terhad kepada kod sahaja dan tidak ada data peribadi lain yang akan dihantar. Sekiranya anda memilih keluar, perujuk anda tidak akan menerima ganjaran daripada Brave.";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentNoButton" = "Jangan benarkan semakan ini";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentTitle" = "Semakan kod rujukan tanpa nama";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentYesButton" = "Benarkan semakan papan klip satu kali";
+
 /* Detail text for rewards agreement onboarding screen */
 "OBRewardsAgreementDetail" = "Dengan menghidupkan Ganjaran, anda bersetuju dengan";
 
@@ -50,10 +96,10 @@
 "OBRewardsAgreementTitle" = "Brave Rewards";
 
 /* Detail text for rewards onboarding screen */
-"OBRewardsDetailInAdRegion" = "Dapatkan token kerana melihat iklan yang menghormati privasi. Gunakannya untuk menyokong tapak dan pencipta kegemaran anda.";
+"OBRewardsDetailInAdRegion" = "Dapatkan token dan beri ganjaran kepada pencipta untuk kandungan hebat sambil anda menyemak lalu.";
 
 /* Detail text for rewards onboarding screen */
-"OBRewardsDetailInAdRegionJapan" = "Dapatkan mata kerana melihat iklan yang menghormati privasi. Gunakannya untuk menyokong tapak dan pencipta kegemaran anda.";
+"OBRewardsDetailInAdRegionJapan" = "Dapatkan mata dan beri ganjaran kepada pencipta untuk kandungan hebat sambil anda menyemak lalu.";
 
 /* Detail text for rewards onboarding screen */
 "OBRewardsDetailOutsideAdRegion" = "Sokong laman web dan pencipta kegemaran anda berdasarkan perhatian anda.";
@@ -88,11 +134,242 @@
 /* Skip button to skip onboarding and start using the app. */
 "OnboardingSkipButton" = "Langkau";
 
+/* Description for closing a popover menu that is displayed. */
+"PopoverDefaultClose" = "Tutup Menu Konteks";
+
+/* Description for closing the `Brave Shields` popover menu that is displayed. */
+"PopoverShieldsMenuClose" = "Tutup Menu Shields";
+
+/* No comment provided by engineer. */
+"ReportABrokenSite" = "Laporkan laman web yang rosak";
+
 /* Name of folder where restored bookmarks are retrieved */
 "RestoredBookmarksFolderName" = "Penanda Halaman yang Dipulihkan";
 
 /* Name of folder where restored favorites are retrieved */
 "RestoredFavoritesFolderName" = "Kegemaran yang Dipulihkan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsAmount" = "Jumlah";
+
+/* No comment provided by engineer. */
+"RewardsInternalsAnonymous" = "Tanpa nama";
+
+/* No comment provided by engineer. */
+"RewardsInternalsBalanceInfoHeader" = "Maklumat Baki";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClaimedAt" = "Dituntut pada";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClaimID" = "ID Tuntutan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClearLogsConfirmation" = "Adakah anda pasti anda mahu mengosongkan semua log Ganjaran?";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClearLogsTitle" = "Kosongkan Log";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionAmount" = "Jumlah sumbangan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorBraveTokens" = "Token Brave";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorNone" = "Tiada";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorUphold" = "Uphold";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorUserFunds" = "Dana Pengguna";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepACOff" = "Auto-Sumbangan Dimatikan";
+
+/* 'AC' refers to Auto-Contribute */
+"RewardsInternalsContributionsStepACTableEmpty" = "Jadual AC kosong";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepCompleted" = "Selesai";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepCreds" = "Kelayakan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepExternalTransaction" = "Transaksi Luaran";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepFailed" = "Gagal";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepNotEnoughFunds" = "Dana tidak mencukupi";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepPrepare" = "Sediakan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepReserve" = "Tempah";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepRewardsOff" = "Ganjaran Dimatikan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepStart" = "Mula";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsTitle" = "Sumbangan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsCreatedAt" = "Dicipta pada";
+
+/* No comment provided by engineer. */
+"RewardsInternalsDeviceInfoHeader" = "Maklumat Peranti";
+
+/* No comment provided by engineer. */
+"RewardsInternalsEnrolled" = "Berdaftar";
+
+/* No comment provided by engineer. */
+"RewardsInternalsEnrollmentState" = "Keadaan Pendaftaran";
+
+/* No comment provided by engineer. */
+"RewardsInternalsExpiresAt" = "Tamat Tempoh Pada";
+
+/* No comment provided by engineer. */
+"RewardsInternalsInvalid" = "Tidak sah";
+
+/* No comment provided by engineer. */
+"RewardsInternalsKeyInfoSeed" = "Benih Maklumat Penting";
+
+/* No comment provided by engineer. */
+"RewardsInternalsLegacyPromotion" = "Promosi Legasi";
+
+/* %d will be the number of logs currently being shown, i.e. '10 logs shown' */
+"RewardsInternalsLogsCount" = "%d log ditunjukkan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsLogsTitle" = "Log";
+
+/* No comment provided by engineer. */
+"RewardsInternalsNotEnrolled" = "Tidak berdaftar";
+
+/* No comment provided by engineer. */
+"RewardsInternalsNotSupported" = "Tidak disokong";
+
+/* No comment provided by engineer. */
+"RewardsInternalsProcessor" = "Pemproses";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusActive" = "Aktif";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusAttested" = "Dibuktikan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusCorrupted" = "Rosak";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusFinished" = "Selesai";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusOver" = "Tamat";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionsTitle" = "Promosi";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPublisher" = "Penerbit";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPublishers" = "Penerbit";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRetryCount" = "Kiraan Cuba Semula";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRewardsTypeAutoContribute" = "Auto-Sumbangan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRewardsTypeOneTimeTip" = "Tip satu kali";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRewardsTypeRecurringTip" = "Tip berulang";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableBasicDescription" = "Maklumat dompet, peranti & baki (sentiasa dikongsi)";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableBasicTitle" = "Maklumat Asas";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableContributionsDescription" = "Sebarang sumbangan yang dibuat kepada penerbit melalui pemberian tip atau auto-sumbangan";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableDatabaseDescription" = "Gedung data dalaman";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableDatabaseTitle" = "Pangkalan Data Ganjaran";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableLogsDescription" = "Pengelogan khusus ganjaran";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharablePromotionsDescription" = "Sebarang promosi BAT yang anda telah tuntut atau belum selesai daripada Iklan atau Geran";
+
+/* No comment provided by engineer. */
+"RewardsInternalsShare" = "Kongsi";
+
+/* 'Rewards' as in 'Brave Rewards' */
+"RewardsInternalsShareInternalsTitle" = "Kongsi Dalaman Ganjaran";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharingWarningMessage" = "Data di halaman ini mungkin sensitif. Kendalikannya seperti yang anda akan kendalikan kunci peribadi dompet anda. Berhati-hati dengan siapa anda berkongsi.";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharingWarningTitle" = "Amaran";
+
+/* No comment provided by engineer. */
+"RewardsInternalsStatus" = "Status";
+
+/* i.e. 'Step: Started' */
+"RewardsInternalsStep" = "Langkah";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSupported" = "Disokong";
+
+/* 'Rewards' as in 'Brave Rewards' */
+"RewardsInternalsTitle" = "Dalaman Ganjaran";
+
+/* No comment provided by engineer. */
+"RewardsInternalsTotalAmount" = "Jumlah amaun";
+
+/* No comment provided by engineer. */
+"RewardsInternalsTotalBalance" = "Jumlah Baki";
+
+/* No comment provided by engineer. */
+"RewardsInternalsType" = "Jenis";
+
+/* No comment provided by engineer. */
+"RewardsInternalsValid" = "Sah";
+
+/* No comment provided by engineer. */
+"RewardsInternalsVersion" = "Versi";
+
+/* No comment provided by engineer. */
+"RewardsInternalsWalletCreationDate" = "Tarikh Penciptaan Dompet";
+
+/* No comment provided by engineer. */
+"RewardsInternalsWalletInfoHeader" = "Maklumat Dompet";
+
+/* No comment provided by engineer. */
+"RewardsInternalsWalletPaymentID" = "ID Pembayaran Dompet";
+
+/* No comment provided by engineer. */
+"ShieldsDownDisclaimer" = "Anda melayari laman web ini tanpa perlindungan privasi Brave. Adakah ia tidak berfungsi dengan betul dengan Pelindung atas?";
+
+/* Text that informs a user about Brave Sync service deprecation. */
+"sync.syncV1DeprecationText" = "Brave Sync baharu akan tiba dan akan mempengaruhi persediaan anda. Bersedia untuk naik taraf.";
 
 /* Prompt shown before enabling provider search queries */
 "Turn on search suggestions?" = "Hidupkan cadangan carian?";
@@ -114,6 +391,243 @@
 
 /* No comment provided by engineer. */
 "UserWalletGenericErrorTitle" = "Maaf, sesuatu tidak kena";
+
+/* Button text to buy Brave VPN */
+"vpn.buyButton" = "Beli";
+
+/* Title for screen to buy the VPN. */
+"vpn.buyVPNTitle" = "Tembok Api Berani + VPN";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxBlockAds" = "Blok sambungan rangkaian yang tidak diingini";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxEncryption" = "Menggunakan terowong VPN disulitkan IKEv2 dengan selamat";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxFast" = "Menyokong kelajuan hingga 100 Mbps";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxNoIPLog" = "Menyimpan anda tanpa nama dalam talian";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxNoSellout" = "Kami tidak pernah berkongsi atau menjual maklumat anda";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxProtectConnections" = "Melindungi anda daripad sambungan yang tidak diingini";
+
+/* AppStore Receipt field for customer support contact form. */
+"vpn.contactFormAppStoreReceipt" = "Resit App Store";
+
+/* App Version field for customer support contact form. */
+"vpn.contactFormAppVersion" = "Versi Aplikasi";
+
+/* Cellular Carrier field for customer support contact form. */
+"vpn.contactFormCarrier" = "Pembawa Selular";
+
+/* Text to tell user to not modify support info below email's body. */
+"vpn.contactFormDoNotEditText" = "Jangan edit maklumat di bawah";
+
+/* Footer for customer support contact form. */
+"vpn.contactFormFooter" = "Sila pilih maklumat yang anda selesa berkongsi dengan kami.\n\nSemakin banyak maklumat anda kongsi pada awalnya, semakin mudah kakitangan sokongan kami membantu menyelesaikan masalah anda.";
+
+/* Footer for customer support contact form. */
+"vpn.contactFormFooterSharedWithGuardian" = "Sokongan diberikan dengan bantuan pasukan Guardian.";
+
+/* VPN Hostname field for customer support contact form. */
+"vpn.contactFormHostname" = "Nama Hos VPN";
+
+/* Specific issue field for customer support contact form. */
+"vpn.contactFormIssue" = "Isu";
+
+/* Connection problems for contact form issue field. */
+"vpn.contactFormIssueConnectionReliability" = "Masalah keutuhan sambungan";
+
+/* No internet problem for contact form issue field. */
+"vpn.contactFormIssueNoInternet" = "Tidak ada internet apabila disambungkan";
+
+/* Other problem for contact form issue field. */
+"vpn.contactFormIssueOther" = "Lain";
+
+/* Other connection problem for contact form issue field. */
+"vpn.contactFormIssueOtherConnectionError" = "Tidak dapat menyambung ke VPN (Kesalahan lain)";
+
+/* Slow connection problem for contact form issue field. */
+"vpn.contactFormIssueSlowConnection" = "Sambungan perlahan";
+
+/* Website problem for contact form issue field. */
+"vpn.contactFormIssueWebsiteProblems" = "Laman web tidak berfungsi";
+
+/* Network Type field for customer support contact form. */
+"vpn.contactFormNetworkType" = "Jenis Rangkaian";
+
+/* Button name to send contact form. */
+"vpn.contactFormSendButton" = "Hantar";
+
+/* Subscription Type field for customer support contact form. */
+"vpn.contactFormSubscriptionType" = "Jenis Langganan";
+
+/* iOS Timezone field for customer support contact form. */
+"vpn.contactFormTimezone" = "Zon Masa iOS";
+
+/* Title for contact form email. */
+"vpn.contactFormTitle" = "Brave Firewall + Isu VPN";
+
+/* Button text to enable Brave VPN */
+"vpn.enableButton" = "Mendayakan";
+
+/* Message for an alert when the VPN can't get prices from the App Store */
+"vpn.errorCantGetPricesBody" = "Tidak dapat menyambung ke App Store, sila cuba lagi dalam beberapa minit.";
+
+/* Title for an alert when the VPN can't get prices from the App Store */
+"vpn.errorCantGetPricesTitle" = "Ralat App Store";
+
+/* No comment provided by engineer. */
+"vpn.freeTrial" = "Semua pelan termasuk percubaan 7 hari percuma!";
+
+/* Disclaimer about free trial */
+"vpn.freeTrialDisclaimer" = "Cuba secara percuma selama 7 hari. Selepas 7 hari, anda akan dikenakan harga pelan.";
+
+/* Disclaimer about in app subscription */
+"vpn.iapDisclaimer" = "Semua langganan diperbaharui secara automatik tetapi boleh dibatalkan sebelum pembaharuan.";
+
+/* Text explaining how the VPN works. */
+"vpn.installProfileBody" = "Profil ini membolehkan VPN menyambung secara automatik dan memastikan rafik selamat merentas peranti anda sepanjang masa. Sambungan VPN ini akan disulitkan dan dihalakan melalui dinding api pintar Brave untuk menyekat sambungan yang berpotensi berbahaya dan invasif.";
+
+/* Text for 'install vpn profile' button */
+"vpn.installProfileButtonText" = "Pasang Profil VPN";
+
+/* No comment provided by engineer. */
+"vpn.installProfileTitle" = "Brave kini akan memasang profil VPN.";
+
+/* Popup that shows after user installs the vpn for the first time. */
+"vpn.installSuccessPopup" = "VPN kini didayakan";
+
+/* Title for screen to install the VPN. */
+"vpn.installTitle" = "Pasang VPN";
+
+/* Used in context: 'Monthly subscription, (it) renews monthly' */
+"vpn.monthlySubDetail" = "Diperbaharui setiap bulan";
+
+/* No comment provided by engineer. */
+"vpn.monthlySubTitle" = "Langganan Setiap bulan";
+
+/* Text to show user when their vpn plan has expired */
+"vpn.planExpired" = "Tamat tempoh";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.popupCheckmark247Support" = "sokongan 24/7";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.popupCheckmarkSecureConnections" = "Melindungi semua sambungan";
+
+/* It is used in context: 'Powered by BRAND_NAME' */
+"vpn.poweredBy" = "Dikuasakan oleh";
+
+/* Message to show when vpn configuration reset fails. */
+"vpn.resetVPNErrorBody" = "Gagal untuk menetapkan semula konfigurasi vpn, sila cuba lagi kemudian.";
+
+/* Title for error message when vpn configuration reset fails. */
+"vpn.resetVPNErrorTitle" = "Ralat";
+
+/* No comment provided by engineer. */
+"vpn.restorePurchases" = "Menyimpan semula";
+
+/* No comment provided by engineer. */
+"vpn.settingHeaderBody" = "Lindungi sambungan anda dan sekat penjejak invasif.";
+
+/* Button to contact tech support */
+"vpn.settingsContactSupport" = "Hubungi Sokongan Teknikal";
+
+/* Button for FAQ */
+"vpn.settingsFAQ" = "Sokongan VPN";
+
+/* Button to manage your VPN subscription */
+"vpn.settingsManageSubscription" = "Urus Langganan";
+
+/* Button to reset VPN configuration */
+"vpn.settingsResetConfiguration" = "Set semula Konfigurasi";
+
+/* Table cell title for vpn's server host */
+"vpn.settingsServerHost" = "Hos";
+
+/* Table cell title for vpn's server location */
+"vpn.settingsServerLocation" = "Lokasi";
+
+/* Header title for vpn settings server section. */
+"vpn.settingsServerSection" = "Pelayan";
+
+/* Table cell title for cell that shows when the VPN subscription expires. */
+"vpn.settingsSubscriptionExpiration" = "Tamat tempoh";
+
+/* Header title for vpn settings subscription section. */
+"vpn.settingsSubscriptionSection" = "Langganan";
+
+/* Table cell title for status of current VPN subscription. */
+"vpn.settingsSubscriptionStatus" = "Status";
+
+/* Whether the VPN is enabled or not */
+"vpn.settingsVPNDisabled" = "Dinyahdayakan";
+
+/* Whether the VPN is enabled or not */
+"vpn.settingsVPNEnabled" = "Mendayakan";
+
+/* Whether the VPN plan has expired */
+"vpn.settingsVPNExpired" = "Telah tamat tempoh";
+
+/* Notification title to tell user that the vpn is turned on even in background */
+"vpn.vpnBackgroundNotificationBody" = "Walaupun di latar belakang, Brave akan terus melindungi anda.";
+
+/* Notification title to tell user that the vpn is turned on even in background */
+"vpn.vpnBackgroundNotificationTitle" = "Brave Firewall + VPN adalah DIHIDUPKAN";
+
+/* Message for an alert when the VPN can't be configured. */
+"vpn.vpnConfigGenericErrorBody" = "Terdapat masalah semasa memulakan VPN. Sila cuba lagi atau cuba tetapkan semula konfigurasi di halaman tetapan VPN.";
+
+/* Title for an alert when the VPN can't be configured */
+"vpn.vpnConfigGenericErrorTitle" = "Ralat";
+
+/* Title for an alert when the user didn't allow to install VPN profile */
+"vpn.vpnConfigPermissionDeniedErrorBody" = "Brave Firewall + VPN memerlukan profil VPN untuk dipasang pada peranti anda untuk berfungsi.";
+
+/* Title for an alert when the user didn't allow to install VPN profile */
+"vpn.vpnConfigPermissionDeniedErrorTitle" = "Kebenaran ditolak";
+
+/* Message for error when VPN could not be purchased. */
+"vpn.vpnErrorPurchaseFailedBody" = "Tidak dapat menghabiskan pembelian. Sila cuba lagi, atau periksa maklumat pembayaran anda di Apple dan cuba lagi.";
+
+/* Title for error when VPN could not be purchased. */
+"vpn.vpnErrorPurchaseFailedTitle" = "Ralat";
+
+/* Disclaimer for user purchasing the VPN plan. */
+"vpn.vpnIAPBoilerPlate" = "Langganan akan dikenakan bayaran melalui akaun iTunes anda.\n\nSebarang bahagian percubaan percuma yang tidak digunakan, jika ditawarkan, akan lupus apabila anda membeli langganan.\n\nLangganan anda akan diperbaharui secara automatik melainkan dibatalkan sekurang-kurangnya 24 jam sebelum akhir tempoh semasa.\n\nAnda boleh mengurus langganan anda dalam Tetapan.\n\nDengan menggunakan Brave, anda bersetuju dengan Terma Penggunaan dan Dasar Privasi.";
+
+/* Title Brave VPN menu item. */
+"vpn.vpnMenuItemTitle" = "Brave VPN";
+
+/* Message for alert to reset vpn configuration */
+"vpn.vpnResetAlertBody" = "Ini akan menetapkan semula konfigurasi Brave Firewall + VPN anda dan memperbaiki sebarang kesalahan. Proses ini mungkin mengambil masa sebentar.";
+
+/* Title for alert to reset vpn configuration */
+"vpn.vpnResetAlertTitle" = "Set semula konfigurasi";
+
+/* Button name to reset vpn configuration */
+"vpn.vpnResetButton" = "Set semula";
+
+/* Name of monthly subscription in VPN Settings */
+"vpn.vpnSettingsMonthlySubName" = "Langganan setiap bulan";
+
+/* Name of annual subscription in VPN Settings */
+"vpn.vpnSettingsYearlySubName" = "Langganan setiap tahun";
+
+/* Used in context: 'yearly subscription, renew annually (to) save 16%'. The placeholder is for percent value */
+"vpn.yearlySubDetail" = "Memperbaharui setiap tahun jimat %@";
+
+/* It's like when there's few subscription plans, and one plan has the best value to price ratio, so this label says next to that plan: '(plan) - Best value' */
+"vpn.yearlySubDisclaimer" = "Nilai terbaik";
+
+/* One year lenght vpn subcription */
+"vpn.yearlySubTitle" = "Satu tahun";
 
 /* For search suggestions prompt. This string should be short so it fits nicely on the prompt row. */
 "Yes" = "Ya";

@@ -4,6 +4,7 @@
 
 import UIKit
 import BraveRewards
+import BraveUI
 
 class AutoContributeDetailViewController: UIViewController {
   private var ledgerObserver: LedgerObserver
@@ -68,7 +69,7 @@ class AutoContributeDetailViewController: UIViewController {
     let dateFormatter = DateFormatter().then {
       $0.dateFormat = Strings.autoContributeDateFormat
     }
-    let reconcileDate = Date(timeIntervalSince1970: TimeInterval(state.ledger.autoContributeProps.reconcileStamp))
+    let reconcileDate = Date(timeIntervalSince1970: TimeInterval(state.ledger.autoContributeProperties.reconcileStamp))
     view.label.text = dateFormatter.string(from: reconcileDate)
     view.bounds = CGRect(origin: .zero, size: view.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize))
     return view
@@ -83,7 +84,11 @@ class AutoContributeDetailViewController: UIViewController {
       self.publishersCount = UInt(pubs.count)
       self.contentView.tableView.reloadData()
     }
-    excludedPublishersCount = state.ledger.numberOfExcludedPublishers
+    let excludedFilter = state.ledger.excludedPublishersFilter
+    state.ledger.listActivityInfo(fromStart: 0, limit: 0, filter: excludedFilter) { pubs in
+      self.excludedPublishersCount = UInt(pubs.count)
+      self.contentView.tableView.reloadData()
+    }
     contentView.tableView.reloadData()
   }
   
@@ -170,9 +175,9 @@ extension AutoContributeDetailViewController: UITableViewDataSource, UITableView
       switch row {
       case .monthlyPayment:
         // Monthly payment
-        guard let wallet = state.ledger.walletInfo else { break }
+        guard let wallet = state.ledger.rewardsParameters else { break }
         let monthlyPayment = state.ledger.contributionAmount
-        let choices = wallet.parametersChoices.map { BATValue($0.doubleValue) }
+        let choices = wallet.autoContributeChoices.map { BATValue($0.doubleValue) }
         let selectedIndex = choices.map({ $0.doubleValue }).firstIndex(of: monthlyPayment) ?? 0
         
         let controller = BATValueOptionsSelectionViewController(
@@ -275,10 +280,8 @@ extension AutoContributeDetailViewController: UITableViewDataSource, UITableView
       case .monthlyPayment:
         cell.label.text = Strings.autoContributeMonthlyPayment
         cell.accessoryType = .disclosureIndicator
-        if let dollarAmount = state.ledger.dollarStringForBATAmount(state.ledger.contributionAmount) {
-          let amount = "\(state.ledger.contributionAmount) \(Strings.BAT) (\(dollarAmount))"
-          cell.accessoryLabel?.text = String(format: Strings.settingsAutoContributeUpToValue, amount)
-        }
+        let amount = "\(state.ledger.contributionAmount) \(Strings.BAT)"
+        cell.accessoryLabel?.text = String(format: Strings.settingsAutoContributeUpToValue, amount)
         cell.selectionStyle = .default
       case .nextContribution:
         cell.label.text = Strings.autoContributeNextDate

@@ -248,12 +248,24 @@ class PopupView: UIView, UIGestureRecognizerDelegate {
     
     // MARK: Presentation
     
+    private var autoDismissTimer: Timer?
+    
     func show() {
         showWithType(showType: defaultShowType)
     }
     
-    func showWithType(showType: PopupViewShowType) {
+    func showWithType(showType: PopupViewShowType, autoDismissTime: TimeInterval? = nil) {
         if superview != nil { return }
+        
+        if let autoDismissTime = autoDismissTime {
+            autoDismissTimer?.invalidate()
+            autoDismissTimer = nil
+            autoDismissTimer =
+                Timer.scheduledTimer(withTimeInterval: autoDismissTime, repeats: false,
+                                     block: { [weak self] _ in
+                                        self?.dismiss()
+                })
+        }
         
         dialogView.removeFromSuperview()
         
@@ -487,6 +499,12 @@ class PopupView: UIView, UIGestureRecognizerDelegate {
         if let button = buttonData.button {
             button.setTitle(title, for: .normal)
         }
+    }
+    
+    func removeAllButtons() {
+        dialogButtons.forEach { $0.button?.removeFromSuperview() }
+        dialogButtons.removeAll()
+        setNeedsLayout()
     }
     
     func removeButtonAtIndex(buttonIndex: Int) {

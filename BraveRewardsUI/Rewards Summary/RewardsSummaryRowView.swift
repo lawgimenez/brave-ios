@@ -3,14 +3,15 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import UIKit
+import BraveUI
 
 //extension RewardsSummaryView {
 
   class RowView: UIView {
     private struct UX {
-      static let titleColor = Colors.grey000
-      static let cryptoCurrencyColor = Colors.grey200
-      static let dollarValueColor = Colors.grey200
+      static let titleColor = Colors.grey900
+      static let cryptoCurrencyColor = Colors.grey700
+      static let dollarValueColor = Colors.grey700
     }
     
     let stackView = UIStackView().then {
@@ -54,7 +55,7 @@ import UIKit
       stackView.addArrangedSubview(cryptoValueLabel)
       stackView.setCustomSpacing(4.0, after: cryptoValueLabel)
       stackView.addArrangedSubview(cryptoCurrencyLabel)
-      stackView.addArrangedSubview(dollarValueLabel)
+//      stackView.addArrangedSubview(dollarValueLabel)
       
       paddingGuide.snp.makeConstraints {
         $0.top.bottom.equalTo(self).inset(12.0)
@@ -63,9 +64,9 @@ import UIKit
       stackView.snp.makeConstraints {
         $0.edges.equalTo(paddingGuide)
       }
-      dollarValueLabel.snp.makeConstraints {
-        $0.width.greaterThanOrEqualTo(60.0)
-      }
+//      dollarValueLabel.snp.makeConstraints {
+//        $0.width.greaterThanOrEqualTo(60.0)
+//      }
     }
     
     convenience init(title: String, cryptoValueColor: UIColor = .black,
@@ -75,7 +76,7 @@ import UIKit
       cryptoCurrencyLabel.text = Strings.BAT
       cryptoValueLabel.text = batValue
       cryptoValueLabel.appearanceTextColor = cryptoValueColor
-      dollarValueLabel.text = usdDollarValue
+//      dollarValueLabel.text = usdDollarValue
     }
     
     @available(*, unavailable)

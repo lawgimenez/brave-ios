@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/brave/brave-ios.svg?branch=development)](https://travis-ci.org/brave/brave-ios)
+![Build](https://github.com/brave/brave-ios/workflows/Build/badge.svg?branch=development)
 
 Brave for iOS 🦁
 ===============
@@ -50,7 +50,7 @@ Building the code
     sh ./bootstrap.sh
     ```
 1. Open `Client.xcodeproj` in Xcode.
-1. Build the `Fennec` scheme in Xcode.
+1. Build the `Debug` scheme in Xcode.
 
 Updating Rewards
 ----------------
@@ -96,7 +96,7 @@ Some Brave Rewards code is precompiled into a framework in the `BraveRewards` di
 
 >Team IDs look identical to provisioning profile UUIDs, so make sure this is the correct one.
 
-The entire `Local` directory is included in the `.gitignore`, so these changes are not tracked by source control. This allows code signing without making tracked changes. Updating this file will only sign the `Fennec` target for local builds.
+The entire `Local` directory is included in the `.gitignore`, so these changes are not tracked by source control. This allows code signing without making tracked changes. Updating this file will only sign the `Debug` target for local builds.
 
 ### Finding Team IDs
 

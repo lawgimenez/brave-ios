@@ -31,11 +31,13 @@ class SwitchAccessoryView: UISwitch {
 
 extension Row {
     /// Creates a switch toggle `Row` which updates a `Preferences.Option<Bool>`
-    static func boolRow(title: String, option: Preferences.Option<Bool>, onValueChange: SwitchAccessoryView.ValueChange? = nil) -> Row {
+    static func boolRow(title: String, detailText: String? = nil, option: Preferences.Option<Bool>, onValueChange: SwitchAccessoryView.ValueChange? = nil, image: UIImage? = nil) -> Row {
         return Row(
             text: title,
+            detailText: detailText,
+            image: image,
             accessory: .view(SwitchAccessoryView(initialValue: option.value, valueChange: onValueChange ?? { option.value = $0 })),
-            cellClass: MultilineValue1Cell.self,
+            cellClass: MultilineSubtitleCell.self,
             uuid: option.key
         )
     }
@@ -53,6 +55,17 @@ class MultilineButtonCell: ButtonCell {
     }
 }
 
+class CenteredButtonCell: ButtonCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        textLabel?.textAlignment = .center
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class MultilineValue1Cell: Value1Cell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -62,6 +75,29 @@ class MultilineValue1Cell: Value1Cell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class ColoredDetailCell: UITableViewCell, Cell {
+    
+    static let colorKey = "color"
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(row: Row) {
+        textLabel?.text = row.text
+        detailTextLabel?.text = row.detailText
+        accessoryType = row.accessory.type
+        imageView?.image = row.image
+        
+        guard let detailColor = row.context?[ColoredDetailCell.colorKey] as? UIColor else { return }
+        detailTextLabel?.appearanceTextColor = detailColor
     }
 }
 

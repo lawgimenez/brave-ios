@@ -6,6 +6,7 @@ import Foundation
 import WebKit
 import Storage
 import Shared
+import BraveRewards
 import BraveShared
 import SwiftyJSON
 import XCGLogger
@@ -33,6 +34,13 @@ protocol URLChangeDelegate {
     func tab(_ tab: Tab, urlDidChangeTo url: URL)
 }
 
+enum TabSecureContentState {
+    case localHost
+    case secure
+    case insecure
+    case unknown
+}
+
 class Tab: NSObject {
     var id: String?
     
@@ -45,8 +53,8 @@ class Tab: NSObject {
     var isPrivate: Bool {
         return type.isPrivate
     }
-    
-    var contentIsSecure = false
+
+    var secureContentState: TabSecureContentState = .unknown
 
     // PageMetadata is derived from the page content itself, and as such lags behind the
     // rest of the tab.
@@ -76,7 +84,25 @@ class Tab: NSObject {
     var mimeType: String?
     var isEditing: Bool = false
     var shouldClassifyLoadsForAds = true
-
+    
+    /// The tabs new tab page controller.
+    ///
+    /// Should be setup in BVC then assigned here for future use.
+    var newTabPageViewController: NewTabPageViewController? {
+        willSet {
+            if newValue == nil {
+                deleteNewTabPageController()
+            }
+        }
+    }
+    
+    private func deleteNewTabPageController() {
+        guard let controller = newTabPageViewController, controller.parent != nil else { return }
+        controller.willMove(toParent: nil)
+        controller.removeFromParent()
+        controller.view.removeFromSuperview()
+    }
+ 
     // When viewing a non-HTML content type in the webview (like a PDF document), this URL will
     // point to a tempfile containing the content so it can be shared to external applications.
     var temporaryDocument: TemporaryDocument?
@@ -211,7 +237,13 @@ class Tab: NSObject {
 
             self.webView = webView
             self.webView?.addObserver(self, forKeyPath: KVOConstants.URL.rawValue, options: .new, context: nil)
-            self.userScriptManager = UserScriptManager(tab: self, isFingerprintingProtectionEnabled: Preferences.Shields.fingerprintingProtection.value, isCookieBlockingEnabled: Preferences.Privacy.blockAllCookies.value, isU2FEnabled: webView.hasOnlySecureContent)
+            self.userScriptManager = UserScriptManager(
+                tab: self,
+                isFingerprintingProtectionEnabled: Preferences.Shields.fingerprintingProtection.value,
+                isCookieBlockingEnabled: Preferences.Privacy.blockAllCookies.value,
+                isU2FEnabled: webView.hasOnlySecureContent,
+                isPaymentRequestEnabled: webView.hasOnlySecureContent,
+                isYoutubeAdblockEnabled: false)
             tabDelegate?.tab?(self, didCreateWebView: webView)
         }
     }
@@ -274,11 +306,11 @@ class Tab: NSObject {
 
     deinit {
         deleteWebView()
+        deleteNewTabPageController()
         contentScriptManager.helpers.removeAll()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let rewards = appDelegate.browserViewController.rewards
-        
         if !PrivateBrowsingManager.shared.isPrivateBrowsing {
             rewards.reportTabClosed(tabId: rewardsId)
         }
@@ -335,6 +367,7 @@ class Tab: NSObject {
     }
 
     var displayFavicon: Favicon? {
+        if url?.isAboutHomeURL == true { return nil }
         return favicons.max { $0.width! < $1.width! }
     }
 

@@ -292,14 +292,14 @@
 /* DuckDuckGo callout enable action. */
 "DDGCalloutEnable" = "是";
 
-/* DuckDuckGo message. */
-"DDGCalloutMessage" = "通过隐私搜索，当您在此隐私选项卡中，Brave 将使用 DuckDuckGo 回答您的搜索。 DuckDuckGo是一个搜索引擎，不会跟踪您的搜索历史记录，使您可以进行隐私搜索。";
-
 /* DuckDuckGo callout no action. */
 "DDGCalloutNo" = "不";
 
 /* DuckDuckGo callout title. */
 "DDGCalloutTitle" = "使用 DuckDuckGo 进行隐私搜索？";
+
+/* Name for default Brave theme. */
+"defaultThemeName" = "Brave 默认";
 
 /* No comment provided by engineer. */
 "Delete" = "删除";
@@ -547,6 +547,9 @@
 /* Reveal password text selection menu item */
 "MenuItemRevealPasswordTitle" = "显示";
 
+/* Abbreviation for 'Month', use full word' Month' if this word can't be shortened in your language */
+"monthAbbreviation" = "月";
+
 /* Bookmark title / Device name */
 "Name" = "名称";
 
@@ -574,71 +577,62 @@
 /* New Tab title */
 "NewTab" = "新标签页";
 
-/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
-"NewTabPageSettingsAutoOpenKeyboard" = "自动开启键盘";
-
-/* A setting to enable or disable background images on the main screen. */
-"NewTabPageSettingsBackgroundImages" = "显示背景图片";
-
-/* A setting to enable or disable sponsored images from showing on the main screen. */
-"NewTabPageSettingsSponsoredImages" = "显示赞助图片";
-
-/* Title on settings page to adjust the primary home screen functionality. */
-"NewTabPageSettingsTitle" = "新标签页";
-
-/* A button title to show more bookmarks, that opens a new menu. */
-"NewTabPageShowMoreFavorites" = "显示更多";
-
 /* Sync Alert */
 "NotEnoughWordsDescription" = "输入所有文字并重试。";
 
 /* Sync Alert */
 "NotEnoughWordsTitle" = "字数不足";
 
-/* The placeholder says 'hide sponsored images'. So full sentence goes like: 'You can also choose to hide sponsored images.' */
-"ntp.chooseToHideSponsoredImages" = "您还可以选择%@。";
+/* Bookmark title for Brave Support */
+"ntp.braveSupportFavoriteTitle" = "Brave 支持";
 
 /* No comment provided by engineer. */
-"ntp.claimRewards" = "领取我的奖励";
-
-/* Placeholder example: 'You earned 42 BAT last month from viewing privacy-respecting ads.' */
-"ntp.earningsReport" = "您上个月通过查看尊重隐私的广告赚取了 %@。";
-
-/* No comment provided by engineer. */
-"ntp.earnTokensByViewingAds" = "通过查看尊重隐私的广告来赚代币。";
-
-/* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnAds" = "通过查看该背景图片赚取酬劳。开启 Brave Ads，领取您的酬劳。";
-
-/* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnRewards" = "通过查看该背景图片赚取酬劳。开启 Brave Rewards，领取您的酬劳。";
-
-/* No comment provided by engineer. */
-"ntp.getPaidToSeeThisImage" = "通过查看该背景图像赚取酬劳。";
+"ntp.getPaidToSeeThisImage" = "通过查看该图片赚取代币。";
 
 /* The context is to praise the user that they did a good job, to keep it up. It is used in full sentence like: 'Way to go! You earned 40 BAT last month.' */
 "ntp.goodJob" = "太棒了！";
 
-/* This sentence is not capitalized on purpose, it is a part of a bigger sentence which goes like this: 'You can also choose to hide sponsored images.' */
+/* No comment provided by engineer. */
 "ntp.hideSponsoredImages" = "隐藏赞助图片";
 
-/* The placeholder says 'Learn more'. So full sentence goes like: 'Learn more about sponsored images in Brave Rewards.' */
-"ntp.learnMoreAboutBrandedImages" = "%@ Brave Rewards 中的赞助图片";
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutRewards" = "了解更多有关 Brave Rewards 的内容";
 
 /* No comment provided by engineer. */
-"ntp.supportWebCreatorsWithTokens" = "您可使用代币支持 Web 创作者。";
+"ntp.learnMoreAboutSI" = "了解更多有关赞助图片的内容";
+
+/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
+"ntp.settingsAutoOpenKeyboard" = "自动开启键盘";
+
+/* A setting to enable or disable background images on the main screen. */
+"ntp.settingsBackgroundImages" = "显示背景图片";
+
+/* A button that leads to a 'more' menu, letting users configure additional settings. */
+"ntp.settingsBackgroundImageSubMenu" = "背景图片";
+
+/* A selection to let the users only see a set of predefined, default images on the background of the app. */
+"ntp.settingsDefaultImagesOnly" = "仅默认图片";
+
+/* A selection to let the users see sponsored image backgrounds when opening a new tab. */
+"ntp.settingsSponsoredImagesSelection" = "赞助图片";
+
+/* Title on settings page to adjust the primary home screen functionality. */
+"ntp.settingsTitle" = "新标签页";
+
+/* A button title to show more bookmarks, that opens a new menu. */
+"ntp.showMoreFavorites" = "显示更多";
 
 /* No comment provided by engineer. */
 "ntp.turnOnBraveAds" = "开启 Brave Ads";
 
 /* No comment provided by engineer. */
-"ntp.turnOnBraveRewards" = "开启 Rewards";
+"ntp.turnOnBraveRewards" = "开启 Brave Rewards";
 
-/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turnin Rewards, you agree to the Terms of Service'. */
+/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turning Rewards, you agree to the Terms of Service'. */
 "ntp.turnRewardsTos" = "开启 Rewards 即表示您同意 %@。";
 
 /* No comment provided by engineer. */
-"ntp.youArePaidToSeeThisImage" = "通过查看该背景图片赚取酬劳。";
+"ntp.youArePaidToSeeThisImage" = "您正在通过查看该图片赚取代币。";
 
 /* Context menu item for opening all folder bookmarks */
 "OpenAllBookmarks" = "打开所有（%i）";
@@ -711,9 +705,6 @@
 
 /* Private tab detail text */
 "PrivateTabDetails" = "使用私密 Tabs 只会更改 Brave 对您设备的操作，不会更改其他应用对您设备的操作。\n\n当您访问网站时，网站会随时知晓您的 IP 地址。由此地址，他们通常可以大致猜测您的位置 - 通常是您所在的城市。有时，对于位置的猜测可能更加具体。网站也会知晓您明确告诉他们的所有内容，例如您的搜索条件。如果您登录某个网站，他们就会知晓您是该帐户的所有者。当您关闭私密 Tabs 时，您仍然会被迫退出，因为 Brave 会删除辅助您随时登录的 cookie。\n\n为您连网（您的 ISP）的任何人都可以看到您所有的网络活动。通常是您的移动运营商。如果您连接到 WiFi 网络，则是该网络的所有者，如果您在使用 VPN，则是运行该 VPN 的人。您的 ISP 可以在您访问时查看您访问的网站。如果这些网站使用 HTTPS，它们只能对您在这些网站上所进行的操作进行合理的猜测。但是，如果某个网站仅使用 HTTP，那么您的 ISP 可以查看所有内容：您的搜索条件，您所阅读的页面以及您关注的链接。\n\n如果雇主管理您的设备，他们也可能会跟踪您的设备。使用私密 Tabs 可能不会阻止他们知晓您访问过哪些网站。有权访问您设备的其他人也可能安装了监控您活动的软件，而私密 Tabs 也无法保护您不受此影响。";
-
-/* Private tab information link */
-"PrivateTabLink" = "了解更多有关私人标签的内容。";
 
 /* Default engine for private search. */
 "PrivateTabSearch" = "私人标签";
@@ -983,7 +974,7 @@
 "SyncAddDeviceWords" = "输入新的同步代码";
 
 /* Sync add device description */
-"SyncAddDeviceWordsDescription" = "在设备上，浏览至“设置面板”的“同步”，然后点击按钮“%@”。输入下方显示的同步链密语。\n\n将此代码视作密码。如果有人得到它，他们可以读取和修改您的同步数据。";
+"SyncAddDeviceWordsDescription" = "在设备上，导航至“设置面板”的“同步”，然后点击按钮“%@”。输入下方显示的同步链密语。\n\n将此代码视作密码。如果有人得到它，他们可以读取和修改您的同步数据。";
 
 /* Add device to sync with code words navigation title */
 "SyncAddDeviceWordsTitle" = "输入密语";
@@ -1156,6 +1147,12 @@
 /* Show Brave Browser TOS page from the Privacy section in the settings. */
 "TermsOfUse" = "使用条款";
 
+/* Text for button to share referral's QR code. */
+"themeQRCodeShareButton" = "分享...";
+
+/* Title for QR popup encouraging users to share the code with their friends. */
+"themeQRCodeShareTitle" = "与你的朋友分享 Brave 吧！";
+
 /* Selection to automatically color/style the user interface. */
 "ThemesAutomaticOption" = "自动";
 
@@ -1170,6 +1167,9 @@
 
 /* Selection to color/style the user interface with a light theme. */
 "ThemesLightOption" = "亮";
+
+/* Name for app theme settings */
+"themesSettings" = "主题";
 
 /* History tableview section header */
 "Today" = "今天";
@@ -1206,6 +1206,9 @@
 
 /* Word count title */
 "WordCount" = "字数：%i";
+
+/* Abbreviation for 'Year', use full word' Yeara' if this word can't be shortened in your language */
+"yearAbbreviation" = "年";
 
 /* Button title to confirm the deletion of a bookmarks folder */
 "YesDeleteButtonTitle" = "是的，确认删除";

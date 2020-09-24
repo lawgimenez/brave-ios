@@ -33,25 +33,25 @@ platform :ios do
   lane :test do |options|
     sh("../Client/WebFilters/ContentBlocker/Lists/test-compile-all-lists.sh")
     run_tests(
-      scheme: "Fennec",
+      scheme: "Debug",
       device: "iPhone 8",
       code_coverage: true,
       skip_testing: [
         "ClientTests/TabManagerTests/testQueryAddedTabs",
         "ClientTests/TabManagerTests/testQueryAddedPrivateTabs",
         "ClientTests/TabManagerTests/testQueryAddedMixedTabs",
-        "ClientTests/UIImageViewExtensionsTests/testAsyncSetIcon",
-        "ClientTests/UIImageViewExtensionsTests/testAsyncSetIconFail",
         "ClientTests/FingerprintProtectionTest/testFingerprintProtection",
         "ClientTests/TabSessionTests",
         "ClientTests/ContentBlockerTests",
+        "ClientTests/HttpCookieExtensionTest/testSaveAndLoadCookie",
+        "ClientTests/UserAgentTests",
         "DataTests/DeviceTests",
         "DataTests/DomainTests/testAllShieldsOff"
       ]
     )
 
     run_tests(
-      scheme: "Fennec",
+      scheme: "Debug",
       device: "iPad Pro (9.7-inch)",
       code_coverage: true,
       xcargs: "-testPlan Brave_iPad"
@@ -61,8 +61,8 @@ platform :ios do
   desc "Creates a Brave Beta Release build for TestFlight."
   lane :beta do |options|
     overrideParams = {
-      scheme: "FirefoxBeta",
-      export_method: "development",
+      scheme: "Beta",
+      export_method: "app-store"
     }
     testflight_build({overrideParams: overrideParams})
   end
@@ -71,8 +71,8 @@ platform :ios do
   lane :internal do |options|
 
     overrideParams = {
-      scheme: "Fennec_Enterprise",
-      export_method: "development",
+      scheme: "Dev",
+      export_method: "app-store"
     }
     testflight_build({overrideParams: overrideParams})
   end
@@ -80,22 +80,68 @@ platform :ios do
   desc "Create an archive to be uploaded to the App Store"
   lane :release do |options|
     overrideParams = {
-      scheme: "Firefox",
+      scheme: "Release (AppStore)",
+      export_options: {
+        method: "app-store",
+        provisioningProfiles: { 
+          "com.brave.ios.browser" => "Brave iOS",
+          "com.brave.ios.browser.BraveShareTo" => "Brave iOS Share Extension"
+        }
+      },
     }
     testflight_build({overrideParams: overrideParams})
+  end
+
+  private_lane :run_carthage do |_|
+    # There is a XCode 12 bug with Carthage where it can't lipo frameworks correctly.
+    # As a workaround a custom script must be used to handle it.
+    # See https://github.com/Carthage/Carthage/issues/3019
+    sh "cd .. && bash carthage_command.sh"
   end
 
   desc "All Testflight releases use this as the foundation. Pass in `gym` override params."
   private_lane :testflight_build do |options|
     set_build_number(options)
 
-    carthage(
-      platform: "iOS",
-      cache_builds: true,
-      configuration: "Release",
-    )
+    run_carthage
     defaultParams = gym_params()
     gym(defaultParams.merge!(options[:overrideParams]))
+    unless options[:skip_upload]
+      api_key = app_store_connect_api_key()
+      pilot(
+        api_key: api_key,
+        skip_submission: true,
+        skip_waiting_for_build_processing: true
+      )
+    end
+  end
+  
+  desc "All enterprise releases use this as the foundation"
+  lane :enterprise do |options|
+    run_carthage
+
+    build_app(
+      scheme: "Enterprise",
+      clean: true,
+      output_directory: "build",
+      export_options: {
+        method: "enterprise",
+        provisioningProfiles: { 
+          "com.brave.ios.enterprise.Browser" => "BraveEnt",
+          "com.brave.ios.enterprise.Browser.BraveShareTo" => "Ent-ShareTo"
+        }
+      },
+      xcargs: "-allowProvisioningUpdates BRAVE_API_KEY=\"#{ENV['BRAVE_STATS_API_KEY']}\" BRAVE_VERSION=\"#{git_branch}\" GENERATED_BUILD_ID=\"#{get_build_number_repository}\""
+    )
+
+    unless options[:skip_upload]
+      appcenter_upload(
+        owner_type: "organization",
+        file: "./build/Client.ipa",
+        dsym: "./build/Client.app.dSYM.zip",
+        notify_testers: false
+      )
+    end
   end
 
   # Private helper methods ---------------------------------------
@@ -105,8 +151,8 @@ platform :ios do
     {
       sdk: "iphoneos",
       clean: true,
-      skip_package_ipa: true,
-      xcargs: "-allowProvisioningUpdates BRAVE_API_KEY=\"#{sh("head", "-1", "#{ENV['HOME']}/.brave-api-key")}\""
+      output_directory: "build",
+      xcargs: "-allowProvisioningUpdates BRAVE_API_KEY=\"#{ENV['BRAVE_STATS_API_KEY']}\""
     }
   end
 

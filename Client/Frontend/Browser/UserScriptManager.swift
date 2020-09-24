@@ -37,11 +37,29 @@ class UserScriptManager {
         }
     }
     
-    init(tab: Tab, isFingerprintingProtectionEnabled: Bool, isCookieBlockingEnabled: Bool, isU2FEnabled: Bool) {
+    // Whether or not the PaymentRequest APIs should be exposed
+    var isPaymentRequestEnabled: Bool {
+        didSet {
+            if oldValue == isPaymentRequestEnabled { return }
+            reloadUserScripts()
+        }
+    }
+    
+    // Whether or not the Adblock shields are enabled
+    var isYoutubeAdblockEnabled: Bool {
+        didSet {
+            if oldValue == isYoutubeAdblockEnabled { return }
+            reloadUserScripts()
+        }
+    }
+    
+    init(tab: Tab, isFingerprintingProtectionEnabled: Bool, isCookieBlockingEnabled: Bool, isU2FEnabled: Bool, isPaymentRequestEnabled: Bool, isYoutubeAdblockEnabled: Bool) {
         self.tab = tab
         self.isFingerprintingProtectionEnabled = isFingerprintingProtectionEnabled
         self.isCookieBlockingEnabled = isCookieBlockingEnabled
         self.isU2FEnabled = isU2FEnabled
+        self.isPaymentRequestEnabled = isPaymentRequestEnabled
+        self.isYoutubeAdblockEnabled = isYoutubeAdblockEnabled
         reloadUserScripts()
     }
     
@@ -106,6 +124,24 @@ class UserScriptManager {
         return WKUserScript(source: alteredSource, injectionTime: .atDocumentStart, forMainFrameOnly: false)
     }()
     
+    // PaymentRequestUserScript is injected at document start to handle
+    // requests to payment APIs
+    private let PaymentRequestUserScript: WKUserScript? = {
+        guard let path = Bundle.main.path(forResource: "PaymentRequest", ofType: "js"), let source = try? String(contentsOfFile: path) else {
+            log.error("Failed to load PaymentRequest.js")
+            return nil
+        }
+        
+        var alteredSource = source
+        let token = UserScriptManager.securityToken.uuidString.replacingOccurrences(of: "-", with: "", options: .literal)
+        alteredSource = alteredSource.replacingOccurrences(of: "$<paymentreq>", with: "PaymentRequest\(token)", options: .literal)
+        alteredSource = alteredSource.replacingOccurrences(of: "$<paymentresponse>", with: "PaymentResponse\(token)", options: .literal)
+        alteredSource = alteredSource.replacingOccurrences(of: "$<paymentresponsedetails>", with: "PaymentResponseDetails\(token)", options: .literal)
+        alteredSource = alteredSource.replacingOccurrences(of: "$<paymentreqcallback>", with: "PaymentRequestCallback\(token)", options: .literal)
+        
+        return WKUserScript(source: alteredSource, injectionTime: .atDocumentStart, forMainFrameOnly: false)
+    }()
+    
     // U2FLowLevelUserScript is injected at documentEnd to override the message channels
     // with hooks that plug into the Yubico API
     private let U2FLowLevelUserScript: WKUserScript? = {
@@ -160,13 +196,30 @@ class UserScriptManager {
         
         //Verify that the application itself is making a call to the JS script instead of other scripts on the page.
         //This variable will be unique amongst scripts loaded in the page.
-        //When the script is called, the token is provided in order to access teh script variable.
+        //When the script is called, the token is provided in order to access the script variable.
         var alteredSource = source
         let token = UserScriptManager.securityToken.uuidString.replacingOccurrences(of: "-", with: "", options: .literal)
         alteredSource = alteredSource.replacingOccurrences(of: "$<possiblySupportedFunctions>", with: "PSF\(token)", options: .literal)
         alteredSource = alteredSource.replacingOccurrences(of: "$<isFullscreenSupportedNatively>", with: "IFSN\(token)", options: .literal)
         alteredSource = alteredSource.replacingOccurrences(of: "$<documentHasFullscreenFunctions>", with: "DHFF\(token)", options: .literal)
         alteredSource = alteredSource.replacingOccurrences(of: "$<videosSupportFullscreen>", with: "VSF\(token)", options: .literal)
+        
+        return WKUserScript(source: alteredSource, injectionTime: .atDocumentStart, forMainFrameOnly: false)
+    }()
+    
+    private let youtubeAdblockJSScript: WKUserScript? = {
+        guard let path = Bundle.main.path(forResource: "YoutubeAdblock", ofType: "js"), let source = try? String(contentsOfFile: path) else {
+            log.error("Failed to load YoutubeAdblock.js")
+            return nil
+        }
+        
+        //Verify that the application itself is making a call to the JS script instead of other scripts on the page.
+        //This variable will be unique amongst scripts loaded in the page.
+        //When the script is called, the token is provided in order to access the script variable.
+        var alteredSource = source
+        let token = UserScriptManager.securityToken.uuidString.replacingOccurrences(of: "-", with: "", options: .literal)
+        alteredSource = alteredSource.replacingOccurrences(of: "$<prunePaths>", with: "ABSPP\(token)", options: .literal)
+        alteredSource = alteredSource.replacingOccurrences(of: "$<findOwner>", with: "ABSFO\(token)", options: .literal)
         
         return WKUserScript(source: alteredSource, injectionTime: .atDocumentStart, forMainFrameOnly: false)
     }()
@@ -202,6 +255,16 @@ class UserScriptManager {
             if let script = FullscreenHelperScript {
                 $0.addUserScript(script)
             }
+            
+            if isYoutubeAdblockEnabled, let script = youtubeAdblockJSScript {
+                $0.addUserScript(script)
+            }
+            
+            #if !NO_SKUS
+            if isPaymentRequestEnabled, let script = PaymentRequestUserScript {
+                $0.addUserScript(script)
+            }
+            #endif
         }
     }
 }

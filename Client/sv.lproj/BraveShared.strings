@@ -1,9 +1,21 @@
+/* Client is in an invalid state which caused the error */
+"clientErrorMessage" = "Klientfel";
+
+/* Error message if details don't have the right type or values */
+"invalidDetailsMessage" = "Ogiltiga uppgifter i betalningsbegäran";
+
 /* Suffix for error strings */
-"tryAgain" = ". Försök igen.";
+"tryAgain" = ", försök igen.";
 
 /* Error handling U2F authentication. */
 "U2FAuthenticationError" = "Det gick inte att autentisera säkerhetskoden";
 
 /* Error handling U2F registration. */
 "U2FRegistrationError" = "Det gick inte att registrera säkerhetskoden";
+
+/* Error message if list of Payment Instruments doesn't include BAT */
+"unsupportedInstrumentMessage" = "Betalningsinstrumentet stöds inte";
+
+/* Error message if the payment workflow is canceled by the user */
+"userCancelledMessage" = "Användaren avbröt";
 

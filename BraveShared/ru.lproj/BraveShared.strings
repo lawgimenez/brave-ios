@@ -217,6 +217,9 @@
 /* No comment provided by engineer. */
 "CancelButtonTitle" = "Отмена";
 
+/* No comment provided by engineer. */
+"ClearData" = "Удаление данных";
+
 /* Button in settings that clears private data for the selected items. Also used as section title in settings panel */
 "ClearPrivateData" = "Удалить личные данные";
 
@@ -293,13 +296,16 @@
 "DDGCalloutEnable" = "Да";
 
 /* DuckDuckGo message. */
-"DDGCalloutMessage" = "В приватном режиме используется DuckDuckGo — поисковая система, которая не отслеживает вашу историю.";
+"DDGCalloutMessage" = "В режиме инкогнито Brave использует поисковую систему DuckDuckGo. Она не отслеживает историю поиска, сохраняя конфиденциальность ваших запросов.";
 
 /* DuckDuckGo callout no action. */
 "DDGCalloutNo" = "Нет";
 
 /* DuckDuckGo callout title. */
 "DDGCalloutTitle" = "Использовать DuckDuckGo?";
+
+/* Name for default Brave theme. */
+"defaultThemeName" = "По умолчанию";
 
 /* No comment provided by engineer. */
 "Delete" = "Удалить";
@@ -547,6 +553,9 @@
 /* Reveal password text selection menu item */
 "MenuItemRevealPasswordTitle" = "Показать";
 
+/* Abbreviation for 'Month', use full word' Month' if this word can't be shortened in your language */
+"monthAbbreviation" = "мес.";
+
 /* Bookmark title / Device name */
 "Name" = "Название";
 
@@ -574,59 +583,68 @@
 /* New Tab title */
 "NewTab" = "Новая вкладка";
 
-/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
-"NewTabPageSettingsAutoOpenKeyboard" = "Автоматически открывать клавиатуру";
-
-/* A setting to enable or disable background images on the main screen. */
-"NewTabPageSettingsBackgroundImages" = "Показывать фоновые изображения";
-
-/* A setting to enable or disable sponsored images from showing on the main screen. */
-"NewTabPageSettingsSponsoredImages" = "Показывать спонсорские изображения";
-
-/* Title on settings page to adjust the primary home screen functionality. */
-"NewTabPageSettingsTitle" = "Новая вкладка";
-
-/* A button title to show more bookmarks, that opens a new menu. */
-"NewTabPageShowMoreFavorites" = "Еще закладки";
-
 /* Sync Alert */
 "NotEnoughWordsDescription" = "Введите все слова и повторите попытку.";
 
 /* Sync Alert */
 "NotEnoughWordsTitle" = "Вы ввели не все слова";
 
-/* The placeholder says 'hide sponsored images'. So full sentence goes like: 'You can also choose to hide sponsored images.' */
-"ntp.chooseToHideSponsoredImages" = "Вы также можете %@.";
+/* Bookmark title for Brave Support */
+"ntp.braveSupportFavoriteTitle" = "Служба поддержки Brave";
 
 /* No comment provided by engineer. */
-"ntp.claimRewards" = "Получите вознаграждение";
+"ntp.claimRewards" = "Получить баллы";
 
-/* Placeholder example: 'You earned 42 BAT last month from viewing privacy-respecting ads.' */
-"ntp.earningsReport" = "В прошлом месяце вы заработали %@ за просмотр рекламных объявлений, не нарушающих вашу конфиденциальность.";
-
-/* No comment provided by engineer. */
-"ntp.earnTokensByViewingAds" = "Зарабатывайте токены за просмотр рекламных объявлений, не нарушающих вашу конфиденциальность.";
+/* Placeholder example: 'You earned 42 BAT by browsing with Brave.' */
+"ntp.earningsReport" = "Вы заработали %@, пользуясь Brave.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnAds" = "Включите Brave Ads и получайте вознаграждение за просмотр фоновых изображений.";
+"ntp.getPaidForThisImageTurnAds" = "Посмотрите это изображение и заработайте баллы. Включите Brave Ads и начните поддерживать авторов контента.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnRewards" = "Включите Brave Rewards и получайте вознаграждение за просмотр фоновых изображений.";
+"ntp.getPaidForThisImageTurnRewards" = "Посмотрите это изображение и заработайте баллы. Включите Brave Rewards и начните поддерживать авторов контента.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidToSeeThisImage" = "Получайте вознаграждение за просмотр фоновых изображений.";
+"ntp.getPaidToSeeThisImage" = "Посмотрите это изображение и заработайте токены.";
 
 /* The context is to praise the user that they did a good job, to keep it up. It is used in full sentence like: 'Way to go! You earned 40 BAT last month.' */
 "ntp.goodJob" = "Так держать!";
 
-/* This sentence is not capitalized on purpose, it is a part of a bigger sentence which goes like this: 'You can also choose to hide sponsored images.' */
-"ntp.hideSponsoredImages" = "скрыть спонсорские изображения";
-
-/* The placeholder says 'Learn more'. So full sentence goes like: 'Learn more about sponsored images in Brave Rewards.' */
-"ntp.learnMoreAboutBrandedImages" = "%@ о спонсорских изображениях в Brave Rewards.";
+/* No comment provided by engineer. */
+"ntp.hideSponsoredImages" = "Не показывать спонсорские изображения";
 
 /* No comment provided by engineer. */
-"ntp.supportWebCreatorsWithTokens" = "Вы можете поддержать создателей контента с помощью токенов.";
+"ntp.learnMoreAboutBrandedImages" = "За каждый просмотр спонсорского изображения вы получаете баллы, которые можете потратить на поддержку авторов. Brave Ads позволяет с легкостью выбирать, какая реклама может появляться в браузере.";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutRewards" = "Подробнее о Brave Rewards…";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutSI" = "Подробнее о спонсорских изображениях…";
+
+/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
+"ntp.settingsAutoOpenKeyboard" = "Автоматически открывать клавиатуру";
+
+/* A setting to enable or disable background images on the main screen. */
+"ntp.settingsBackgroundImages" = "Показывать фоновые изображения";
+
+/* A button that leads to a 'more' menu, letting users configure additional settings. */
+"ntp.settingsBackgroundImageSubMenu" = "Фоновые изображения";
+
+/* A selection to let the users only see a set of predefined, default images on the background of the app. */
+"ntp.settingsDefaultImagesOnly" = "Только изображения по умолчанию";
+
+/* A selection to let the users see sponsored image backgrounds when opening a new tab. */
+"ntp.settingsSponsoredImagesSelection" = "Спонсорские изображения";
+
+/* Title on settings page to adjust the primary home screen functionality. */
+"ntp.settingsTitle" = "Новая вкладка";
+
+/* A button title to show more bookmarks, that opens a new menu. */
+"ntp.showMoreFavorites" = "Показать еще";
+
+/* No comment provided by engineer. */
+"ntp.supportWebCreatorsWithTokens" = "Зарабатывайте баллы и вознаграждайте авторов контента, пользуясь браузером.";
 
 /* No comment provided by engineer. */
 "ntp.turnOnBraveAds" = "Включить Brave Ads";
@@ -634,11 +652,11 @@
 /* No comment provided by engineer. */
 "ntp.turnOnBraveRewards" = "Включить Brave Rewards";
 
-/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turnin Rewards, you agree to the Terms of Service'. */
+/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turning Rewards, you agree to the Terms of Service'. */
 "ntp.turnRewardsTos" = "Включая Brave Rewards, вы принимаете";
 
 /* No comment provided by engineer. */
-"ntp.youArePaidToSeeThisImage" = "Вы получаете вознаграждение за просмотр фоновых изображений.";
+"ntp.youArePaidToSeeThisImage" = "За просмотр этого изображения вы заработаете токены.";
 
 /* Context menu item for opening all folder bookmarks */
 "OpenAllBookmarks" = "Открыть все (%i)";
@@ -713,7 +731,7 @@
 "PrivateTabDetails" = "Используя приватные вкладки, вы влияете только на то, какую информацию Brave сохраняет на вашем устройстве.\n\nСайты получают ваш IP-адрес автоматически, как только вы заходите на них. При этом они могут определить ваше примерное местоположение — как правило, на уровне города. Иногда эти данные могут быть точнее. Кроме того, сайты сохраняют всю вводимую вами информацию, например поисковые запросы. Если вы войдете в систему, им будет известно, что вы являетесь владельцем этой учетной записи. При закрытии приватных вкладок вы автоматически выйдете из аккаунта, так как Brave удалит файлы cookie, необходимые для того, чтобы оставаться в системе.\n\nВаши действия в сети может отслеживать интернет-провайдер. Как правило, это оператор мобильной связи либо владелец сети Wi-Fi или VPN, в зависимости от того, кто предоставляет вам доступ к интернету. Ваш интернет-провайдер видит, какие сайты вы посещаете. Если используется протокол HTTPS, интернет-провайдер сможет лишь догадываться о том, что вы делали на сайте. Если же сайт использует только протокол HTTP, интернет-провайдер сможет узнать всё: какие поисковые запросы вы вводили, какие страницы посещали, по каким ссылкам переходили и т. д.\n\nИспользование приватных вкладок вряд ли помешает работодателю узнать, на какие сайты вы заходили, если он управляет вашим устройством. Кроме того, другие люди, у которых есть доступ к вашему устройству, могут установить программу, отслеживающую ваши действия, — приватные вкладки не помогут и в этом случае.";
 
 /* Private tab information link */
-"PrivateTabLink" = "Подробнее о приватных вкладках…";
+"PrivateTabLink" = "Подробнее о вкладках инкогнито…";
 
 /* Default engine for private search. */
 "PrivateTabSearch" = "Приватная вкладка";
@@ -977,13 +995,13 @@
 "SyncAddDeviceScan" = "QR-код цепочки синхронизации";
 
 /* Sync add device description */
-"SyncAddDeviceScanDescription" = "Запустите Brave на втором мобильном устройстве и откройте настройки. Перейдите в раздел «Синхронизация» и нажмите «Сканировать код синхронизации». Сканируйте QR-код ниже с помощью камеры.\n\nОтноситесь к этому коду как к паролю. Не сообщайте его никому, иначе другие пользователи смогут просматривать и изменять ваши синхронизированные данные.";
+"SyncAddDeviceScanDescription" = "Запустите Brave на втором мобильном устройстве и откройте настройки. Перейдите в раздел «Синхронизация» и нажмите «Сканировать код синхронизации». Отсканируйте QR-код ниже с помощью камеры.\n\nОтноситесь к этому коду как к паролю. Не показывайте его никому, иначе другие пользователи смогут просматривать и изменять ваши синхронизированные данные.";
 
 /* Add device to sync with code words */
 "SyncAddDeviceWords" = "Введите код синхронизации";
 
 /* Sync add device description */
-"SyncAddDeviceWordsDescription" = "Запустите Brave на устройстве и откройте настройки. Перейдите в раздел «Синхронизация» и нажмите кнопку «%@». Введите указанные ниже кодовые слова для создания цепочки синхронизации.\n\nОтноситесь к кодовым словам как к паролю. Не сообщайте их никому, иначе другие пользователи смогут просматривать и изменять ваши синхронизированные данные.";
+"SyncAddDeviceWordsDescription" = "Запустите Brave на устройстве и откройте настройки. Перейдите в раздел «Синхронизация» и нажмите кнопку «%@». Введите указанные ниже кодовые слова.\n\nОтноситесь к кодовым словам как к паролю. Не сообщайте их никому, иначе другие пользователи смогут просматривать и изменять ваши синхронизированные данные.";
 
 /* Add device to sync with code words navigation title */
 "SyncAddDeviceWordsTitle" = "Введите кодовые слова";
@@ -1156,6 +1174,12 @@
 /* Show Brave Browser TOS page from the Privacy section in the settings. */
 "TermsOfUse" = "Условия использования";
 
+/* Text for button to share referral's QR code. */
+"themeQRCodeShareButton" = "Поделиться…";
+
+/* Title for QR popup encouraging users to share the code with their friends. */
+"themeQRCodeShareTitle" = "Расскажите о браузере Brave друзьям!";
+
 /* Selection to automatically color/style the user interface. */
 "ThemesAutomaticOption" = "Автоматически";
 
@@ -1170,6 +1194,9 @@
 
 /* Selection to color/style the user interface with a light theme. */
 "ThemesLightOption" = "Светлая тема";
+
+/* Name for app theme settings */
+"themesSettings" = "Темы";
 
 /* History tableview section header */
 "Today" = "Сегодня";
@@ -1206,6 +1233,9 @@
 
 /* Word count title */
 "WordCount" = "Количество слов: %i";
+
+/* Abbreviation for 'Year', use full word' Yeara' if this word can't be shortened in your language */
+"yearAbbreviation" = "г.";
 
 /* Button title to confirm the deletion of a bookmarks folder */
 "YesDeleteButtonTitle" = "Да, удалить";

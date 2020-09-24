@@ -5,6 +5,7 @@
 import UIKit
 import BraveRewards
 import BraveShared
+import BraveUI
 
 enum PublisherMediaType: String {
   case youtube
@@ -96,12 +97,12 @@ class TippingViewController: UIViewController, UIViewControllerTransitioningDele
     state.ledger.publisherBanner(forId: self.publisherInfo.id) { [weak self] banner in
       guard let self = self, let banner = banner else { return }
       
-      if publisherInfo.provider.isEmpty {
-        self.tippingView.overviewView.publisherNameLabel.text = publisherInfo.name
+      if self.publisherInfo.provider.isEmpty {
+        self.tippingView.overviewView.publisherNameLabel.text = self.publisherInfo.name
       } else {
-        self.tippingView.overviewView.publisherNameLabel.text = "\(publisherInfo.name) \(String(format: Strings.onProviderText, publisherInfo.providerDisplayString))"
+        self.tippingView.overviewView.publisherNameLabel.text = "\(self.publisherInfo.name) \(String(format: Strings.onProviderText, self.publisherInfo.providerDisplayString))"
       }
-      self.tippingView.overviewView.verifiedImageView.isHidden = publisherInfo.status == .notVerified
+      self.tippingView.overviewView.verifiedImageView.isHidden = self.publisherInfo.status == .notVerified
       self.tippingView.overviewView.titleLabel.text = banner.title.isEmpty ? Strings.tippingOverviewTitle : banner.title
       self.tippingView.overviewView.bodyLabel.text = banner.desc.isEmpty ? Strings.tippingOverviewBody : banner.desc
       
@@ -114,13 +115,8 @@ class TippingViewController: UIViewController, UIViewControllerTransitioningDele
       })
       
       if let dataSource = self.state.dataSource,
-        let pageURL = URL(string: self.publisherInfo.url),
-        let faviconURL = self.state.faviconURL {
-        dataSource.retrieveFavicon(for: pageURL, faviconURL: faviconURL, completion: { faviconData in
-          guard let faviconData = faviconData else { return }
-          self.tippingView.overviewView.faviconImageView.image = faviconData.image
-          self.tippingView.overviewView.faviconImageView.backgroundColor = faviconData.backgroundColor
-        })
+        let pageURL = URL(string: self.publisherInfo.url) {
+        dataSource.retrieveFavicon(for: pageURL, on: self.tippingView.overviewView.faviconImageView.imageView)
       }
       
       self.tippingView.overviewView.socialStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
@@ -134,17 +130,17 @@ class TippingViewController: UIViewController, UIViewControllerTransitioningDele
         })
       }
     
-      if state.ledger.walletContainsBraveFunds {
+      if self.state.ledger.walletContainsBraveFunds {
         // Use that balance first, therefore not showing any differently
-        tippingView.overviewView.disclaimerView.isHidden = banner.status != .notVerified
+        self.tippingView.overviewView.disclaimerView.isHidden = banner.status != .notVerified
       } else {
-        if state.ledger.upholdWalletStatus == .notConnected {
-          tippingView.overviewView.disclaimerView.isHidden = banner.status != .notVerified
+        if self.state.ledger.upholdWalletStatus == .notConnected {
+          self.tippingView.overviewView.disclaimerView.isHidden = banner.status != .notVerified
         } else {
-          tippingView.overviewView.disclaimerView.isHidden = banner.status == .verified
+          self.tippingView.overviewView.disclaimerView.isHidden = banner.status == .verified
           if banner.status == .connected {
-            tippingView.overviewView.disclaimerView.text = "\(Strings.tippingNotConnectedDisclaimer) \(Strings.disclaimerLearnMore)"
-            tippingView.overviewView.disclaimerView.setURLInfo([Strings.disclaimerLearnMore: "learn-more"])
+            self.tippingView.overviewView.disclaimerView.text = "\(Strings.tippingNotConnectedDisclaimer) \(Strings.disclaimerLearnMore)"
+            self.tippingView.overviewView.disclaimerView.setURLInfo([Strings.disclaimerLearnMore: "learn-more"])
           }
         }
       }
@@ -211,7 +207,7 @@ class TippingViewController: UIViewController, UIViewControllerTransitioningDele
       }
       
       if self.tippingView.optionSelectionView.isMonthly {
-        let date = Date(timeIntervalSince1970: TimeInterval(self.state.ledger.autoContributeProps.reconcileStamp))
+        let date = Date(timeIntervalSince1970: TimeInterval(self.state.ledger.autoContributeProperties.reconcileStamp))
         let dateString = DateFormatter().then {
           $0.dateStyle = .short
           $0.timeStyle = .none

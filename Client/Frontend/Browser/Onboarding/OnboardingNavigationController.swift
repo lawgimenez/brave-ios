@@ -4,6 +4,7 @@
 
 import UIKit
 import Shared
+import BraveShared
 import pop
 import Lottie
 import BraveRewards
@@ -40,86 +41,44 @@ class OnboardingNavigationController: UINavigationController {
     
     weak var onboardingDelegate: OnboardingControllerDelegate?
     
-    enum OnboardingType {
-        case newUser(OnboardingProgress)
-        case existingUserRewardsOff(OnboardingProgress)
-        case existingUserRewardsOn(OnboardingProgress)
-        
-        /// Returns a list of onboarding screens for given type.
-        /// Screens should be sorted in order of which they are presented to the user.
-        fileprivate var screens: [Screens] {
-            if BraveRewards.isAvailable {
-                switch self {
-                case .newUser(let progress):
-                    //The user already made it to rewards and agreed so they should only see ads countdown
-                    if progress == .rewards || progress == .ads {
-                        return BraveAds.isCurrentLocaleSupported() ? [.adsCountdown] : [.rewardsAgreement]
-                    }
-                    return BraveAds.isCurrentLocaleSupported() ? [.searchEnginePicker, .shieldsInfo, .rewardsAgreement, .adsCountdown] : [.searchEnginePicker, .shieldsInfo, .rewardsAgreement]
-                case .existingUserRewardsOff(let progress):
-                    //The user already made it to rewards and agreed so they should only see ads countdown
-                    if progress == .rewards || progress == .ads {
-                        return BraveAds.isCurrentLocaleSupported() ? [.adsCountdown] : []
-                    }
-                    return BraveAds.isCurrentLocaleSupported() ? [.rewardsAgreement, .adsCountdown] : [.rewardsAgreement]
-                case .existingUserRewardsOn(let progress):
-                    //The user already made it to rewards and agreed so they should only see ads countdown
-                    if progress == .rewards || progress == .ads {
-                        return BraveAds.isCurrentLocaleSupported() ? [.adsCountdown] : []
-                    }
-                    return BraveAds.isCurrentLocaleSupported() ? [.existingRewardsTurnOnAds, .adsCountdown] : []
-                }
-            } else {
-                switch self {
-                case .newUser: return [.searchEnginePicker, .shieldsInfo]
-                case .existingUserRewardsOff, .existingUserRewardsOn: return []
-                }
-            }
-        }
-    }
-    
     fileprivate enum Screens {
+        case privacyConsent
         case searchEnginePicker
         case shieldsInfo
-        case existingRewardsTurnOnAds
-        case rewardsAgreement
-        case adsCountdown
         
         /// Returns new ViewController associated with the screen type
         func viewController(with profile: Profile, rewards: BraveRewards?, theme: Theme) -> OnboardingViewController {
             switch self {
+            case .privacyConsent: return OnboardingPrivacyConsentViewController(profile: profile, rewards: rewards, theme: theme)
             case .searchEnginePicker:
                 return OnboardingSearchEnginesViewController(profile: profile, rewards: rewards, theme: theme)
             case .shieldsInfo:
                 return OnboardingShieldsViewController(profile: profile, rewards: rewards, theme: theme)
-            case .existingRewardsTurnOnAds:
-                return OnboardingAdsAvailableController(profile: profile, rewards: rewards, theme: theme)
-            case .rewardsAgreement:
-                return OnboardingRewardsAgreementViewController(profile: profile, rewards: rewards, theme: theme)
-            case .adsCountdown:
-                return OnboardingAdsCountdownViewController(profile: profile, rewards: rewards, theme: theme)
             }
         }
         
         var type: OnboardingViewController.Type {
             switch self {
+            case .privacyConsent: return OnboardingPrivacyConsentViewController.self
             case .searchEnginePicker: return OnboardingSearchEnginesViewController.self
             case .shieldsInfo: return OnboardingShieldsViewController.self
-            case .existingRewardsTurnOnAds: return OnboardingAdsAvailableController.self
-            case .rewardsAgreement: return OnboardingRewardsAgreementViewController.self
-            case .adsCountdown: return OnboardingAdsCountdownViewController.self
             }
         }
     }
     
-    private(set) var onboardingType: OnboardingType?
+    private static var screens: [Screens] = {
+        var introScreens: [Screens] = [.searchEnginePicker, .shieldsInfo]
+        if Preferences.URP.referralCode.value == nil && UIPasteboard.general.hasStrings {
+            introScreens.insert(.privacyConsent, at: 0)
+        }
+        return introScreens
+    }()
     
-    convenience init?(profile: Profile, onboardingType: OnboardingType, rewards: BraveRewards?, theme: Theme) {
-        guard let firstScreen = onboardingType.screens.first else { return nil }
-        
-        let firstViewController = firstScreen.viewController(with: profile, rewards: rewards, theme: theme)
+    convenience init?(profile: Profile, rewards: BraveRewards?, theme: Theme) {
+        guard let firstViewController = Self.screens.first?.viewController(with: profile, rewards: rewards, theme: theme) else {
+            return nil
+        }
         self.init(rootViewController: firstViewController)
-        self.onboardingType = onboardingType
         firstViewController.delegate = self
         
         isNavigationBarHidden = true
@@ -147,11 +106,10 @@ class OnboardingNavigationController: UINavigationController {
 extension OnboardingNavigationController: Onboardable {
     
     func presentNextScreen(current: OnboardingViewController) {
-        guard let allScreens = onboardingType?.screens else { return }
-        let index = allScreens.firstIndex { $0.type == type(of: current) }
+        let index = Self.screens.firstIndex { $0.type == type(of: current) }
         
         guard let nextIndex = index?.advanced(by: 1),
-            let nextScreen = allScreens[safe: nextIndex]?.viewController(with: current.profile, rewards: current.rewards, theme: current.theme) else {
+            let nextScreen = Self.screens[safe: nextIndex]?.viewController(with: current.profile, rewards: current.rewards, theme: current.theme) else {
                 log.info("Last screen reached, onboarding is complete")
                 onboardingDelegate?.onboardingCompleted(self)
                 return
@@ -163,8 +121,7 @@ extension OnboardingNavigationController: Onboardable {
     }
     
     func presentPreviousScreen(current: OnboardingViewController) {
-        guard let allScreens = onboardingType?.screens else { return }
-        let index = allScreens.firstIndex { $0.type == type(of: current) }
+        let index = Self.screens.firstIndex { $0.type == type(of: current) }
         
         guard let previousIndex = index?.advanced(by: -1), let previousScreen = viewControllers[previousIndex] as? OnboardingViewController else {
                 log.info("First screen reached")

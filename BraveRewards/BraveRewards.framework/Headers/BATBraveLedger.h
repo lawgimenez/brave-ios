@@ -3,7 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #import <Foundation/Foundation.h>
-#import "Records.h"
 #import "ledger.mojom.objc.h"
 #import "BATRewardsNotification.h"
 #import "BATBraveLedgerObserver.h"
@@ -36,6 +35,24 @@ NS_SWIFT_NAME(BraveLedger)
 
 - (instancetype)init NS_UNAVAILABLE;
 
+#pragma mark - Initialization
+
+/// Whether or not the ledger service has been initialized already
+@property (nonatomic, readonly, getter=isInitialized) BOOL initialized;
+
+/// Whether or not the ledger service is currently initializing
+@property (nonatomic, readonly, getter=isInitializing) BOOL initializing;
+
+/// The result when initializing the ledger service. Should be
+/// `BATResultLedgerOk` if `initialized` is `true`
+///
+/// If this is not `BATResultLedgerOk`, rewards is not usable for the user
+@property (nonatomic, readonly) BATResult initializationResult;
+
+/// Whether or not data migration failed when initializing and the user should
+/// be notified.
+@property (nonatomic, readonly) BOOL dataMigrationFailed;
+
 #pragma mark - Observers
 
 /// Add an interface to the list of observers
@@ -55,7 +72,7 @@ NS_SWIFT_NAME(BraveLedger)
 /// Marks if this is being ran in a test environment. Defaults to false
 @property (nonatomic, class, getter=isTesting) BOOL testing;
 /// Number of minutes between reconciles override. Defaults to 0 (no override)
-@property (nonatomic, class) int reconcileTime;
+@property (nonatomic, class) int reconcileInterval;
 /// Whether or not to use short contribution retries. Defaults to false
 @property (nonatomic, class) BOOL useShortRetries;
 
@@ -70,11 +87,11 @@ NS_SWIFT_NAME(BraveLedger)
 /// Creates a cryptocurrency wallet
 - (void)createWallet:(nullable void (^)(NSError * _Nullable error))completion;
 
-/// Fetch details about the users wallet (if they have one) and assigns it to `walletInfo`
-- (void)fetchWalletDetails:(nullable void (^)(BATWalletProperties * _Nullable))completion;
+/// Get parameters served from the server
+- (void)getRewardsParameters:(nullable void (^)(BATRewardsParameters * _Nullable))completion;
 
-/// The users wallet info if one has been created
-@property (nonatomic, readonly, nullable) BATWalletProperties *walletInfo;
+/// The parameters send from the server
+@property (nonatomic, readonly, nullable) BATRewardsParameters *rewardsParameters;
 
 /// Fetch details about the users wallet (if they have one) and assigns it to `balance`
 - (void)fetchBalance:(nullable void (^)(BATBalance * _Nullable))completion;
@@ -89,14 +106,12 @@ NS_SWIFT_NAME(BraveLedger)
 - (void)recoverWalletUsingPassphrase:(NSString *)passphrase
                           completion:(nullable void (^)(NSError * _Nullable))completion;
 
-@property (nonatomic, readonly) double defaultContributionAmount;
-
 /// Retrieves the users most up to date balance to determin whether or not the
 /// wallet has a sufficient balance to complete a reconcile
 - (void)hasSufficientBalanceToReconcile:(void (^)(BOOL sufficient))completion;
 
 /// Returns reserved amount of pending contributions to publishers.
-@property (nonatomic, readonly) double reservedAmount;
+- (void)pendingContributionsTotal:(void (^)(double amount))completion NS_SWIFT_NAME(pendingContributionsTotal(completion:));
 
 #pragma mark - User Wallets
 
@@ -126,7 +141,7 @@ NS_SWIFT_NAME(BraveLedger)
 - (void)listActivityInfoFromStart:(unsigned int)start
                             limit:(unsigned int)limit
                            filter:(BATActivityInfoFilter *)filter
-                       completion:(void (NS_NOESCAPE ^)(NSArray<BATPublisherInfo *> *))completion;
+                       completion:(void (^)(NSArray<BATPublisherInfo *> *))completion;
 
 /// Start a fetch to get a publishers activity information given a URL
 ///
@@ -136,9 +151,6 @@ NS_SWIFT_NAME(BraveLedger)
                         publisherBlob:(nullable NSString *)publisherBlob
                                 tabId:(uint64_t)tabId;
 
-/// Returns activity info for current reconcile stamp.
-- (nullable BATPublisherInfo *)currentActivityInfoWithPublisherId:(NSString *)publisherId;
-
 /// Update a publishers exclusion state
 - (void)updatePublisherExclusionState:(NSString *)publisherId
                                 state:(BATPublisherExclude)state
@@ -147,8 +159,6 @@ NS_SWIFT_NAME(BraveLedger)
 /// Restore all sites which had been previously excluded
 - (void)restoreAllExcludedPublishers;
 
-@property (nonatomic, readonly) NSUInteger numberOfExcludedPublishers;
-
 /// Get the publisher banner given some publisher key
 ///
 /// This key is _not_ always the URL's host. Use `publisherActivityFromURL`
@@ -156,18 +166,23 @@ NS_SWIFT_NAME(BraveLedger)
 ///
 /// @note `completion` callback is called synchronously
 - (void)publisherBannerForId:(NSString *)publisherId
-                  completion:(void (NS_NOESCAPE ^)(BATPublisherBanner * _Nullable banner))completion;
+                  completion:(void (^)(BATPublisherBanner * _Nullable banner))completion;
 
 /// Refresh a publishers verification status
 - (void)refreshPublisherWithId:(NSString *)publisherId
                     completion:(void (^)(BATPublisherStatus status))completion;
+
+#pragma mark - SKUs
+
+- (void)processSKUItems:(NSArray<BATSKUOrderItem *> *)items
+             completion:(void (^)(BATResult result, NSString *orderID))completion;
 
 #pragma mark - Tips
 
 /// Get a list of publishers who the user has recurring tips on
 ///
 /// @note `completion` callback is called synchronously
-- (void)listRecurringTips:(void (NS_NOESCAPE ^)(NSArray<BATPublisherInfo *> *))completion;
+- (void)listRecurringTips:(void (^)(NSArray<BATPublisherInfo *> *))completion;
 
 - (void)addRecurringTipToPublisherWithId:(NSString *)publisherId
                                   amount:(double)amount
@@ -178,7 +193,7 @@ NS_SWIFT_NAME(BraveLedger)
 /// Get a list of publishers who the user has made direct tips too
 ///
 /// @note `completion` callback is called synchronously
-- (void)listOneTimeTips:(void (NS_NOESCAPE ^)(NSArray<BATPublisherInfo *> *))completion;
+- (void)listOneTimeTips:(void (^)(NSArray<BATPublisherInfo *> *))completion;
 
 - (void)tipPublisherDirectly:(BATPublisherInfo *)publisher
                       amount:(double)amount
@@ -197,7 +212,8 @@ NS_SWIFT_NAME(BraveLedger)
 
 - (void)fetchPromotions:(nullable void (^)(NSArray<BATPromotion *> *grants))completion;
 
-- (void)claimPromotion:(NSString *)deviceCheckPublicKey
+- (void)claimPromotion:(NSString *)promotionId
+             publicKey:(NSString *)deviceCheckPublicKey
             completion:(void (^)(BATResult result, NSString * _Nonnull nonce))completion;
 
 - (void)attestPromotion:(NSString *)promotionId
@@ -211,17 +227,15 @@ NS_SWIFT_NAME(BraveLedger)
 - (void)removePendingContribution:(BATPendingContributionInfo *)info
                        completion:(void (^)(BATResult result))completion;
 
-- (void)deleteAllPendingContributions:(void (^)(BATResult result))completion;
+- (void)removeAllPendingContributions:(void (^)(BATResult result))completion;
 
 #pragma mark - History
 
-@property (nonatomic, readonly) NSDictionary<NSString *, BATBalanceReportInfo *> *balanceReports;
-
 - (void)balanceReportForMonth:(BATActivityMonth)month
                          year:(int)year
-                   completion:(void (NS_NOESCAPE ^)(BATBalanceReportInfo * _Nullable info))completion;
+                   completion:(void (^)(BATBalanceReportInfo * _Nullable info))completion;
 
-@property (nonatomic, readonly) BATAutoContributeProps *autoContributeProps;
+@property (nonatomic, readonly) BATAutoContributeProperties *autoContributeProperties;
 
 #pragma mark - Misc
 
@@ -233,6 +247,10 @@ NS_SWIFT_NAME(BraveLedger)
 - (NSString *)encodedURI:(NSString *)uri;
 
 - (void)rewardsInternalInfo:(void (NS_NOESCAPE ^)(BATRewardsInternalsInfo * _Nullable info))completion;
+
+- (void)allContributions:(void (^)(NSArray<BATContributionInfo *> *contributions))completion;
+
+@property (nonatomic, readonly, copy) NSString *rewardsDatabasePath;
 
 #pragma mark - Reporting
 
@@ -260,9 +278,9 @@ NS_SWIFT_NAME(BraveLedger)
 /// Whether or not brave rewards is enabled
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 /// The number of seconds before a publisher is added.
-@property (nonatomic, assign) UInt64 minimumVisitDuration;
+@property (nonatomic, assign) int minimumVisitDuration;
 /// The minimum number of visits before a publisher is added
-@property (nonatomic, assign) UInt32 minimumNumberOfVisits;
+@property (nonatomic, assign) int minimumNumberOfVisits;
 /// Whether or not to allow auto contributions to unverified publishers
 @property (nonatomic, assign) BOOL allowUnverifiedPublishers;
 /// Whether or not to allow auto contributions to videos
@@ -271,24 +289,8 @@ NS_SWIFT_NAME(BraveLedger)
 @property (nonatomic, assign) double contributionAmount;
 /// Whether or not the user will automatically contribute
 @property (nonatomic, assign, getter=isAutoContributeEnabled) BOOL autoContributeEnabled;
-
-#pragma mark - Ads & Confirmations
-
-/// Confirm an ad and update confirmations (called from the ads layer)
-- (void)confirmAd:(NSString *)info;
-
-/// Confirm an action on an ad and update confirmations was sustained (called from ads layer)
-- (void)confirmAction:(NSString *)uuid creativeSetID:(NSString *)creativeSetID type:(NSString *)type;
-
-/// Set catalog issuers ad and update confirmations (called from the ads layer)
-- (void)setCatalogIssuers:(NSString *)issuers;
-
-/// Update ad totals on month roll over without fetching latest balances from
-/// server
-- (void)updateAdsRewards;
-
-/// Get the number of ads received and the estimated earnings of viewing said ads for this cycle
-- (void)adsDetailsForCurrentCycle:(void (^)(NSInteger adsReceived, double estimatedEarnings, NSDate * _Nullable nextPaymentDate))completion NS_SWIFT_NAME(adsDetailsForCurrentCycle(_:));
+/// A custom user agent for network operations on ledger
+@property (nonatomic, copy, nullable) NSString *customUserAgent;
 
 #pragma mark - Notifications
 

@@ -4,10 +4,11 @@
 
 import UIKit
 import BraveRewards
+import BraveUI
 
 extension RewardsType {
   fileprivate var tableHeaderView: TableHeaderRowView {
-    return TableHeaderRowView(columns: [.init(title: displayString.uppercased(), width: .percentage(1.0))], tintColor: Colors.grey300)
+    return TableHeaderRowView(columns: [.init(title: displayString.uppercased(), width: .percentage(1.0))], tintColor: Colors.grey600)
   }
 }
 
@@ -132,7 +133,7 @@ final class PendingContributionListController: UIViewController {
       self.contentView.tableView.deleteSections(IndexSet(0..<contributionSections.count), with: .automatic)
       self.contributionSections.removeAll()
     }, completion: { _ in
-      self.state.ledger.deleteAllPendingContributions { [weak self] _ in
+      self.state.ledger.removeAllPendingContributions { [weak self] _ in
         self?.reloadData()
       }
     })
@@ -198,10 +199,7 @@ extension PendingContributionListController: UITableViewDataSource {
     cell.accessoryType = .disclosureIndicator
     
     if let url = URL(string: contribution.url) {
-      state.dataSource?.retrieveFavicon(for: url, faviconURL: URL(string: contribution.faviconUrl)) { data in
-        cell.siteImageView.image = data?.image ?? UIImage(frameworkResourceNamed: "defaultFavicon")
-        cell.siteImageView.backgroundColor = data?.backgroundColor
-      }
+      state.dataSource?.retrieveFavicon(for: url, on: cell.siteImageView.imageView)
     }
     
     cell.verifiedStatusImageView.isHidden = contribution.status == .notVerified

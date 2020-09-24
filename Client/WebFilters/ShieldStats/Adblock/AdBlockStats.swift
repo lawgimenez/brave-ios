@@ -3,7 +3,6 @@
 import Foundation
 import Shared
 import BraveShared
-import Deferred
 
 private let log = Logger.browserLogger
 
@@ -27,6 +26,8 @@ class AdBlockStats: LocalAdblockResourceProtocol {
         generalAdblockEngine = AdblockRustEngine()
     }
     
+    static let adblockSerialQueue = DispatchQueue(label: "com.brave.adblock-dispatch-queue")
+    
     func startLoading() {
         parseBundledGeneralBlocklist()
         loadDownloadedDatFiles()
@@ -41,7 +42,9 @@ class AdBlockStats: LocalAdblockResourceProtocol {
         
         do {
             let data = try Data(contentsOf: fileUrl)
-            generalAdblockEngine.set(data: data)
+            AdBlockStats.adblockSerialQueue.async {
+                self.generalAdblockEngine.set(data: data)
+            }
         } catch {
             log.error("Failed to parse bundled general blocklist: \(error)")
         }
@@ -136,15 +139,18 @@ class AdBlockStats: LocalAdblockResourceProtocol {
             return completion
         }
         
-        if engine.set(data: data) {
-            log.debug("Adblock file with id: \(id) deserialized successfully")
-            // Clearing the cache or checked urls.
-            // The new list can bring blocked resource that were previously set as not-blocked.
-            fifoCacheOfUrlsChecked = FifoDict()
-            completion.fill(())
-        } else {
-            log.error("Failed to deserialize adblock list with id: \(id)")
+        AdBlockStats.adblockSerialQueue.async {
+            if engine.set(data: data) {
+                log.debug("Adblock file with id: \(id) deserialized successfully")
+                // Clearing the cache or checked urls.
+                // The new list can bring blocked resource that were previously set as not-blocked.
+                self.fifoCacheOfUrlsChecked = FifoDict()
+                completion.fill(())
+            } else {
+                log.error("Failed to deserialize adblock list with id: \(id)")
+            }
         }
+        
         return completion
     }
     

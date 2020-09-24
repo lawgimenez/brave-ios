@@ -217,6 +217,9 @@
 /* No comment provided by engineer. */
 "CancelButtonTitle" = "Abbrechen";
 
+/* No comment provided by engineer. */
+"ClearData" = "Daten löschen";
+
 /* Button in settings that clears private data for the selected items. Also used as section title in settings panel */
 "ClearPrivateData" = "Private Daten löschen";
 
@@ -300,6 +303,9 @@
 
 /* DuckDuckGo callout title. */
 "DDGCalloutTitle" = "Private Suche über DuckDuckGo?";
+
+/* Name for default Brave theme. */
+"defaultThemeName" = "Brave-Standarddesign";
 
 /* No comment provided by engineer. */
 "Delete" = "Löschen";
@@ -547,6 +553,9 @@
 /* Reveal password text selection menu item */
 "MenuItemRevealPasswordTitle" = "Anzeigen";
 
+/* Abbreviation for 'Month', use full word' Month' if this word can't be shortened in your language */
+"monthAbbreviation" = "Monat";
+
 /* Bookmark title / Device name */
 "Name" = "Name";
 
@@ -574,71 +583,80 @@
 /* New Tab title */
 "NewTab" = "Neuer Tab";
 
-/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
-"NewTabPageSettingsAutoOpenKeyboard" = "Tastatur automatisch öffnen";
-
-/* A setting to enable or disable background images on the main screen. */
-"NewTabPageSettingsBackgroundImages" = "Hintergrundbilder anzeigen";
-
-/* A setting to enable or disable sponsored images from showing on the main screen. */
-"NewTabPageSettingsSponsoredImages" = "Gesponserte Bilder anzeigen";
-
-/* Title on settings page to adjust the primary home screen functionality. */
-"NewTabPageSettingsTitle" = "Neuer Tab";
-
-/* A button title to show more bookmarks, that opens a new menu. */
-"NewTabPageShowMoreFavorites" = "Mehr anzeigen";
-
 /* Sync Alert */
 "NotEnoughWordsDescription" = "Bitte geben Sie alle Wörter ein und versuchen Sie es erneut.";
 
 /* Sync Alert */
 "NotEnoughWordsTitle" = "Nicht genug Wörter";
 
-/* The placeholder says 'hide sponsored images'. So full sentence goes like: 'You can also choose to hide sponsored images.' */
-"ntp.chooseToHideSponsoredImages" = "Sie können auch %@.";
+/* Bookmark title for Brave Support */
+"ntp.braveSupportFavoriteTitle" = "Brave Support";
 
 /* No comment provided by engineer. */
-"ntp.claimRewards" = "Meine Prämien holen";
+"ntp.claimRewards" = "Token anfordern";
 
-/* Placeholder example: 'You earned 42 BAT last month from viewing privacy-respecting ads.' */
-"ntp.earningsReport" = "Sie haben letzten Monat %@ für das Ansehen von Ads, die den Datenschutz respektieren, verdient.";
-
-/* No comment provided by engineer. */
-"ntp.earnTokensByViewingAds" = "Verdienen Sie Tokens für das Ansehen von Ads, die den Datenschutz respektieren.";
+/* Placeholder example: 'You earned 42 BAT by browsing with Brave.' */
+"ntp.earningsReport" = "Sie haben %@ durch das Surfen mit Brave verdient.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnAds" = "Lassen Sie sich dafür bezahlen, dieses Hintergrundbild zu sehen. Aktivieren Sie Brave Ads, um Ihre Freigabe zu erhalten.";
+"ntp.getPaidForThisImageTurnAds" = "Sammeln Sie Token, um dieses Bild anzuzeigen. Aktivieren Sie Brave Ads und unterstützen Sie die Ersteller.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnRewards" = "Lassen Sie sich dafür bezahlen, dieses Hintergrundbild zu sehen. Aktivieren Sie Brave Rewards, um Ihre Freigabe zu erhalten.";
+"ntp.getPaidForThisImageTurnRewards" = "Sammeln Sie Token, um dieses Bild anzuzeigen. Aktivieren Sie Brave Rewards und unterstützen Sie die Ersteller.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidToSeeThisImage" = "Lassen Sie sich dafür bezahlen, dieses Hintergrundbild zu sehen.";
+"ntp.getPaidToSeeThisImage" = "Verdienen Sie Token für das Ansehen dieses Bildes.";
 
 /* The context is to praise the user that they did a good job, to keep it up. It is used in full sentence like: 'Way to go! You earned 40 BAT last month.' */
 "ntp.goodJob" = "Gut gemacht!";
 
-/* This sentence is not capitalized on purpose, it is a part of a bigger sentence which goes like this: 'You can also choose to hide sponsored images.' */
-"ntp.hideSponsoredImages" = "gesponserte Bilder ausblenden";
-
-/* The placeholder says 'Learn more'. So full sentence goes like: 'Learn more about sponsored images in Brave Rewards.' */
-"ntp.learnMoreAboutBrandedImages" = "%@ über gesponserte Bilder in Brave Rewards";
+/* No comment provided by engineer. */
+"ntp.hideSponsoredImages" = "Gesponserte Bilder ausblenden";
 
 /* No comment provided by engineer. */
-"ntp.supportWebCreatorsWithTokens" = "Sie können Web-Ersteller mit Tokens unterstützen.";
+"ntp.learnMoreAboutBrandedImages" = "Wenn Sie ein gesponsertes Bild anzeigen, erhalten Sie Token, mit denen Sie Ersteller unterstützen können. Mit Brave Ads haben Sie immer die Kontrolle über die Anzeigen, die Sie sehen.";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutRewards" = "Mehr über Brave Rewards erfahren";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutSI" = "Mehr über gesponserte Bilder erfahren";
+
+/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
+"ntp.settingsAutoOpenKeyboard" = "Tastatur automatisch öffnen";
+
+/* A setting to enable or disable background images on the main screen. */
+"ntp.settingsBackgroundImages" = "Hintergrundbilder anzeigen";
+
+/* A button that leads to a 'more' menu, letting users configure additional settings. */
+"ntp.settingsBackgroundImageSubMenu" = "Hintergrundbilder";
+
+/* A selection to let the users only see a set of predefined, default images on the background of the app. */
+"ntp.settingsDefaultImagesOnly" = "Nur Standardbilder";
+
+/* A selection to let the users see sponsored image backgrounds when opening a new tab. */
+"ntp.settingsSponsoredImagesSelection" = "Gesponserte Bilder";
+
+/* Title on settings page to adjust the primary home screen functionality. */
+"ntp.settingsTitle" = "Neuer Tab";
+
+/* A button title to show more bookmarks, that opens a new menu. */
+"ntp.showMoreFavorites" = "Mehr anzeigen";
+
+/* No comment provided by engineer. */
+"ntp.supportWebCreatorsWithTokens" = "Verdienen Sie Token und belohnen Sie die Ersteller für großartige Inhalte, während Sie surfen.";
 
 /* No comment provided by engineer. */
 "ntp.turnOnBraveAds" = "Brave-Ads einschalten";
 
 /* No comment provided by engineer. */
-"ntp.turnOnBraveRewards" = "Rewards einschalten";
+"ntp.turnOnBraveRewards" = "Brave Rewards einschalten";
 
-/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turnin Rewards, you agree to the Terms of Service'. */
+/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turning Rewards, you agree to the Terms of Service'. */
 "ntp.turnRewardsTos" = "Mit der Aktivierung von Rewards erklären Sie sich einverstanden mit den %@.";
 
 /* No comment provided by engineer. */
-"ntp.youArePaidToSeeThisImage" = "Sie werden dafür bezahlt, dieses Hintergrundbild zu sehen.";
+"ntp.youArePaidToSeeThisImage" = "Sie verdienen Token für das Ansehen dieses Bildes.";
 
 /* Context menu item for opening all folder bookmarks */
 "OpenAllBookmarks" = "Alle (%i) öffnen";
@@ -983,7 +1001,7 @@
 "SyncAddDeviceWords" = "Geben Sie den Sync-Code ein";
 
 /* Sync add device description */
-"SyncAddDeviceWordsDescription" = "Navigieren Sie auf Ihrem Gerät im Einstellungsbereich zu Synchronisieren und tippen Sie auf den Button \"%@\". Geben Sie die untenstehenden Synchronisierungs-Kettencodewörter ein.\n\nBehandeln Sie diesen Code wie ein Passwort. Wenn eine Person ihn erfährt, kann sie Ihre synchronisierten Daten lesen und ändern.";
+"SyncAddDeviceWordsDescription" = "Navigieren Sie auf Ihrem Gerät im Einstellungsbereich zu \"Synchronisieren\" und tippen Sie auf den Button \"%@\". Geben Sie die untenstehenden Synchronisierungs-Kettencodewörter ein.\n\nBehandeln Sie diesen Code wie ein Passwort. Wenn eine Person ihn erfährt, kann sie Ihre synchronisierten Daten lesen und ändern.";
 
 /* Add device to sync with code words navigation title */
 "SyncAddDeviceWordsTitle" = "Codewörter eingeben";
@@ -1156,6 +1174,12 @@
 /* Show Brave Browser TOS page from the Privacy section in the settings. */
 "TermsOfUse" = "Nutzungsbedingungen";
 
+/* Text for button to share referral's QR code. */
+"themeQRCodeShareButton" = "Teilen …";
+
+/* Title for QR popup encouraging users to share the code with their friends. */
+"themeQRCodeShareTitle" = "Teilen Sie Brave mit Ihren Freunden!";
+
 /* Selection to automatically color/style the user interface. */
 "ThemesAutomaticOption" = "Automatisch";
 
@@ -1170,6 +1194,9 @@
 
 /* Selection to color/style the user interface with a light theme. */
 "ThemesLightOption" = "Hell";
+
+/* Name for app theme settings */
+"themesSettings" = "Designs";
 
 /* History tableview section header */
 "Today" = "Heute";
@@ -1206,6 +1233,9 @@
 
 /* Word count title */
 "WordCount" = "Anzahl der Wörter: %i";
+
+/* Abbreviation for 'Year', use full word' Yeara' if this word can't be shortened in your language */
+"yearAbbreviation" = "Jahr";
 
 /* Button title to confirm the deletion of a bookmarks folder */
 "YesDeleteButtonTitle" = "Ja, löschen";

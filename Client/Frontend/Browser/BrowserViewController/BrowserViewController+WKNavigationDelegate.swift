@@ -188,7 +188,14 @@ extension BrowserViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
+        
         let isPrivateBrowsing = PrivateBrowsingManager.shared.isPrivateBrowsing
+        
+        if url.baseDomain == "youtube.com" {
+            let domain = Domain.getOrCreate(forUrl: url, persistent: !isPrivateBrowsing)
+            tabManager[webView]?.userScriptManager?.isYoutubeAdblockEnabled = domain.isShieldExpected(.AdblockAndTp, considerAllShieldsOption: true)
+        }
+        
         // This is the normal case, opening a http or https url, which we handle by loading them in this WKWebView. We
         // always allow this. Additionally, data URIs are also handled just like normal web pages.
 
@@ -279,15 +286,8 @@ extension BrowserViewController: WKNavigationDelegate {
         let response = navigationResponse.response
         let responseURL = response.url
         
-        if let tab = tabManager[webView] {
-            if let httpResponse = response as? HTTPURLResponse,
-                let cacheControl = httpResponse.allHeaderFields["Cache-Control"] as? String,
-                cacheControl.contains("no-store") {
-                tab.shouldClassifyLoadsForAds = false
-            }
-            if responseURL?.isSessionRestoreURL == true {
-                tab.shouldClassifyLoadsForAds = false
-            }
+        if let tab = tabManager[webView], responseURL?.isSessionRestoreURL == true {
+            tab.shouldClassifyLoadsForAds = false
         }
         
         var request: URLRequest?
@@ -432,9 +432,6 @@ extension BrowserViewController: WKNavigationDelegate {
                 rewardsXHRLoadURL = webView.url
             }
             
-            if tab === tabManager.selectedTab {
-                topToolbar.updateProgressBar(1.0)
-            }
             tabsBar.reloadDataAndRestoreSelectedTab()
         }
     }

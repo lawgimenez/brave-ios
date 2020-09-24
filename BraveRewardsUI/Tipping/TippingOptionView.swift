@@ -3,13 +3,14 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import UIKit
+import BraveUI
 
 class TippingOptionView: UIControl {
   private struct UX {
     static let amountHeight: CGFloat = 40.0
     static let borderColor = UIColor(white: 1.0, alpha: 0.3)
     static let textColor = UIColor.white
-    static let unselectedDollarTextColor = Colors.blurple700
+    static let unselectedDollarTextColor = Colors.blurple200
     static let selectedDollarTextColor = UIColor.white
   }
   
@@ -50,6 +51,7 @@ class TippingOptionView: UIControl {
     $0.appearanceTextColor = UX.unselectedDollarTextColor
     $0.font = .systemFont(ofSize: 12.0)
     $0.textAlignment = .center
+    $0.isHidden = true
   }
   
   override init(frame: CGRect) {

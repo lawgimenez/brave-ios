@@ -341,7 +341,16 @@ class TabTrayController: UIViewController, Themeable {
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActiveNotification), name: UIApplication.didBecomeActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dynamicFontChanged), name: .dynamicFontChanged, object: nil)
         
-        applyTheme(Theme.of(tabManager.selectedTab))
+        if #available(iOS 13.0, *) {
+            /// At this point in time the `UITraitCollection.current` is not correct so the theme
+            /// that `Theme.of(_:)` gets does not get the current theme in automatic-theme mode
+            let oldTraitCollection = UITraitCollection.current
+            UITraitCollection.current = traitCollection
+            applyTheme(Theme.of(tabManager.selectedTab))
+            UITraitCollection.current = oldTraitCollection
+        } else {
+            applyTheme(Theme.of(tabManager.selectedTab))
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -357,6 +366,12 @@ class TabTrayController: UIViewController, Themeable {
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 13.0, *) {
+            if traitCollection.userInterfaceStyle != previousTraitCollection?.userInterfaceStyle {
+                applyTheme(Theme.of(tabManager.selectedTab))
+            }
+        }
 
         // Update the trait collection we reference in our layout delegate
         tabLayoutDelegate.traitCollection = traitCollection
@@ -404,6 +419,7 @@ class TabTrayController: UIViewController, Themeable {
     
     func applyTheme(_ theme: Theme) {
         styleChildren(theme: theme)
+        view.backgroundColor = theme.colors.home
         collectionView?.backgroundColor = theme.colors.home
     }
     
@@ -792,6 +808,7 @@ fileprivate class TabManagerDataSource: NSObject, UICollectionViewDataSource {
         let tab = tabs[indexPath.item]
 
         tabCell.titleText.text = tab.displayTitle
+        tabCell.favicon.image = #imageLiteral(resourceName: "defaultFavicon")
 
         if !tab.displayTitle.isEmpty {
             tabCell.accessibilityLabel = tab.displayTitle
@@ -801,8 +818,16 @@ fileprivate class TabManagerDataSource: NSObject, UICollectionViewDataSource {
         tabCell.isAccessibilityElement = true
         tabCell.accessibilityHint = Strings.tabTrayCellCloseAccessibilityHint
 
-        if let favIcon = tab.displayFavicon, let url = URL(string: favIcon.url) {
-            tabCell.favicon.setIcon(favIcon, forURL: url)
+        tabCell.favicon.clearMonogramFavicon()
+        
+        // Tab may not be restored and so may not include a tab URL yet...
+        if let favicon = tab.displayFavicon, let url = favicon.url.asURL {
+            WebImageCacheManager.shared.load(from: url, completion: { image, _, _, _, loadedURL in
+                guard url == loadedURL else { return }
+                tabCell.favicon.image = image ?? FaviconFetcher.defaultFaviconImage
+            })
+        } else if let url = tab.url, !url.isLocal {
+            tabCell.favicon.loadFavicon(for: url)
         } else {
             tabCell.favicon.image = #imageLiteral(resourceName: "defaultFavicon")
         }
@@ -1177,7 +1202,6 @@ class TrayToolbar: UIView, Themeable {
         styleChildren(theme: theme)
         
         backgroundColor = theme.colors.home
-        UIApplication.shared.windows.first?.backgroundColor = backgroundColor
         
         addTabButton.tintColor = theme.colors.tints.footer
         doneButton.tintColor = addTabButton.tintColor

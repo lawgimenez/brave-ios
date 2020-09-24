@@ -4,17 +4,18 @@
 
 #import <Foundation/Foundation.h>
 #import <UserNotifications/UserNotifications.h>
+#import "ads.mojom.objc.h"
 
-typedef NS_ENUM(NSInteger, BATAdsNotificationEventType) {
-  BATAdsNotificationEventTypeViewed,     // = ads::NotificationEventType::VIEWED
-  BATAdsNotificationEventTypeClicked,    // = ads::NotificationEventType::CLICKED
-  BATAdsNotificationEventTypeDismissed,  // = ads::NotificationEventType::DISMISSED
-  BATAdsNotificationEventTypeTimedOut    // = ads::NotificationEventType::TIMEOUT
-} NS_SWIFT_NAME(NotificationEventType);
+typedef NS_ENUM(NSInteger, BATAdNotificationEventType) {
+  BATAdNotificationEventTypeViewed,       // = ads::AdNotificationEventType::kViewed
+  BATAdNotificationEventTypeClicked,      // = ads::AdNotificationEventType::kClicked
+  BATAdNotificationEventTypeDismissed,    // = ads::AdNotificationEventType::kDismissed
+  BATAdNotificationEventTypeTimedOut      // = ads::AdNotificationEventType::kTimedOut
+} NS_SWIFT_NAME(AdNotificationEventType);
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class BATAdsNotification, BATBraveAds, BATBraveLedger;
+@class BATAdNotification, BATBraveAds, BATBraveLedger;
 
 NS_SWIFT_NAME(BraveAdsNotificationHandler)
 @protocol BATBraveAdsNotificationHandler
@@ -23,7 +24,7 @@ NS_SWIFT_NAME(BraveAdsNotificationHandler)
 /// to the user.
 - (BOOL)shouldShowNotifications;
 /// Show the given notification to the user (or add it to the queue)
-- (void)showNotification:(BATAdsNotification *)notification;
+- (void)showNotification:(BATAdNotification *)notification;
 /// Remove a pending notification from the queue or remove an already shown
 /// notification from view
 - (void)clearNotificationWithIdentifier:(NSString *)identifier;
@@ -57,8 +58,8 @@ NS_SWIFT_NAME(BraveAds)
 /// The environment that ads is communicating with. See ledger's BATEnvironment
 /// for appropriate values.
 @property (nonatomic, class) int environment;
-/// Marks if this is being ran in a test environment. Defaults to false
-@property (nonatomic, class, getter=isTesting) BOOL testing;
+/// The build channel that ads is configured for
+@property (nonatomic, class) BATBraveAdsBuildChannel *buildChannel;
 
 #pragma mark - Initialization / Shutdown
 
@@ -82,24 +83,23 @@ NS_SWIFT_NAME(BraveAds)
 /// The max number of ads the user can see in a day
 @property (nonatomic, assign) NSInteger numberOfAllowableAdsPerDay NS_SWIFT_NAME(adsPerDay);
 
-/// The user model locales Brave Ads supports currently
-@property (nonatomic, readonly) NSArray<NSString *> *userModelLanguages;
+/// Whether or not the user has opted out of subdivision ad targeting
+@property (nonatomic, assign, getter=shouldAllowSubdivisionTargeting) BOOL allowSubdivisionTargeting;
+
+/// Selected ads subdivision targeting option
+@property (nonatomic, copy) NSString * subdivisionTargetingCode;
+
+/// Automatically detected ads subdivision targeting code
+@property (nonatomic, copy) NSString * automaticallyDetectedSubdivisionTargetingCode;
 
 /// Remove all cached history (should be called when the user clears their browser history)
 - (void)removeAllHistory:(void (^)(BOOL))completion;
 
-/// Should be called when the user invokes "Show Sample Ad" on the Client; a Notification is then sent
-/// to the Client for processing
-- (void)serveSampleAd;
-
 #pragma mark - Confirmations
-
-// Should be called to inform Ads if Confirmations is ready
-- (void)setConfirmationsIsReady:(BOOL)isReady;
 
 #pragma mark - Notificiations
 
-- (nullable BATAdsNotification *)adsNotificationForIdentifier:(NSString *)identifier;
+- (nullable BATAdNotification *)adsNotificationForIdentifier:(NSString *)identifier;
 
 #pragma mark - History
 
@@ -113,7 +113,7 @@ NS_SWIFT_NAME(BraveAds)
 
 /// Report that a page has loaded in the current browser tab, and the inner text
 /// within the page loaded for classification
-- (void)reportLoadedPageWithURL:(NSURL *)url innerText:(NSString *)text;
+- (void)reportLoadedPageWithURL:(NSURL *)url innerText:(NSString *)text tabId:(NSInteger)tabId;
 
 /// Report that media has started on a tab with a given id
 - (void)reportMediaStartedWithTabId:(NSInteger)tabId NS_SWIFT_NAME(reportMediaStarted(tabId:));
@@ -128,15 +128,21 @@ NS_SWIFT_NAME(BraveAds)
 - (void)reportTabClosedWithTabId:(NSInteger)tabId NS_SWIFT_NAME(reportTabClosed(tabId:));
 
 /// Report that a notification event type was triggered for a given id
-- (void)reportNotificationEvent:(NSString *)notificationId
-                      eventType:(BATAdsNotificationEventType)eventType;
+- (void)reportAdNotificationEvent:(NSString *)notificationUuid
+                        eventType:(BATAdNotificationEventType)eventType;
+
+/// Update ad totals on month roll over, optionally reconcile with server
+- (void)updateAdRewards:(BOOL)shouldReconcile;
+
+/// Get the number of ads received and the estimated earnings of viewing said ads for this cycle
+- (void)detailsForCurrentCycle:(void (^)(NSInteger adsReceived, double estimatedEarnings, NSDate * _Nullable nextPaymentDate))completion NS_SWIFT_NAME(detailsForCurrentCycle(_:));
 
 /// Toggle that the user liked the given ad and more like it should be shown
-- (void)toggleThumbsUpForAd:(NSString *)identifier
+- (void)toggleThumbsUpForAd:(NSString *)creativeInstanceId
               creativeSetID:(NSString *)creativeSetID;
 
 /// Toggle that the user disliked the given ad and it shouldn't be shown again
-- (void)toggleThumbsDownForAd:(NSString *)identifier
+- (void)toggleThumbsDownForAd:(NSString *)creativeInstanceId
                 creativeSetID:(NSString *)creativeSetID;
 
 #pragma mark -

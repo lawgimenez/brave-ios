@@ -1,3 +1,9 @@
+/* Client is in an invalid state which caused the error */
+"clientErrorMessage" = "用戶端錯誤";
+
+/* Error message if details don't have the right type or values */
+"invalidDetailsMessage" = "付款要求的詳細資訊無效";
+
 /* Suffix for error strings */
 "tryAgain" = "，請再試一次。";
 
@@ -6,4 +12,10 @@
 
 /* Error handling U2F registration. */
 "U2FRegistrationError" = "註冊安全金鑰時出錯";
+
+/* Error message if list of Payment Instruments doesn't include BAT */
+"unsupportedInstrumentMessage" = "不支援的付款方式";
+
+/* Error message if the payment workflow is canceled by the user */
+"userCancelledMessage" = "用戶已取消";
 

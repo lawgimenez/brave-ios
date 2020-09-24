@@ -7,6 +7,7 @@ import SnapKit
 import BraveRewards
 import Network
 import BraveShared
+import BraveUI
 
 protocol WalletContentView: AnyObject {
   var innerScrollView: UIScrollView? { get }
@@ -17,7 +18,7 @@ class WalletViewController: UIViewController, RewardsSummaryProtocol {
   private let networkMonitor = NWPathMonitor()
   let state: RewardsState
   let ledgerObserver: LedgerObserver
-  weak var currentNotification: RewardsNotification?
+  var currentNotification: RewardsNotification?
   private var recurringTipAmount: Double = 0.0
   private var publisher: PublisherInfo?
   
@@ -101,13 +102,16 @@ class WalletViewController: UIViewController, RewardsSummaryProtocol {
     updateExternalWallet()
     
     rewardsSummaryView.monthYearLabel.text = summaryPeriod
-    rewardsSummaryView.rows = summaryRows
+    summaryRows { [weak self] rows in
+      self?.rewardsSummaryView.rows = rows
+    }
     
     reloadUIState()
     setupPublisherView(publisherSummaryView)
     view.layoutIfNeeded()
-    startNotificationObserver()
     startNetworkObserver()
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(notificationAdded(_:)), name: BraveLedger.NotificationAdded, object: nil)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -181,13 +185,30 @@ class WalletViewController: UIViewController, RewardsSummaryProtocol {
   // MARK: -
   
   func updatePendingContributionsState() {
-    if disclaimerLabels.isEmpty {
-      rewardsSummaryView.disclaimerView = nil
-    } else {
-      rewardsSummaryView.disclaimerView = WalletDisclaimerView().then {
-        $0.labels = disclaimerLabels
+    state.ledger.pendingContributionsTotal(completion: { amount in
+      let labels = self.disclaimerLabels(for: amount)
+      if labels.isEmpty {
+        self.rewardsSummaryView.disclaimerView = nil
+      } else {
+        self.rewardsSummaryView.disclaimerView = WalletDisclaimerView().then {
+          $0.labels = labels
+          $0.labels.forEach { label in
+            label.onLinkedTapped = { [weak self] link in
+              guard let self = self, let disclaimerLink = RewardsSummaryLink(rawValue: link.absoluteString) else { return }
+              switch disclaimerLink {
+              case .learnMore:
+                if let url = URL(string: DisclaimerLinks.unclaimedFundsURL) {
+                  self.state.delegate?.loadNewTabWithURL(url)
+                }
+              case .showPendingContributions:
+                let pending = PendingContributionListController(state: self.state)
+                self.navigationController?.pushViewController(pending, animated: true)
+              }
+            }
+          }
+        }
       }
-    }
+    })
   }
   
   func updateWalletState() {
@@ -197,8 +218,8 @@ class WalletViewController: UIViewController, RewardsSummaryProtocol {
         self.showServerErrorNotification()
       }
     }
-    state.ledger.fetchWalletDetails { properties in
-      if properties == nil && self.state.ledger.walletInfo == nil {
+    state.ledger.getRewardsParameters { properties in
+      if properties == nil && self.state.ledger.rewardsParameters == nil {
         // No wallet properties to display: Error
         self.showServerErrorNotification()
       }
@@ -222,21 +243,6 @@ class WalletViewController: UIViewController, RewardsSummaryProtocol {
     publisherView.learnMoreTapped = { [weak self] in
       guard let self = self, let url = URL(string: DisclaimerLinks.unclaimedFundsURL) else { return }
       self.state.delegate?.loadNewTabWithURL(url)
-    }
-    
-    rewardsSummaryView.disclaimerView?.labels.forEach {
-      $0.onLinkedTapped = { [weak self] link in
-        guard let self = self, let disclaimerLink = RewardsSummaryLink(rawValue: link.absoluteString) else { return }
-        switch disclaimerLink {
-        case .learnMore:
-          if let url = URL(string: DisclaimerLinks.unclaimedFundsURL) {
-            self.state.delegate?.loadNewTabWithURL(url)
-          }
-        case .showPendingContributions:
-          let pending = PendingContributionListController(state: self.state)
-          self.navigationController?.pushViewController(pending, animated: true)
-        }
-      }
     }
     
     publisherView.onCheckAgainTapped = { [weak self] in
@@ -295,14 +301,7 @@ class WalletViewController: UIViewController, RewardsSummaryProtocol {
       publisherView.checkAgainButton.isHidden = publisher != nil
       publisherView.setCheckAgainIsLoading(state.ledger.isLoadingPublisherList)
       
-      state.dataSource?.retrieveFavicon(for: state.url, faviconURL: URL(string: publisher?.faviconUrl ?? "") ?? state.faviconURL, completion: { [weak self] faviconData in
-        guard let data = faviconData else { return }
-        
-        self?.publisherSummaryView.publisherView.faviconImageView.do {
-          $0.image = data.image
-          $0.backgroundColor = data.backgroundColor
-        }
-      })
+      state.dataSource?.retrieveFavicon(for: state.url, on: publisherSummaryView.publisherView.faviconImageView.imageView)
       
       guard let publisher = publisher else {
         publisherView.updatePublisherName(state.dataSource?.displayString(for: state.url) ?? "", provider: "")
@@ -332,10 +331,8 @@ class WalletViewController: UIViewController, RewardsSummaryProtocol {
       self.state.ledger.listRecurringTips { [weak self] in
         guard let self = self, let recurringTip = $0.first(where: { $0.id == publisher.id && $0.rewardsCategory == .recurringTip }) else { return }
         
-        guard let contributionAmount = recurringTip.contributions.first?.value else { return }
-        
-        self.recurringTipAmount = contributionAmount
-        self.publisherSummaryView.monthlyTipView.batValueView.amountLabel.text = "\(Int(contributionAmount))"
+        self.recurringTipAmount = recurringTip.weight
+        self.publisherSummaryView.monthlyTipView.batValueView.amountLabel.text = "\(Int(recurringTip.weight))"
         self.publisherSummaryView.monthlyTipView.isHidden = false
       }
     }
@@ -346,7 +343,7 @@ class WalletViewController: UIViewController, RewardsSummaryProtocol {
       if isLocal {
         rewardsSummaryView.rewardsSummaryButton.isEnabled = false
         
-        self.view.backgroundColor = Colors.blurple800
+        self.view.backgroundColor = Colors.blurple100
         walletView.contentView = rewardsSummaryView
         
         rewardsSummaryView.rewardsSummaryButton.snp.remakeConstraints {
@@ -486,7 +483,7 @@ class WalletViewController: UIViewController, RewardsSummaryProtocol {
       if isExpanding {
         contentView?.alpha = 0.0
         self.rewardsSummaryView.monthYearLabel.alpha = 1.0
-        self.view.backgroundColor = Colors.blurple800
+        self.view.backgroundColor = Colors.blurple100
       } else {
         contentView?.alpha = 1.0
         self.rewardsSummaryView.monthYearLabel.alpha = 0.0
@@ -571,7 +568,7 @@ extension WalletViewController {
       }
       if path.status == .satisfied {
         if self.state.ledger.balance != nil &&
-          self.state.ledger.walletInfo != nil {
+          self.state.ledger.rewardsParameters != nil {
           //hide network not available banner
           self.walletView.setNotificationView(nil, animated: true)
           self.loadNextNotification()
@@ -586,13 +583,6 @@ extension WalletViewController {
 }
 
 extension WalletViewController {
-  
-  func startNotificationObserver() {
-    // Stopping as a precaution
-    // Add observer
-    NotificationCenter.default.addObserver(self, selector: #selector(notificationAdded(_:)), name: BraveLedger.NotificationAdded, object: nil)
-    loadNextNotification()
-  }
   
   @objc private func notificationAdded(_ notification: Notification) {
     // TODO: Filter notification?
@@ -610,7 +600,7 @@ extension WalletViewController {
   }
   
   private func loadNextNotification() {
-    if state.ledger.balance == nil || state.ledger.walletInfo == nil {
+    if state.ledger.balance == nil || state.ledger.rewardsParameters == nil {
       // Showing error
       return
     }
@@ -707,9 +697,6 @@ extension WalletViewController {
     ledgerObserver.fetchedPanelPublisher = { [weak self] publisher, tabId in
       guard let self = self, self.state.tabId == tabId else { return }
       self.publisher = publisher
-      if let activity = self.state.ledger.currentActivityInfo(withPublisherId: publisher.id) {
-        self.publisher?.percent = activity.percent
-      }
       self.reloadPublisherDetails()
     }
     ledgerObserver.finishedPromotionsAdded = { [weak self] promotions in
@@ -734,26 +721,28 @@ extension WalletViewController {
       guard let self = self, self.isViewLoaded else {
         return
       }
-      let rows = self.summaryRows.map({ row -> RowView in
-        row.isHidden = true
-        return row
-      })
-      UIView.animate(withDuration: 0.15, animations: {
-        self.rewardsSummaryView.stackView.arrangedSubviews.forEach({
+      self.summaryRows { [weak self] rows in
+        guard let self = self else { return }
+        rows.forEach {
           $0.isHidden = true
-          $0.alpha = 0
-        })
-      }, completion: { _ in
-        self.rewardsSummaryView.rows = rows
+        }
         UIView.animate(withDuration: 0.15, animations: {
           self.rewardsSummaryView.stackView.arrangedSubviews.forEach({
-            $0.isHidden = false
-            $0.alpha = 1
+            $0.isHidden = true
+            $0.alpha = 0
+          })
+        }, completion: { _ in
+          self.rewardsSummaryView.rows = rows
+          UIView.animate(withDuration: 0.15, animations: {
+            self.rewardsSummaryView.stackView.arrangedSubviews.forEach({
+              $0.isHidden = false
+              $0.alpha = 1
+            })
           })
         })
-      })
+      }
     }
-    ledgerObserver.pendingContributionAdded = { [weak self] _ in
+    ledgerObserver.pendingContributionAdded = { [weak self] in
       self?.updatePendingContributionsState()
     }
     ledgerObserver.pendingContributionsRemoved = { [weak self] _ in

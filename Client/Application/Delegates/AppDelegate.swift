@@ -14,6 +14,7 @@ import CoreSpotlight
 import UserNotifications
 import BraveShared
 import Data
+import StoreKit
 
 private let log = Logger.browserLogger
 
@@ -39,9 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     var receivedURLs: [URL]?
     
     var authenticator: AppAuthenticator?
+    var shutdownWebServer: DispatchSourceTimer?
     
     /// Object used to handle server pings
     let dau = DAU()
+    
+    /// Must be added at launch according to Apple's documentation.
+    let iapObserver = IAPObserver()
 
     @discardableResult func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //
@@ -96,6 +101,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         DynamicFontHelper.defaultHelper.startObserving()
 
         MenuHelper.defaultHelper.setItems()
+        
+        SDWebImageCodersManager.sharedInstance().addCoder(PrivateCDNImageCoder())
 
         let logDate = Date()
         // Create a new sync log file on cold app launch. Note that this doesn't roll old logs.
@@ -129,6 +136,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         if let clazz = NSClassFromString("WKCont" + "ent" + "View"), let swizzledMethod = class_getInstanceMethod(TabWebViewMenuHelper.self, #selector(TabWebViewMenuHelper.swizzledMenuHelperFindInPage)) {
             class_addMethod(clazz, MenuHelper.selectorFindInPage, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
         }
+        
+        if !Preferences.BraveToday.languageChecked.value {
+            Preferences.BraveToday.languageChecked.value = true
+            Preferences.BraveToday.isEnabled.value = Locale.preferredLanguages.first?.prefix(2) == "en"
+        }
 
         self.tabManager = TabManager(prefs: profile.prefs, imageStore: imageStore)
 
@@ -137,7 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         
         // Don't track crashes if we're building the development environment due to the fact that terminating/stopping
         // the simulator via Xcode will count as a "crash" and lead to restore popups in the subsequent launch
-        let crashedLastSession = !Preferences.AppState.backgroundedCleanly.value && AppConstants.buildChannel != .developer
+        let crashedLastSession = !Preferences.AppState.backgroundedCleanly.value && AppConstants.buildChannel != .debug
         Preferences.AppState.backgroundedCleanly.value = false
         browserViewController = BrowserViewController(profile: self.profile!, tabManager: self.tabManager, crashedLastSession: crashedLastSession)
         browserViewController.edgesForExtendedLayout = []
@@ -170,6 +182,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         self.tabManager = nil
         self.browserViewController = nil
         self.rootViewController = nil
+        SKPaymentQueue.default().remove(iapObserver)
     }
 
     /**
@@ -208,6 +221,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // IAPs can trigger on the app as soon as it launches,
+        // for example when a previous transaction was not finished and is in pending state.
+        SKPaymentQueue.default().add(iapObserver)
+        
         // Override point for customization after application launch.
         var shouldPerformAdditionalDelegateHandling = true
 
@@ -255,19 +272,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         Preferences.General.isFirstLaunch.value = false
         Preferences.Review.launchCount.value += 1
         
-        if isFirstLaunch {
-            FavoritesHelper.addDefaultFavorites()
-            profile?.searchEngines.regionalSearchEngineSetup()
+        if !Preferences.VPN.popupShowed.value {
+            Preferences.VPN.appLaunchCountForVPNPopup.value += 1
         }
+        
+        // Search engine setup must be checked outside of 'firstLaunch' loop because of #2770.
+        // There was a bug that when you skipped onboarding, default search engine preference
+        // was not set.
+        if Preferences.Search.defaultEngineName.value == nil {
+            profile?.searchEngines.searchEngineSetup()
+        }
+        
+        if isFirstLaunch {
+            Preferences.DAU.installationDate.value = Date()
+            
+            // VPN credentials are kept in keychain and persist between app reinstalls.
+            // To avoid unexpected problems we clear all vpn keychain items.
+            // New set of keychain items will be created on purchase or iap restoration.
+            BraveVPN.clearCredentials()
+        }
+        
         if let urp = UserReferralProgram.shared {
-            if isFirstLaunch {
-                urp.referralLookup { url in
-                    guard let url = url?.asURL else { return }
-                    self.browserViewController.openReferralLink(url: url)
-                }
-            } else {
-                urp.pingIfEnoughTimePassed()
+            if Preferences.URP.referralLookupOutstanding.value == nil {
+                // This preference has never been set, and this means it is a new or upgraded user.
+                // That distinction must be made to know if a network request for ref-code look up should be made.
+                
+                // Setting this to an explicit value so it will never get overwritten on subsequent launches.
+                // Upgrade users should not have ref code ping happening.
+                Preferences.URP.referralLookupOutstanding.value = isFirstLaunch
             }
+            
+            handleReferralLookup(urp, checkClipboard: false)
         } else {
             log.error("Failed to initialize user referral program")
             UrpLog.log("Failed to initialize user referral program")
@@ -276,6 +311,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         AdblockResourceDownloader.shared.startLoading()
       
         return shouldPerformAdditionalDelegateHandling
+    }
+    
+    func handleReferralLookup(_ urp: UserReferralProgram, checkClipboard: Bool) {
+        let initialOnboarding =
+            Preferences.General.basicOnboardingProgress.value == OnboardingProgress.none.rawValue
+        
+        // FIXME: Update to iOS14 clipboard api once ready (#2838)
+        if initialOnboarding && UIPasteboard.general.hasStrings {
+            log.debug("Skipping URP call at app launch, this is handled in privacy consent onboarding screen")
+            return
+        }
+        
+        if Preferences.URP.referralLookupOutstanding.value == true {
+            var refCode: String?
+            
+            if Preferences.URP.referralCode.value == nil {
+                UrpLog.log("No ref code exists on launch, attempting clipboard retrieval")
+                let savedRefCode = checkClipboard ? UIPasteboard.general.string : nil
+                refCode = UserReferralProgram.sanitize(input: savedRefCode)
+                
+                if refCode != nil {
+                    UrpLog.log("Clipboard ref code found: " + (savedRefCode ?? "!Clipboard Empty!"))
+                    UrpLog.log("Clearing clipboard.")
+                    UIPasteboard.general.clearPasteboard()
+                }
+            }
+            
+            urp.referralLookup(refCode: refCode) { referralCode, offerUrl in
+                // Attempting to send ping after first urp lookup.
+                // This way we can grab the referral code if it exists, see issue #2586.
+                self.dau.sendPingToServer()
+                if let code = referralCode {
+                    let retryTime = AppConstants.buildChannel.isPublic ? 1.days : 10.minutes
+                    let retryDeadline = Date() + retryTime
+                    
+                    Preferences.NewTabPage.superReferrerThemeRetryDeadline.value = retryDeadline
+                    
+                    self.browserViewController.backgroundDataSource
+                        .fetchSpecificResource(.superReferral(code: code))
+                } else {
+                    self.browserViewController.backgroundDataSource.startFetching()
+                }
+                
+                guard let url = offerUrl?.asURL else { return }
+                self.browserViewController.openReferralLink(url: url)
+            }
+        } else {
+            urp.pingIfEnoughTimePassed()
+            browserViewController.backgroundDataSource.startFetching()
+        }
     }
 
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
@@ -297,6 +382,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     // We sync in the foreground only, to avoid the possibility of runaway resource usage.
     // Eventually we'll sync in response to notifications.
     func applicationDidBecomeActive(_ application: UIApplication) {
+        shutdownWebServer?.cancel()
+        shutdownWebServer = nil
         authenticator?.hideBackgroundedBlur()
         
         Preferences.AppState.backgroundedCleanly.value = false
@@ -318,12 +405,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         }
         
         // We try to send DAU ping each time the app goes to foreground to work around network edge cases
-        // (offline, bad connection etc.)
-        dau.sendPingToServer()
+        // (offline, bad connection etc.).
+        // Also send the ping only after the URP lookup has processed.
+        if Preferences.URP.referralLookupOutstanding.value == false {
+            dau.sendPingToServer()
+        }
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         syncOnDidEnterBackground(application: application)
+        BraveVPN.sendVPNWorksInBackgroundNotification()
     }
 
     fileprivate func syncOnDidEnterBackground(application: UIApplication) {
@@ -340,15 +431,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             application.endBackgroundTask(taskId)
         }
 
-//        if profile.hasSyncableAccount() {
-//            profile.syncManager.syncEverything(why: .backgrounded).uponQueue(.main) { _ in
-//                self.shutdownProfileWhenNotActive(application)
-//                application.endBackgroundTask(taskId)
-//            }
-//        } else {
-            profile.shutdown()
-            application.endBackgroundTask(taskId)
-//        }
+        profile.shutdown()
+        application.endBackgroundTask(taskId)
+        
+        let singleShotTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.main)
+        // 2 seconds is ample for a localhost request to be completed by GCDWebServer. <500ms is expected on newer devices.
+        singleShotTimer.schedule(deadline: .now() + 2.0, repeating: .never)
+        singleShotTimer.setEventHandler {
+            WebServer.sharedInstance.server.stop()
+            self.shutdownWebServer = nil
+        }
+        singleShotTimer.resume()
+        shutdownWebServer = singleShotTimer
     }
 
     fileprivate func shutdownProfileWhenNotActive(_ application: UIApplication) {
@@ -390,6 +484,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
     fileprivate func setUpWebServer(_ profile: Profile) {
         let server = WebServer.sharedInstance
+        if server.server.isRunning { return }
+        
         ReaderModeHandlers.register(server, profile: profile)
         ErrorPageHelper.register(server, certStore: profile.certStore)
         SafeBrowsingHandler.register(server)
@@ -417,12 +513,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         SDWebImageDownloader.shared().setValue(userAgent, forHTTPHeaderField: "User-Agent")
 
+        WebcompatReporter.userAgent = userAgent
+        
         // Record the user agent for use by search suggestion clients.
         SearchViewController.userAgent = userAgent
 
         // Some sites will only serve HTML that points to .ico files.
         // The FaviconFetcher is explicitly for getting high-res icons, so use the desktop user agent.
-        FaviconFetcher.userAgent = UserAgent.desktop
+        FaviconFetcher.htmlParsingUserAgent = UserAgent.desktop
     }
 
     fileprivate func presentEmailComposerWithLogs() {

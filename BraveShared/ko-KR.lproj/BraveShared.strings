@@ -217,6 +217,9 @@
 /* No comment provided by engineer. */
 "CancelButtonTitle" = "취소";
 
+/* No comment provided by engineer. */
+"ClearData" = "데이터 지우는 중";
+
 /* Button in settings that clears private data for the selected items. Also used as section title in settings panel */
 "ClearPrivateData" = "개인 정보 지우기";
 
@@ -300,6 +303,9 @@
 
 /* DuckDuckGo callout title. */
 "DDGCalloutTitle" = "DuckDuckGo로 비공개 검색을 하시겠습니까?";
+
+/* Name for default Brave theme. */
+"defaultThemeName" = "Brave 기본값";
 
 /* No comment provided by engineer. */
 "Delete" = "삭제";
@@ -547,6 +553,9 @@
 /* Reveal password text selection menu item */
 "MenuItemRevealPasswordTitle" = "공개";
 
+/* Abbreviation for 'Month', use full word' Month' if this word can't be shortened in your language */
+"monthAbbreviation" = "월";
+
 /* Bookmark title / Device name */
 "Name" = "이름";
 
@@ -574,71 +583,80 @@
 /* New Tab title */
 "NewTab" = "새 탭";
 
-/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
-"NewTabPageSettingsAutoOpenKeyboard" = "키보드 자동으로 열기";
-
-/* A setting to enable or disable background images on the main screen. */
-"NewTabPageSettingsBackgroundImages" = "백그라운드 이미지 표시";
-
-/* A setting to enable or disable sponsored images from showing on the main screen. */
-"NewTabPageSettingsSponsoredImages" = "스폰서 이미지 표시";
-
-/* Title on settings page to adjust the primary home screen functionality. */
-"NewTabPageSettingsTitle" = "새 탭 페이지";
-
-/* A button title to show more bookmarks, that opens a new menu. */
-"NewTabPageShowMoreFavorites" = "더보기";
-
 /* Sync Alert */
 "NotEnoughWordsDescription" = "모든 단어를 입력한 후 다시 시도하십시오.";
 
 /* Sync Alert */
 "NotEnoughWordsTitle" = "단어가 충분하지 않음";
 
-/* The placeholder says 'hide sponsored images'. So full sentence goes like: 'You can also choose to hide sponsored images.' */
-"ntp.chooseToHideSponsoredImages" = "선택 가능한 옵션: %@";
+/* Bookmark title for Brave Support */
+"ntp.braveSupportFavoriteTitle" = "Brave 지원";
 
 /* No comment provided by engineer. */
-"ntp.claimRewards" = "내 리워드 받기";
+"ntp.claimRewards" = "토큰 받기";
 
-/* Placeholder example: 'You earned 42 BAT last month from viewing privacy-respecting ads.' */
-"ntp.earningsReport" = "지난 달 프라이버시 보호 광고를 보고 %@를 획득했습니다.";
-
-/* No comment provided by engineer. */
-"ntp.earnTokensByViewingAds" = "프라이버시 보호 광고를 보고 토큰을 받으세요.";
+/* Placeholder example: 'You earned 42 BAT by browsing with Brave.' */
+"ntp.earningsReport" = "Brave로 브라우징하여 %@를 얻었습니다.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnAds" = "이 배경 이미지를 보고 수익을 얻으세요. 본인의 몫을 받으려면 Brave Ads를 켜세요.";
+"ntp.getPaidForThisImageTurnAds" = "이 이미지를 보고 토큰을 획득하세요. Brave Ads를 켜고 제작자를 후원해주세요.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnRewards" = "이 배경 이미지를 보고 수익을 얻으세요. 본인의 몫을 받으려면 Brave Rewards를 켜세요.";
+"ntp.getPaidForThisImageTurnRewards" = "이 이미지를 보고 토큰을 획득하세요. Brave Rewards를 켜고 제작자를 후원해주세요.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidToSeeThisImage" = "이 배경 이미지를 보고 수익을 얻으세요.";
+"ntp.getPaidToSeeThisImage" = "이 이미지를 보고 토큰을 획득하세요.";
 
 /* The context is to praise the user that they did a good job, to keep it up. It is used in full sentence like: 'Way to go! You earned 40 BAT last month.' */
 "ntp.goodJob" = "축하합니다!";
 
-/* This sentence is not capitalized on purpose, it is a part of a bigger sentence which goes like this: 'You can also choose to hide sponsored images.' */
+/* No comment provided by engineer. */
 "ntp.hideSponsoredImages" = "스폰서 이미지 숨기기";
 
-/* The placeholder says 'Learn more'. So full sentence goes like: 'Learn more about sponsored images in Brave Rewards.' */
-"ntp.learnMoreAboutBrandedImages" = "Brave Rewards에서의 스폰서 이미지 %@";
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutBrandedImages" = "스폰서 이미지를 볼 때 토큰을 얻어 제작자를 후원하는 데 사용할 수 있습니다. 언제든지 Brave Ads를 사용하여 표시되는 광고를 마음대로 관리할 수 있습니다.";
 
 /* No comment provided by engineer. */
-"ntp.supportWebCreatorsWithTokens" = "토큰으로 웹 제작자를 지원할 수 있습니다.";
+"ntp.learnMoreAboutRewards" = "Brave Rewards 자세히 알아보기";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutSI" = "스폰서 이미지 자세히 알아보기";
+
+/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
+"ntp.settingsAutoOpenKeyboard" = "키보드 자동으로 열기";
+
+/* A setting to enable or disable background images on the main screen. */
+"ntp.settingsBackgroundImages" = "백그라운드 이미지 표시";
+
+/* A button that leads to a 'more' menu, letting users configure additional settings. */
+"ntp.settingsBackgroundImageSubMenu" = "백그라운드 이미지";
+
+/* A selection to let the users only see a set of predefined, default images on the background of the app. */
+"ntp.settingsDefaultImagesOnly" = "기본 이미지만";
+
+/* A selection to let the users see sponsored image backgrounds when opening a new tab. */
+"ntp.settingsSponsoredImagesSelection" = "스폰서 이미지";
+
+/* Title on settings page to adjust the primary home screen functionality. */
+"ntp.settingsTitle" = "새 탭 페이지";
+
+/* A button title to show more bookmarks, that opens a new menu. */
+"ntp.showMoreFavorites" = "더보기";
+
+/* No comment provided by engineer. */
+"ntp.supportWebCreatorsWithTokens" = "브라우징하면서 토큰을 얻어 좋은 콘텐츠를 만들어준 제작자에게 보답하세요.";
 
 /* No comment provided by engineer. */
 "ntp.turnOnBraveAds" = "Brave Ads 켜기";
 
 /* No comment provided by engineer. */
-"ntp.turnOnBraveRewards" = "Rewards 켜기";
+"ntp.turnOnBraveRewards" = "Brave Rewards 켜기";
 
-/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turnin Rewards, you agree to the Terms of Service'. */
+/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turning Rewards, you agree to the Terms of Service'. */
 "ntp.turnRewardsTos" = "Rewards를 켜면 %@에 동의하는 것으로 간주됩니다.";
 
 /* No comment provided by engineer. */
-"ntp.youArePaidToSeeThisImage" = "이 배경 이미지를 보고 수익을 얻고 있습니다.";
+"ntp.youArePaidToSeeThisImage" = "이 이미지를 보고 토큰을 획득하고 계십니다.";
 
 /* Context menu item for opening all folder bookmarks */
 "OpenAllBookmarks" = "모두 열기(%i)";
@@ -713,7 +731,7 @@
 "PrivateTabDetails" = "비공개 탭을 사용할 경우 귀하의 기기에서 수행된 Brave 작업만이 변경되며, 다른 사용자의 동작은 변경되지 않습니다.\n\n사이트를 방문하면 사이트에서 항상 귀하의 IP 주소를 학습합니다. 즉, 사이트에서 귀하의 위치(주로 도시)를 대략적으로 추측할 수 있습니다. 경우에 따라서는 위치가 훨씬 구체적으로 추측되기도 합니다. 또한 귀하가 사이트에서 수행한 모든 작업(검색어 등)이 해당 사이트에 기록됩니다. 귀하가 사이트에 로그인하면 해당 사이트에서 귀하가 해당 계정의 소유자임을 인식합니다. 비공개 탭을 닫으면 Brave에서 로그인 상태를 유지하는 쿠키를 지우기 때문에 로그아웃 상태가 됩니다.\n\n인터넷 연결을 위해 귀하가 이용하는 ISP에서는 귀하의 네트워크 활동을 모두 확인할 수 있습니다. 대부분의 경우 이러한 ISP는 이동통신 사업자입니다. WiFi 네트워크에 연결한 경우 ISP는 해당 네트워크의 소유자이며, VPN을 사용하는 경우에는 해당 VPN의 운영자입니다. 귀하가 이용하는 ISP에서는 귀하가 사이트를 방문하면 귀하가 방문한 사이트를 알 수 있습니다. 해당 사이트에서 HTTPS를 사용하는 경우 ISP에서는 귀하가 해당 사이트에서 수행하는 작업을 기록에 따라 추측만 할 수 있습니다. 그러나 사이트에서 HTTP만을 사용한다면 ISP에서 귀하가 사용한 검색어, 귀하가 읽은 페이지와 따라 간 링크 등 모든 것을 알 수 있습니다.\n\n고용주가 귀하의 기기를 관리하는 경우 고용주는 귀하가 해당 기기로 무엇을 하는지 추적할 수도 있습니다. 비공개 탭을 사용한다고 해도 귀하가 방문한 사이트를 고용주가 알지 못하도록 차단하지는 못할 것입니다. 귀하의 기기에 액세스할 수 있는 권한을 가진 다른 사람도 귀하의 활동을 모니터링하는 소프트웨어를 설치할 수 있으며, 이것 또한 비공개 탭으로는 차단하지 못합니다.";
 
 /* Private tab information link */
-"PrivateTabLink" = "비공개 탭에 대해 자세히 알아보십시오.";
+"PrivateTabLink" = "비공개 탭에 대해 자세히 알아보기";
 
 /* Default engine for private search. */
 "PrivateTabSearch" = "비공개 탭";
@@ -977,7 +995,7 @@
 "SyncAddDeviceScan" = "체인 QR 코드 동기화";
 
 /* Sync add device description */
-"SyncAddDeviceScanDescription" = "두 번째 기기에서 설정 패널에 있는 동기화로 이동한 다음 \"동기화 코드 스캔\" 버튼을 탭합니다. 카메라를 사용하여 아래 QR 코드를 스캔합니다.\n\n 이 코드는 일종의 비밀번호로 취급하십시오. 이 코드를 확보한 사람은 귀하의 동기화 데이터를 읽고 변조할 수 있습니다.";
+"SyncAddDeviceScanDescription" = "두 번째 모바일 기기에서 설정 패널에 있는 동기화로 이동한 다음 \"동기화 코드 스캔\" 버튼을 탭합니다. 카메라를 사용하여 아래 QR 코드를 스캔합니다.\n\n 이 코드는 일종의 비밀번호로 취급하십시오. 이 코드를 확보한 사람은 귀하의 동기화 데이터를 읽고 변조할 수 있습니다.";
 
 /* Add device to sync with code words */
 "SyncAddDeviceWords" = "동기화 코드 입력";
@@ -1156,6 +1174,12 @@
 /* Show Brave Browser TOS page from the Privacy section in the settings. */
 "TermsOfUse" = "이용 약관";
 
+/* Text for button to share referral's QR code. */
+"themeQRCodeShareButton" = "공유...";
+
+/* Title for QR popup encouraging users to share the code with their friends. */
+"themeQRCodeShareTitle" = "친구에게 Brave를 공유해주세요!";
+
 /* Selection to automatically color/style the user interface. */
 "ThemesAutomaticOption" = "자동";
 
@@ -1170,6 +1194,9 @@
 
 /* Selection to color/style the user interface with a light theme. */
 "ThemesLightOption" = "밝음";
+
+/* Name for app theme settings */
+"themesSettings" = "테마";
 
 /* History tableview section header */
 "Today" = "오늘";
@@ -1206,6 +1233,9 @@
 
 /* Word count title */
 "WordCount" = "단어 수: %i";
+
+/* Abbreviation for 'Year', use full word' Yeara' if this word can't be shortened in your language */
+"yearAbbreviation" = "년";
 
 /* Button title to confirm the deletion of a bookmarks folder */
 "YesDeleteButtonTitle" = "예, 삭제합니다.";

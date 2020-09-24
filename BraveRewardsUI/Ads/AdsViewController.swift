@@ -33,8 +33,8 @@ public class AdsViewController: UIViewController {
   
   public func display(ad: AdsNotification, handler: @escaping ActionHandler, animatedOut: @escaping () -> Void) {
     let adView = AdView()
-    adView.adContentButton.titleLabel.text = ad.advertiser
-    adView.adContentButton.bodyLabel.text = ad.text
+    adView.adContentButton.titleLabel.text = ad.title
+    adView.adContentButton.bodyLabel.text = ad.body
     
     view.addSubview(adView)
     
@@ -334,11 +334,16 @@ extension AdsViewController {
     let notification = AdsNotification.customAd(
       title: Strings.myFirstAdTitle,
       body: Strings.myFirstAdBody,
-      url: URL(string: "https://brave.com/my-first-ad")!
+      url: "https://brave.com/my-first-ad"
     )
     
+    guard let targetURL = URL(string: notification.targetURL) else {
+      assertionFailure("My First Ad URL is not valid: \(notification.targetURL)")
+      return
+    }
+    
     adsViewController.display(ad: notification, handler: { (notification, action) in
-      completion(action, notification.url)
+      completion(action, targetURL)
     }, animatedOut: {
       adsViewController.view.removeFromSuperview()
     })

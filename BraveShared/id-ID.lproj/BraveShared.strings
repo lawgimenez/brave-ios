@@ -217,6 +217,9 @@
 /* No comment provided by engineer. */
 "CancelButtonTitle" = "Batal";
 
+/* No comment provided by engineer. */
+"ClearData" = "Menghapus data";
+
 /* Button in settings that clears private data for the selected items. Also used as section title in settings panel */
 "ClearPrivateData" = "Hapus Data Pribadi";
 
@@ -293,13 +296,16 @@
 "DDGCalloutEnable" = "Ya";
 
 /* DuckDuckGo message. */
-"DDGCalloutMessage" = "Dengan pencarian pribadi, Brave akan menggunakan DuckDuckGo untuk menjawab pencarian saat Anda berada di tab pribadi ini. DuckDuckGo adalah mesin pencari yang tidak melacak riwayat pencarian, sehingga Anda dapat melakukan pencarian secara pribadi.";
+"DDGCalloutMessage" = "Dengan pencarian pribadi, Brave akan menggunakan DuckDuckGo untuk menjawab pencarian saat Anda berada di Tab Pribadi ini. DuckDuckGo adalah mesin pencari yang tidak melacak riwayat pencarian, sehingga Anda dapat melakukan pencarian secara pribadi.";
 
 /* DuckDuckGo callout no action. */
 "DDGCalloutNo" = "Tidak";
 
 /* DuckDuckGo callout title. */
 "DDGCalloutTitle" = "Lakukan pencarian pribadi dengan DuckDuckGo?";
+
+/* Name for default Brave theme. */
+"defaultThemeName" = "Default Brave";
 
 /* No comment provided by engineer. */
 "Delete" = "Hapus";
@@ -547,6 +553,9 @@
 /* Reveal password text selection menu item */
 "MenuItemRevealPasswordTitle" = "Tampilkan";
 
+/* Abbreviation for 'Month', use full word' Month' if this word can't be shortened in your language */
+"monthAbbreviation" = "bln.";
+
 /* Bookmark title / Device name */
 "Name" = "Nama";
 
@@ -574,71 +583,80 @@
 /* New Tab title */
 "NewTab" = "Tab Baru";
 
-/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
-"NewTabPageSettingsAutoOpenKeyboard" = "Papan Ketik Terbuka Otomatis";
-
-/* A setting to enable or disable background images on the main screen. */
-"NewTabPageSettingsBackgroundImages" = "Tampilkan Gambar Latar Belakang";
-
-/* A setting to enable or disable sponsored images from showing on the main screen. */
-"NewTabPageSettingsSponsoredImages" = "Tampilkan Gambar Sponsor";
-
-/* Title on settings page to adjust the primary home screen functionality. */
-"NewTabPageSettingsTitle" = "Halaman Tab Baru";
-
-/* A button title to show more bookmarks, that opens a new menu. */
-"NewTabPageShowMoreFavorites" = "Tunjukkan Lebih Lanjut";
-
 /* Sync Alert */
 "NotEnoughWordsDescription" = "Masukkan semua kata, lalu coba lagi.";
 
 /* Sync Alert */
 "NotEnoughWordsTitle" = "Kata Tidak Cukup";
 
-/* The placeholder says 'hide sponsored images'. So full sentence goes like: 'You can also choose to hide sponsored images.' */
-"ntp.chooseToHideSponsoredImages" = "Anda juga dapat memilih untuk %@.";
+/* Bookmark title for Brave Support */
+"ntp.braveSupportFavoriteTitle" = "Dukungan Brave";
 
 /* No comment provided by engineer. */
-"ntp.claimRewards" = "Klaim penghargaan saya";
+"ntp.claimRewards" = "Klaim Token";
 
-/* Placeholder example: 'You earned 42 BAT last month from viewing privacy-respecting ads.' */
-"ntp.earningsReport" = "Anda memperoleh %@ bulan lalu dari menonton iklan tentang menghormati kerahasiaan.";
-
-/* No comment provided by engineer. */
-"ntp.earnTokensByViewingAds" = "Dapatkan token dengan menonton iklan tentang menghormati kerahasiaan.";
+/* Placeholder example: 'You earned 42 BAT by browsing with Brave.' */
+"ntp.earningsReport" = "Anda memperoleh %@ dengan menjelajahi dengan Brave.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnAds" = "Dapatkan bayaran dengan melihat gambar latar belakang ini. Putar Iklan Brave untuk mengklaim imbalan Anda.";
+"ntp.getPaidForThisImageTurnAds" = "Dapatkan token dengan melihat gambar ini. Putar Brave Ads untuk mulai mendukung pembuat konten.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnRewards" = "Dapatkan bayaran dengan melihat gambar latar belakang ini. Putar Iklan Brave untuk mengklaim imbalan Anda.";
+"ntp.getPaidForThisImageTurnRewards" = "Dapatkan token dengan melihat gambar ini. Putar Brave Rewards untuk mulai mendukung pembuat konten.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidToSeeThisImage" = "Dapatkan bayaran dengan melihat gambar latar belakang ini.";
+"ntp.getPaidToSeeThisImage" = "Dapatkan token dengan melihat gambar ini.";
 
 /* The context is to praise the user that they did a good job, to keep it up. It is used in full sentence like: 'Way to go! You earned 40 BAT last month.' */
 "ntp.goodJob" = "Berhasil!";
 
-/* This sentence is not capitalized on purpose, it is a part of a bigger sentence which goes like this: 'You can also choose to hide sponsored images.' */
-"ntp.hideSponsoredImages" = "sembunyikan gambar bersponsor";
-
-/* The placeholder says 'Learn more'. So full sentence goes like: 'Learn more about sponsored images in Brave Rewards.' */
-"ntp.learnMoreAboutBrandedImages" = "%@ tentang gambar bersponsor di Brave Reward";
+/* No comment provided by engineer. */
+"ntp.hideSponsoredImages" = "Sembunyikan gambar bersponsor";
 
 /* No comment provided by engineer. */
-"ntp.supportWebCreatorsWithTokens" = "Anda dapat memberi dukungan kepada para pembuat konten dengan menggunakan token.";
+"ntp.learnMoreAboutBrandedImages" = "Saat Anda melihat gambar bersponsor, Anda mendapat token yang dapat digunakan untuk mendukung pembuat konten. Dengan Brave Ads, Anda selalu pegang kendali atas iklan yang Anda lihat.";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutRewards" = "Pelajari lebih lanjut tentang Brave Rewards";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutSI" = "Pelajari lebih lanjut tentang gambar bersponsor";
+
+/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
+"ntp.settingsAutoOpenKeyboard" = "Keyboard Terbuka Otomatis";
+
+/* A setting to enable or disable background images on the main screen. */
+"ntp.settingsBackgroundImages" = "Tampilkan Gambar Latar Belakang";
+
+/* A button that leads to a 'more' menu, letting users configure additional settings. */
+"ntp.settingsBackgroundImageSubMenu" = "Gambar Latar Belakang";
+
+/* A selection to let the users only see a set of predefined, default images on the background of the app. */
+"ntp.settingsDefaultImagesOnly" = "Hanya Gambar Default";
+
+/* A selection to let the users see sponsored image backgrounds when opening a new tab. */
+"ntp.settingsSponsoredImagesSelection" = "Gambar Sponsor";
+
+/* Title on settings page to adjust the primary home screen functionality. */
+"ntp.settingsTitle" = "Halaman Tab Baru";
+
+/* A button title to show more bookmarks, that opens a new menu. */
+"ntp.showMoreFavorites" = "Tampilkan Lainnya";
+
+/* No comment provided by engineer. */
+"ntp.supportWebCreatorsWithTokens" = "Dapatkan token dan beri reward pada pembuat konten atas konten hebat selagi Anda menjelajahi.";
 
 /* No comment provided by engineer. */
 "ntp.turnOnBraveAds" = "Putar Iklan Brave";
 
 /* No comment provided by engineer. */
-"ntp.turnOnBraveRewards" = "Hidupkan Penghargaan";
+"ntp.turnOnBraveRewards" = "Aktifkan Brave Rewards";
 
-/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turnin Rewards, you agree to the Terms of Service'. */
+/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turning Rewards, you agree to the Terms of Service'. */
 "ntp.turnRewardsTos" = "Dengan mengaktifkan Rewards, berarti Anda setuju dengan %@.";
 
 /* No comment provided by engineer. */
-"ntp.youArePaidToSeeThisImage" = "Anda akan mendapatkan bayaran untuk melihat gambar latar belakang ini.";
+"ntp.youArePaidToSeeThisImage" = "Anda mendapatkan token karena melihat gambar ini.";
 
 /* Context menu item for opening all folder bookmarks */
 "OpenAllBookmarks" = "Buka Semua (%i)";
@@ -713,7 +731,7 @@
 "PrivateTabDetails" = "Menggunakan Tab Pribadi hanya akan mengubah fungsi Brave di perangkat Anda, namun tidak mengubah perilaku orang lain.\n\nSitus selalu mengetahui alamat IP Anda saat mengunjunginya. Dari kondisi ini, situs sering kali dapat selalu mengetahui lokasi Anda, terutama kota. Terkadang lokasi yang diketahui dapat lebih spesifik. Situs juga mengetahui semua yang Anda beri tahu secara spesifik seperti istilah pencarian. Jika masuk, situs akan mengetahui bahwa Anda adalah pemilik akun tersebut. Anda tetap akan keluar saat menutup Tab Pribadi karena Brave akan menghapus kuki yang Anda gunakan untuk masuk.\n\nISP mana pun yang menyambungkan Anda ke Internet dapat melihat semua aktivitas jaringan Anda. Sering kali, operator seluler Anda yang melihatnya. Jika Anda tersambung ke jaringan WiFi, maka pemilik jaringan tersebut yang dapat melihat aktivitas jaringan, dan jika Anda menggunakan VPN, maka yang menjalankan VPN tersebut yang dapat melihat aktivitas jaringan. ISP dapat melihat situs yang dikunjungi saat Anda mengunjunginya. Jika situs tersebut menggunakan HTTPS, situs tersebut hanya dapat mengetahui aktivitas Anda di situs tersebut. Namun jika situs hanya menggunakan HTTP, maka ISP dapat melihat semuanya: istilah pencarian Anda, halaman yang dibaca, dan tautan yang diikuti.\n\nJika perusahaan mengelola perangkat Anda, mereka juga dapat melacak aktivitas perangkat Anda. Menggunakan Tab Pribadi mungkin tidak akan menghentikan mereka untuk mengetahui situs yang Anda kunjungi. Orang lain yang memiliki akses ke perangkat Anda juga dapat memasang perangkat lunak yang memantau aktivitas Anda, dan Tab Pribadi tidak akan dapat melindungi Anda dari hal ini.";
 
 /* Private tab information link */
-"PrivateTabLink" = "Pelajari tentang tab pribadi.";
+"PrivateTabLink" = "Pelajari tentang Tab Pribadi.";
 
 /* Default engine for private search. */
 "PrivateTabSearch" = "Tab Pribadi";
@@ -977,7 +995,7 @@
 "SyncAddDeviceScan" = "Sinkronisasikan Kode QR Kelompok";
 
 /* Sync add device description */
-"SyncAddDeviceScanDescription" = "Pada perangkat seluler Anda yang kedua, navigasikan ke Sinkronisasi pada panel Pengaturan dan ketuk tombol \"Pindai Kode Sinkronisasi\". Gunakan kamera Anda untuk memindai kode QR di bawah ini.\n\nPerlakukan kode ini layaknya kata sandi. Jika seseorang mengetahuinya, mereka dapat membaca dan memodifikasi data Anda yang telah tersinkronisasi.";
+"SyncAddDeviceScanDescription" = "Pada perangkat seluler Anda yang kedua, navigasikan ke Sinkronisasi pada panel Pengaturan dan ketuk tombol \"Pindai Kode Sinkronisasi\". Gunakan kamera Anda untuk memindai kode QR di bawah ini.\n\nPerlakukan kode ini layaknya kata sandi. Jika seseorang mengetahuinya, mereka dapat membaca dan mengubah data Anda yang telah disinkronisasi.";
 
 /* Add device to sync with code words */
 "SyncAddDeviceWords" = "Masukkan kode sinkronisasi";
@@ -1156,6 +1174,12 @@
 /* Show Brave Browser TOS page from the Privacy section in the settings. */
 "TermsOfUse" = "Persyaratan Penggunaan";
 
+/* Text for button to share referral's QR code. */
+"themeQRCodeShareButton" = "Bagikan...";
+
+/* Title for QR popup encouraging users to share the code with their friends. */
+"themeQRCodeShareTitle" = "Bagikan Brave dengan teman Anda!";
+
 /* Selection to automatically color/style the user interface. */
 "ThemesAutomaticOption" = "Otomatis";
 
@@ -1170,6 +1194,9 @@
 
 /* Selection to color/style the user interface with a light theme. */
 "ThemesLightOption" = "Terang";
+
+/* Name for app theme settings */
+"themesSettings" = "Tema";
 
 /* History tableview section header */
 "Today" = "Hari Ini";
@@ -1206,6 +1233,9 @@
 
 /* Word count title */
 "WordCount" = "Jumlah kata: %i";
+
+/* Abbreviation for 'Year', use full word' Yeara' if this word can't be shortened in your language */
+"yearAbbreviation" = "th.";
 
 /* Button title to confirm the deletion of a bookmarks folder */
 "YesDeleteButtonTitle" = "Ya, Hapus";

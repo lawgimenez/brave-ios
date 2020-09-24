@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import UIKit
+import BraveUI
 
 enum UserWalletStatus {
   /// The user should not see anything user wallet related. This shows the old
@@ -58,6 +59,7 @@ class WalletHeaderView: UIView {
     $0.textAlignment = .center
     $0.appearanceTextColor = UIColor(white: 1.0, alpha: 0.65)
     $0.font = .systemFont(ofSize: 12.0)
+    $0.isHidden = true
   }
   
   let grantsButton = ActionButton(type: .system).then {

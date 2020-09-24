@@ -1,17 +1,48 @@
+/* The body of the screen explaining Brave Shields
+   The title of the screen explaining Brave Shields */
+"AboutBraveShields" = "Brave Shields 정보";
+
+/* No comment provided by engineer. */
+"BraveShieldsAdvancedControls" = "고급 컨트롤";
+
+/* The number of ads and trackers blocked will be next to this */
+"BraveShieldsBlockedCountLabel" = "광고 등 유쾌하지 않은 콘텐츠 차단 완료";
+
+/* What the screen reader will read out when the user has VoiceOver on and taps on the question-mark info button on the shields panel */
+"BraveShieldsBlockedInfoButtonAccessibilityLabel" = "자세히 알아보기";
+
+/* No comment provided by engineer. */
+"BraveShieldsGlobalChangeButton" = "글로벌 Shields 기본값 변경";
+
+/* No comment provided by engineer. */
+"BraveShieldsGlobalControls" = "글로벌 컨트롤";
+
+/* No comment provided by engineer. */
+"BraveShieldsSiteBroken" = "사이트가 깨진 것으로 표시되면 Shields 해제 권장";
+
+/* Context: 'Brave Shields Up' or 'Brave Shields Down' */
+"BraveShieldsStatusTitle" = "Brave Shields";
+
+/* Context: The 'Down' in 'Brave Shields Down' */
+"BraveShieldsStatusValueDown" = "해제";
+
+/* Context: The 'Up' in 'Brave Shields Up' */
+"BraveShieldsStatusValueUp" = "사용";
+
 /* The body of the notification that goes out monthly to users who can claim an ads grant */
-"MonthlyAdsClaimNotificationBody" = "Brave에서 본 광고에 대한 리워드를 받으실 시간입니다.";
+"MonthlyAdsClaimNotificationBody" = "무료 토큰을 받으려면 탭하세요.";
 
 /* The title of the notification that goes out monthly to users who can claim an ads grant */
-"MonthlyAdsClaimNotificationTitle" = "Brave Ads 리워드 받기";
+"MonthlyAdsClaimNotificationTitle" = "Brave Rewards 💵🎁";
 
 /* For search suggestions prompt. This string should be short so it fits nicely on the prompt row. */
 "No" = "아니요";
 
 /* Message when opting into brave Ads when region becomes available */
-"OBAdsOptInMessage" = "프라이버시 보호 광고를 보고 토큰을 받으세요.";
+"OBAdsOptInMessage" = "브라우징하면서 토큰을 얻어 좋은 콘텐츠를 만들어준 제작자에게 보답하세요.";
 
 /* Message when opting into brave Ads when region becomes available */
-"OBAdsOptInMessageJapan" = "프라이버시 보호 광고를 보고 포인트를 받으세요.";
+"OBAdsOptInMessageJapan" = "브라우징하면서 포인트를 얻어 좋은 콘텐츠를 만들어준 제작자에게 보답하세요.";
 
 /* Title when opting into brave Ads when region becomes available */
 "OBAdsOptInTitle" = "Brave Ads 이용 가능!";
@@ -40,6 +71,21 @@
 /* Button to join Brave Rewards. */
 "OBJoinButton" = "가입";
 
+/* No comment provided by engineer. */
+"OBPrivacyConsentClipboardPermission" = "Brave가 내 클립보드에서 일치하는 추천 코드를 확인할 수 있도록 허용";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentDetail" = "추천인에게 도움이 되시려고 Brave를 다운로드하신 것 같습니다. 귀하의 추천인을 확인하려는 목적으로 Brave가 귀하의 클립보드에서 일치하는 추천 코드 일회성 확인을 수행합니다. 이 확인은 코드 확인 목적으로만 사용되며 어떤 개인 데이터도 전송되지 않습니다. 거부하시면 Brave에서 제공하는 리워드를 추천인에게 보내드릴 수 없습니다.";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentNoButton" = "확인 허용하지 않음";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentTitle" = "익명 추천 코드 확인";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentYesButton" = "일회성 클립보드 확인 허용";
+
 /* Detail text for rewards agreement onboarding screen */
 "OBRewardsAgreementDetail" = "Rewards를 켜면 다음에 동의하는 것으로 간주됩니다.";
 
@@ -50,10 +96,10 @@
 "OBRewardsAgreementTitle" = "Brave Rewards";
 
 /* Detail text for rewards onboarding screen */
-"OBRewardsDetailInAdRegion" = "프라이버시 보호 광고를 보고 토큰을 받으세요. 이를 사용하여 좋아하는 사이트와 제작자를 후원하세요.";
+"OBRewardsDetailInAdRegion" = "브라우징하면서 토큰을 얻어 좋은 콘텐츠를 만들어준 제작자에게 보답하세요.";
 
 /* Detail text for rewards onboarding screen */
-"OBRewardsDetailInAdRegionJapan" = "프라이버시 보호 광고를 보고 포인트를 받으세요. 이를 사용하여 좋아하는 사이트와 제작자를 후원하세요.";
+"OBRewardsDetailInAdRegionJapan" = "브라우징하면서 포인트를 얻어 좋은 콘텐츠를 만들어준 제작자에게 보답하세요.";
 
 /* Detail text for rewards onboarding screen */
 "OBRewardsDetailOutsideAdRegion" = "관심도를 기반으로 좋아하는 웹사이트와 제작자를 후원하세요.";
@@ -88,11 +134,242 @@
 /* Skip button to skip onboarding and start using the app. */
 "OnboardingSkipButton" = "건너뛰기";
 
+/* Description for closing a popover menu that is displayed. */
+"PopoverDefaultClose" = "맥락 메뉴 닫기";
+
+/* Description for closing the `Brave Shields` popover menu that is displayed. */
+"PopoverShieldsMenuClose" = "Shields 메뉴 닫기";
+
+/* No comment provided by engineer. */
+"ReportABrokenSite" = "깨진 사이트 신고";
+
 /* Name of folder where restored bookmarks are retrieved */
 "RestoredBookmarksFolderName" = "복원된 북마크";
 
 /* Name of folder where restored favorites are retrieved */
 "RestoredFavoritesFolderName" = "복원된 즐겨찾기";
+
+/* No comment provided by engineer. */
+"RewardsInternalsAmount" = "금액";
+
+/* No comment provided by engineer. */
+"RewardsInternalsAnonymous" = "익명";
+
+/* No comment provided by engineer. */
+"RewardsInternalsBalanceInfoHeader" = "잔액 정보";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClaimedAt" = "받은 시각";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClaimID" = "받기 ID";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClearLogsConfirmation" = "모든 Rewards 로그를 지우시겠습니까?";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClearLogsTitle" = "로그 지우기";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionAmount" = "후원 금액";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorBraveTokens" = "Brave 토큰";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorNone" = "없음";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorUphold" = "Uphold";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorUserFunds" = "사용자 잔액";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepACOff" = "자동 후원 끔";
+
+/* 'AC' refers to Auto-Contribute */
+"RewardsInternalsContributionsStepACTableEmpty" = "자동 후원 테이블 비어 있음";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepCompleted" = "완료됨";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepCreds" = "인증 정보";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepExternalTransaction" = "외부 거래";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepFailed" = "실패";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepNotEnoughFunds" = "잔액 부족";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepPrepare" = "준비";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepReserve" = "보류";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepRewardsOff" = "Rewards 끔";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepStart" = "시작";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsTitle" = "후원";
+
+/* No comment provided by engineer. */
+"RewardsInternalsCreatedAt" = "만든 시각";
+
+/* No comment provided by engineer. */
+"RewardsInternalsDeviceInfoHeader" = "기기 정보";
+
+/* No comment provided by engineer. */
+"RewardsInternalsEnrolled" = "등록됨";
+
+/* No comment provided by engineer. */
+"RewardsInternalsEnrollmentState" = "등록 상태";
+
+/* No comment provided by engineer. */
+"RewardsInternalsExpiresAt" = "만료 시각";
+
+/* No comment provided by engineer. */
+"RewardsInternalsInvalid" = "유효하지 않음";
+
+/* No comment provided by engineer. */
+"RewardsInternalsKeyInfoSeed" = "핵심 정보 시드";
+
+/* No comment provided by engineer. */
+"RewardsInternalsLegacyPromotion" = "레거시 프로모션";
+
+/* %d will be the number of logs currently being shown, i.e. '10 logs shown' */
+"RewardsInternalsLogsCount" = "로그 %d개 표시됨 ";
+
+/* No comment provided by engineer. */
+"RewardsInternalsLogsTitle" = "로그";
+
+/* No comment provided by engineer. */
+"RewardsInternalsNotEnrolled" = "등록되지 않음";
+
+/* No comment provided by engineer. */
+"RewardsInternalsNotSupported" = "지원되지 않음";
+
+/* No comment provided by engineer. */
+"RewardsInternalsProcessor" = "처리자";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusActive" = "활성";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusAttested" = "인증됨";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusCorrupted" = "손상됨";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusFinished" = "완료됨";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusOver" = "종료됨";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionsTitle" = "프로모션";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPublisher" = "게시자";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPublishers" = "게시자";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRetryCount" = "재시도 횟수";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRewardsTypeAutoContribute" = "자동 후원";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRewardsTypeOneTimeTip" = "일회성 팁";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRewardsTypeRecurringTip" = "정기 팁";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableBasicDescription" = "월렛, 기기, 잔액 정보(항상 공유됨)";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableBasicTitle" = "기본 정보";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableContributionsDescription" = "팁 또는 자동 후원을 통해 게시자에게 제공한 모든 후원";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableDatabaseDescription" = "내부 데이터 저장소";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableDatabaseTitle" = "Rewards 데이터베이스";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableLogsDescription" = "Rewards 특정 로깅";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharablePromotionsDescription" = "받았거나 광고 또는 무료 지급에서 대기 중인 모든 BAT 프로모션";
+
+/* No comment provided by engineer. */
+"RewardsInternalsShare" = "공유";
+
+/* 'Rewards' as in 'Brave Rewards' */
+"RewardsInternalsShareInternalsTitle" = "Rewards 내부 공유";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharingWarningMessage" = "이 페이지의 데이터는 민감할 수 있습니다. 월렛의 비공개 키와 같이 취급하세요. 다른 사람과 공유할 때는 특히 주의하시기 바랍니다.";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharingWarningTitle" = "경고";
+
+/* No comment provided by engineer. */
+"RewardsInternalsStatus" = "상태";
+
+/* i.e. 'Step: Started' */
+"RewardsInternalsStep" = "단계";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSupported" = "지원됨";
+
+/* 'Rewards' as in 'Brave Rewards' */
+"RewardsInternalsTitle" = "Rewards 내부";
+
+/* No comment provided by engineer. */
+"RewardsInternalsTotalAmount" = "총액";
+
+/* No comment provided by engineer. */
+"RewardsInternalsTotalBalance" = "총 잔액";
+
+/* No comment provided by engineer. */
+"RewardsInternalsType" = "유형";
+
+/* No comment provided by engineer. */
+"RewardsInternalsValid" = "유효함";
+
+/* No comment provided by engineer. */
+"RewardsInternalsVersion" = "버전";
+
+/* No comment provided by engineer. */
+"RewardsInternalsWalletCreationDate" = "월렛 생성 날짜";
+
+/* No comment provided by engineer. */
+"RewardsInternalsWalletInfoHeader" = "월렛 정보";
+
+/* No comment provided by engineer. */
+"RewardsInternalsWalletPaymentID" = "월렛 결제 ID";
+
+/* No comment provided by engineer. */
+"ShieldsDownDisclaimer" = "Brave의 개인정보 보호 없이 이 사이트를 브라우징하고 계십니다. Shields 사용 시 제대로 작동하지 않나요?";
+
+/* Text that informs a user about Brave Sync service deprecation. */
+"sync.syncV1DeprecationText" = "새로운 Brave Sync가 출시되어 설정에 적용될 예정입니다. 곧 업그레이드됩니다.";
 
 /* Prompt shown before enabling provider search queries */
 "Turn on search suggestions?" = "추천 검색어를 사용하시겠습니까?";
@@ -114,6 +391,243 @@
 
 /* No comment provided by engineer. */
 "UserWalletGenericErrorTitle" = "문제가 발생했습니다.";
+
+/* Button text to buy Brave VPN */
+"vpn.buyButton" = "구매";
+
+/* Title for screen to buy the VPN. */
+"vpn.buyVPNTitle" = "Brave Firewall + VPN";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxBlockAds" = "원치 않는 네트워크 연결 차단";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxEncryption" = "IKEv2 보안 암호화 VPN 터널 사용";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxFast" = "최대 100Mbps의 속도 지원";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxNoIPLog" = "익명 온라인 상태 유지";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxNoSellout" = "사용자 정보 공유 또는 판매 절대 없음";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxProtectConnections" = "원치 않는 연결로부터 보호";
+
+/* AppStore Receipt field for customer support contact form. */
+"vpn.contactFormAppStoreReceipt" = "App Store 영수증";
+
+/* App Version field for customer support contact form. */
+"vpn.contactFormAppVersion" = "앱 버전";
+
+/* Cellular Carrier field for customer support contact form. */
+"vpn.contactFormCarrier" = "이동통신사";
+
+/* Text to tell user to not modify support info below email's body. */
+"vpn.contactFormDoNotEditText" = "아래 정보는 어떤 것도 편집하지 마세요.";
+
+/* Footer for customer support contact form. */
+"vpn.contactFormFooter" = "공유해도 괜찮은 정보를 선택하세요.\n\n초기에 공유해주시는 정보가 많을수록 지원 담당 직원이 문제를 해결해드리기 쉬워집니다.";
+
+/* Footer for customer support contact form. */
+"vpn.contactFormFooterSharedWithGuardian" = "지원은 Guardian 팀의 도움을 받아 제공됩니다.";
+
+/* VPN Hostname field for customer support contact form. */
+"vpn.contactFormHostname" = "VPN 호스트 이름";
+
+/* Specific issue field for customer support contact form. */
+"vpn.contactFormIssue" = "문제";
+
+/* Connection problems for contact form issue field. */
+"vpn.contactFormIssueConnectionReliability" = "연결 안정성 문제";
+
+/* No internet problem for contact form issue field. */
+"vpn.contactFormIssueNoInternet" = "인터넷에 연결되지 않음";
+
+/* Other problem for contact form issue field. */
+"vpn.contactFormIssueOther" = "기타";
+
+/* Other connection problem for contact form issue field. */
+"vpn.contactFormIssueOtherConnectionError" = "VPN에 연결할 수 없음(기타 오류)";
+
+/* Slow connection problem for contact form issue field. */
+"vpn.contactFormIssueSlowConnection" = "연결 속도가 느림";
+
+/* Website problem for contact form issue field. */
+"vpn.contactFormIssueWebsiteProblems" = "웹사이트가 작동하지 않음";
+
+/* Network Type field for customer support contact form. */
+"vpn.contactFormNetworkType" = "네트워크 유형";
+
+/* Button name to send contact form. */
+"vpn.contactFormSendButton" = "보내기";
+
+/* Subscription Type field for customer support contact form. */
+"vpn.contactFormSubscriptionType" = "구독 유형";
+
+/* iOS Timezone field for customer support contact form. */
+"vpn.contactFormTimezone" = "iOS 시간대";
+
+/* Title for contact form email. */
+"vpn.contactFormTitle" = "Brave Firewall + VPN 문제";
+
+/* Button text to enable Brave VPN */
+"vpn.enableButton" = "활성화";
+
+/* Message for an alert when the VPN can't get prices from the App Store */
+"vpn.errorCantGetPricesBody" = "App Store에 연결할 수 없습니다. 몇 분 후에 다시 시도해주세요.";
+
+/* Title for an alert when the VPN can't get prices from the App Store */
+"vpn.errorCantGetPricesTitle" = "App Store 오류";
+
+/* No comment provided by engineer. */
+"vpn.freeTrial" = "모든 플랜을 7일간 무료로 체험해볼 수 있습니다!";
+
+/* Disclaimer about free trial */
+"vpn.freeTrialDisclaimer" = "7일간 무료로 체험하세요. 7일이 지나면 플랜의 가격이 청구됩니다.";
+
+/* Disclaimer about in app subscription */
+"vpn.iapDisclaimer" = "모든 구독은 자동 갱신되지만, 갱신 전 취소할 수 있습니다.";
+
+/* Text explaining how the VPN works. */
+"vpn.installProfileBody" = "이 프로필을 사용하여 VPN을 자동으로 연결하고 항상 디바이스 간 트래픽을 안전하게 보호합니다. VPN 연결은 암호화되고 Brave의 지능적인 방화벽을 통해 라우팅되어 유해하거나 침입 가능성이 있는 연결을 차단합니다.";
+
+/* Text for 'install vpn profile' button */
+"vpn.installProfileButtonText" = "VPN 프로필 설치";
+
+/* No comment provided by engineer. */
+"vpn.installProfileTitle" = "Brave에 VPN 프로필이 설치됩니다.";
+
+/* Popup that shows after user installs the vpn for the first time. */
+"vpn.installSuccessPopup" = "VPN이 활성화되었습니다.";
+
+/* Title for screen to install the VPN. */
+"vpn.installTitle" = "VPN 설치";
+
+/* Used in context: 'Monthly subscription, (it) renews monthly' */
+"vpn.monthlySubDetail" = "매월 갱신";
+
+/* No comment provided by engineer. */
+"vpn.monthlySubTitle" = "월간 구독";
+
+/* Text to show user when their vpn plan has expired */
+"vpn.planExpired" = "만료됨";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.popupCheckmark247Support" = "연중무휴 지원";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.popupCheckmarkSecureConnections" = "모든 연결 안전하게 보호";
+
+/* It is used in context: 'Powered by BRAND_NAME' */
+"vpn.poweredBy" = "제공:";
+
+/* Message to show when vpn configuration reset fails. */
+"vpn.resetVPNErrorBody" = "VPN 구성을 재설정하지 못했습니다. 나중에 다시 시도하세요.";
+
+/* Title for error message when vpn configuration reset fails. */
+"vpn.resetVPNErrorTitle" = "오류";
+
+/* No comment provided by engineer. */
+"vpn.restorePurchases" = "복원";
+
+/* No comment provided by engineer. */
+"vpn.settingHeaderBody" = "연결을 보호하고 침입성 트래커를 차단합니다.";
+
+/* Button to contact tech support */
+"vpn.settingsContactSupport" = "기술 지원에 문의";
+
+/* Button for FAQ */
+"vpn.settingsFAQ" = "VPN 지원";
+
+/* Button to manage your VPN subscription */
+"vpn.settingsManageSubscription" = "구독 관리";
+
+/* Button to reset VPN configuration */
+"vpn.settingsResetConfiguration" = "구성 재설정";
+
+/* Table cell title for vpn's server host */
+"vpn.settingsServerHost" = "호스트";
+
+/* Table cell title for vpn's server location */
+"vpn.settingsServerLocation" = "위치";
+
+/* Header title for vpn settings server section. */
+"vpn.settingsServerSection" = "서버";
+
+/* Table cell title for cell that shows when the VPN subscription expires. */
+"vpn.settingsSubscriptionExpiration" = "만료";
+
+/* Header title for vpn settings subscription section. */
+"vpn.settingsSubscriptionSection" = "구독";
+
+/* Table cell title for status of current VPN subscription. */
+"vpn.settingsSubscriptionStatus" = "상태";
+
+/* Whether the VPN is enabled or not */
+"vpn.settingsVPNDisabled" = "비활성화됨";
+
+/* Whether the VPN is enabled or not */
+"vpn.settingsVPNEnabled" = "활성화됨";
+
+/* Whether the VPN plan has expired */
+"vpn.settingsVPNExpired" = "만료됨";
+
+/* Notification title to tell user that the vpn is turned on even in background */
+"vpn.vpnBackgroundNotificationBody" = "Brave는 백그라운드에서도 계속 사용자를 보호해줍니다.";
+
+/* Notification title to tell user that the vpn is turned on even in background */
+"vpn.vpnBackgroundNotificationTitle" = "Brave Firewall + VPN 켜짐";
+
+/* Message for an alert when the VPN can't be configured. */
+"vpn.vpnConfigGenericErrorBody" = "VPN을 초기화하는 중에 문제가 발생했습니다. 다시 시도하거나 VPN 설정 페이지에서 구성을 초기화해 보세요.";
+
+/* Title for an alert when the VPN can't be configured */
+"vpn.vpnConfigGenericErrorTitle" = "오류";
+
+/* Title for an alert when the user didn't allow to install VPN profile */
+"vpn.vpnConfigPermissionDeniedErrorBody" = "Brave Firewall + VPN이 동작하려면 디바이스에 VPN 프로필이 설치되어 있어야 합니다.";
+
+/* Title for an alert when the user didn't allow to install VPN profile */
+"vpn.vpnConfigPermissionDeniedErrorTitle" = "권한 거부됨";
+
+/* Message for error when VPN could not be purchased. */
+"vpn.vpnErrorPurchaseFailedBody" = "구매를 완료할 수 없습니다. 다시 시도하거나 Apple에서 결제 세부 정보를 확인하고 다시 시도하세요.";
+
+/* Title for error when VPN could not be purchased. */
+"vpn.vpnErrorPurchaseFailedTitle" = "오류";
+
+/* Disclaimer for user purchasing the VPN plan. */
+"vpn.vpnIAPBoilerPlate" = "구독 대금은 iTunes 계정을 통해 청구됩니다.\n\n구독을 구매하면 무료 평가판에서 미사용된 부분은 포기한 것으로 간주합니다.\n\n현재 구독 기간 종료 24시간 전에 취소하지 않으면 구독이 자동으로 갱신됩니다.\n\n구매 후 설정에서 구독을 관리할 수 있습니다.\n\nBrave를 사용하면 이용 약관 및 개인정보 취급방침을 읽고 이에 동의한 것으로 간주됩니다.";
+
+/* Title Brave VPN menu item. */
+"vpn.vpnMenuItemTitle" = "Brave VPN";
+
+/* Message for alert to reset vpn configuration */
+"vpn.vpnResetAlertBody" = "Brave Firewall + VPN 구성이 재설정되고 모든 오류가 정정됩니다. 이 프로세스는 1분 정도 소요됩니다.";
+
+/* Title for alert to reset vpn configuration */
+"vpn.vpnResetAlertTitle" = "구성 재설정";
+
+/* Button name to reset vpn configuration */
+"vpn.vpnResetButton" = "재설정";
+
+/* Name of monthly subscription in VPN Settings */
+"vpn.vpnSettingsMonthlySubName" = "월간 구독";
+
+/* Name of annual subscription in VPN Settings */
+"vpn.vpnSettingsYearlySubName" = "연간 구독";
+
+/* Used in context: 'yearly subscription, renew annually (to) save 16%'. The placeholder is for percent value */
+"vpn.yearlySubDetail" = "연간 갱신 시 %@ 할인";
+
+/* It's like when there's few subscription plans, and one plan has the best value to price ratio, so this label says next to that plan: '(plan) - Best value' */
+"vpn.yearlySubDisclaimer" = "최고의 가치";
+
+/* One year lenght vpn subcription */
+"vpn.yearlySubTitle" = "1년";
 
 /* For search suggestions prompt. This string should be short so it fits nicely on the prompt row. */
 "Yes" = "예";

@@ -62,6 +62,18 @@
 "BraveRewardsAdsPayoutDateFormat" = "MMM d";
 
 /* No comment provided by engineer. */
+"BraveRewardsAdsSubdivisionTargeting" = "Penyasaran iklan tahap negeri";
+
+/* No comment provided by engineer. */
+"BraveRewardsAdsSubdivisionTargetingAutoDetect" = "Kesan auto";
+
+/* No comment provided by engineer. */
+"BraveRewardsAdsSubdivisionTargetingDisable" = "Nyahdayakan";
+
+/* No comment provided by engineer. */
+"BraveRewardsAdsSubdivisionTargetingDisabled" = "Dinyahdayakan";
+
+/* No comment provided by engineer. */
 "BraveRewardsAdsUnsupportedDvice" = " Brave Rewards dan Iklan tidak tersedia pada peranti anda pada masa ini.";
 
 /* No comment provided by engineer. */
@@ -104,7 +116,7 @@
 "BraveRewardsAutoContributeSupportedSites" = "Tapak yang disokong";
 
 /* No comment provided by engineer. */
-"BraveRewardsAutoContributeToUnverifiedSites" = "Benarkan sumbangan kepada tapak yang tidak disahkan";
+"BraveRewardsAutoContributeToUnverifiedSites" = "Tunjukkan tapak-tapak yang tidak disahkan dalam senarai";
 
 /* No comment provided by engineer. */
 "BraveRewardsAutoContributeToVideos" = "Benarkan sumbangan kepada video";
@@ -311,10 +323,10 @@
 "BraveRewardsSettings" = "Tetapan";
 
 /* No comment provided by engineer. */
-"BraveRewardsSettingsAdsBody" = "Dapatkan token dengan melihat iklan di Brave. Iklan dipaparkan berdasarkan minat anda, seperti yang disimpulkan daripada tingkah laku pelayaran anda. Tiada data peribadi atau sejarah pelayaran yang akan meninggalkan pelayar anda.";
+"BraveRewardsSettingsAdsBody" = "Hidupkan Brave Ads dan mula dapatkan token yang anda boleh gunakan untuk menyokong pencipta kegemaran anda! Iklan kecil yang menjaga privasi akan muncul di bahagian atas pelayar semasa anda menyemak lalu.";
 
 /* No comment provided by engineer. */
-"BraveRewardsSettingsAdsBodyJapan" = "Dapatkan poin dengan melihat iklan di Brave. Iklan dipaparkan berdasarkan minat anda, seperti yang disimpulkan daripada tingkah laku pelayaran anda. Tiada data peribadi atau sejarah pelayaran yang akan meninggalkan pelayar anda.";
+"BraveRewardsSettingsAdsBodyJapan" = "Hidupkan Brave Ads dan mula dapatkan mata yang anda boleh gunakan untuk menyokong pencipta kegemaran anda! Iklan kecil yang menjaga privasi akan muncul di bahagian atas pelayar semasa anda menyemak lalu.";
 
 /* No comment provided by engineer. */
 "BraveRewardsSettingsAdsComingSoonText" = "Akan datang.";
@@ -338,10 +350,10 @@
 "BraveRewardsSettingsAutoContributeUpToValue" = "Sehingga %@";
 
 /* No comment provided by engineer. */
-"BraveRewardsSettingsDisabledBody1" = "Dengan pelayar lama anda, anda membayar untuk melayari web dengan melihat iklan menggunakan perhatian berharga anda. Anda menghabiskan masa berharga anda untuk memuat turun teknologi iklan invasif yang menghantar data peribadi berharga anda kepada pengiklan - tanpa persetujuan anda.";
+"BraveRewardsSettingsDisabledBody1" = "Kerana pencipta memerlukan sokongan anda dan Brave menjadikannya percuma sepenuhnya. Kini anda boleh mengumpulkan token semasa anda menyemak lalu dan memberikannya kembali kepada pencipta yang anda gemari.";
 
 /* No comment provided by engineer. */
-"BraveRewardsSettingsDisabledBody2" = "Satu tapak yang menghargai masa anda, menyimpan data peribadi anda secara rahsia dan anda dibayar untuk perhatian anda.";
+"BraveRewardsSettingsDisabledBody2" = "Tapak yang menghargai masa anda, menyimpan data peribadi anda secara rahsia dan anda merasa gembira kerana menyokong pencipta kandungan.";
 
 /* No comment provided by engineer. */
 "BraveRewardsSettingsDisabledTitle1" = "Mengapa Brave Rewards?";
@@ -416,7 +428,7 @@
 "BraveRewardsTippingOneTimeTitle" = "Anda baru sahaja menghantar tip kepada:";
 
 /* No comment provided by engineer. */
-"BraveRewardsTippingOverviewBody" = "Anda boleh menyokong pencipta kandungan ini dengan menghantar tip. Ia adalah satu cara untuk mengucapkan terima kasih kepada mereka kerana membuat kandungan yang hebat. Pencipta yang disahkan mendapat bayaran tip mereka pada minggu pertama setiap bulan kalendar.\n\nJika anda suka, anda boleh menjadualkan tip bulanan untuk menyokong pencipta ini secara berterusan.";
+"BraveRewardsTippingOverviewBody" = "Anda boleh menyokong pencipta kandungan ini dengan menghantar kepada mereka beberapa token. Ia adalah satu cara untuk mengucapkan terima kasih kepada mereka kerana membuat kandungan yang hebat.\n\nJika anda suka, anda boleh menjadualkan sumbangan bulanan untuk menyokong pencipta ini secara berterusan.";
 
 /* No comment provided by engineer. */
 "BraveRewardsTippingOverviewTitle" = "Selamat datang!";
@@ -437,7 +449,7 @@
 "BraveRewardsTippingTitle" = "Hantar tip";
 
 /* No comment provided by engineer. */
-"BraveRewardsTippingUnverifiedDisclaimer" = "NOTA: Pencipta ini masih belum mendaftar lagi untuk menerima sumbangan daripada pengguna Brave. Pelayar anda akan terus cuba menyumbang sehingga mereka mengesahkan atau sehingga 90 hari telah berlalu.";
+"BraveRewardsTippingUnverifiedDisclaimer" = "NOTA: Pencipta ini masih belum mendaftar lagi untuk menerima token daripada pengguna Brave. Pelayar anda akan terus cuba menyumbang sehingga mereka mengesahkan atau sehingga 90 hari telah berlalu.";
 
 /* No comment provided by engineer. */
 "BraveRewardsTippingWalletBalanceTitle" = "baki dompet";
@@ -464,7 +476,7 @@
 "BraveRewardsTwoAdsPerHour" = "2 iklan sejam";
 
 /* No comment provided by engineer. */
-"BraveRewardsUnverifiedPublisherDisclaimer" = "Pencipta ini masih belum mendaftar lagi untuk menerima sumbangan daripada pengguna Brave. Apa-apa tip yang anda hantar akan kekal dalam dompet anda sehingga mereka mengesahkan.";
+"BraveRewardsUnverifiedPublisherDisclaimer" = "Pencipta ini masih belum mendaftar lagi untuk menerima token daripada pengguna Brave. Apa-apa token yang anda hantar akan kekal dalam dompet anda sehingga mereka mengesahkan.";
 
 /* No comment provided by engineer. */
 "BraveRewardsVerified" = "Pencipta Brave Disahkan";
@@ -499,6 +511,12 @@
 /* Message that is displayed when user disables auto-contribute */
 "DisabledAutoContributeMessage" = "Beri ganjaran kepada pencipta untuk kandungan yang anda suka. Pembayaran bulanan anda akan diedarkan di seluruh tapak yang anda lawati.";
 
+/* Message that is displayed on monthly contribution section when user disables rewards */
+"DisabledMonthlyContributionMessage" = "Sumbangan bulanan anda akan dihantar setiap 30 hari.";
+
+/* Message that is displayed on tips section when user disables rewards */
+"DisabledTipsMessage" = "Berikan tip terus apabila anda terjumpa permata. Jika anda suka, beritahu orang lain dengan tweet.";
+
 /* No comment provided by engineer. */
 "DisclaimerInformation" = "Dengan mengklik 'Sertai Ganjaran', anda menunjukkan bahawa anda telah membaca dan bersetuju dengan Syarat Perkhidmatan dan Dasar Privasi.";
 
@@ -513,6 +531,12 @@
 
 /* The title of the screen that shows a list of excluded sites for Auto-Contribute */
 "ExclusionListTitle" = "Tapak dikecualikan";
+
+/* No comment provided by engineer. */
+"LedgerDatabaseMigrationFailedBody" = "Terdapat sedikit masalah dalam memuat maklumat Rewards anda. Butiran aktiviti ganjaran anda akan dimulakan semula.\n\nSila hubungi support@brave.com untuk sebarang isu atau kemusykilan";
+
+/* No comment provided by engineer. */
+"LedgerInitializationFailedTitle" = "Harap maaf, terdapat sedikit masalah...";
 
 /* No comment provided by engineer. */
 "MyFirstAdBody" = "Ketik di sini untuk mengetahui lebih lanjut.";
@@ -545,7 +569,7 @@
 "NotificationContributeTipError" = "Tidak dapat menghantar tip anda. Sila cuba sebentar lagi.";
 
 /* Panel notification text for Ads grant */
-"NotificationEarningsClaimDefault" = "Ganjaran anda daripada Iklan terdapat di sini!";
+"NotificationEarningsClaimDefault" = "Token baharu sedia untuk dituntut.";
 
 /* Title for an error notification */
 "NotificationErrorTitle" = "Uh oh!";
@@ -608,10 +632,10 @@
 "RecurringText" = "Berulang";
 
 /* No comment provided by engineer. */
-"RewardsOptInDescription" = "Anda kini boleh mendapat token kerana menonton iklan yang menghormati privasi.";
+"RewardsOptInDescription" = "Dapatkan token dan beri ganjaran kepada pencipta untuk kandungan hebat sambil anda menyemak lalu";
 
 /* No comment provided by engineer. */
-"RewardsOptInDescriptionJapan" = "Anda kini boleh mendapat poin kerana menonton iklan yang menghormati privasi.";
+"RewardsOptInDescriptionJapan" = "Dapatkan mata dan beri ganjaran kepada pencipta untuk kandungan hebat sambil anda menyemak lalu";
 
 /* No comment provided by engineer. */
 "RewardsOptInJoinTitle" = "Sertai Ganjaran";
@@ -621,6 +645,51 @@
 
 /* No comment provided by engineer. */
 "RewardsOptInPrefix" = "Bersedia untuk mengalami Internet seterusnya.";
+
+/* No comment provided by engineer. */
+"SKUEnableRewardsBody" = "Untuk membeli item ini, anda perlu memperoleh token. Hidupkan Brave Rewards untuk memperoleh token anda.";
+
+/* No comment provided by engineer. */
+"SKUEnableRewardsButtonTitle" = "Dayakan Brave Rewards";
+
+/* No comment provided by engineer. */
+"SKUEnableRewardsDisclaimer" = "Dengan mengetik Dayakan Brave Rewards, anda bersetuju dengan Terma Perkhidmatan Brave Rewards.";
+
+/* The hyperlinked portion of the copy: 'By tapping Enable Brave Rewards, you agree to Brave Reward’s Terms of Service.' */
+"SKUEnableRewardsDisclaimerLink" = "Terma Perkhidmatan";
+
+/* No comment provided by engineer. */
+"SKUEnableRewardsTitle" = "Dayakan Brave Rewards untuk Teruskan.";
+
+/* '%@' becomes 'BAT' or 'BAP' based on region */
+"SKUPurchaseBuyWithBAT" = "Beli dengan %@";
+
+/* No comment provided by engineer. */
+"SKUPurchaseCompletedBody" = "Nikmati pembelian anda.";
+
+/* No comment provided by engineer. */
+"SKUPurchaseCompletedTitle" = "Anda sudah bersedia!";
+
+/* First '%@' becomes 'Buy with BAT' or 'Buy with BAP' based on region. Second '%@' becomes 'Brave’s Terms of Sale' */
+"SKUPurchaseDisclaimerInformation" = "Dengan mengklik '%1$@', anda bersetuju dengan %2$@.";
+
+/* Should be the same text as shown */
+"SKUPurchaseDisclaimerInformationLink" = "Terma Jualan Brave";
+
+/* '%@' becomes 'BAT' or 'BAP' based on region' */
+"SKUPurchaseInsufficientFunds" = "Anda tidak mempunyai %@ yang mencukupi untuk membuat pembelian ini.";
+
+/* No comment provided by engineer. */
+"SKUPurchaseItemSelected" = "Item Terpilih";
+
+/* No comment provided by engineer. */
+"SKUPurchaseOrderTotal" = "Jumlah Pesanan";
+
+/* No comment provided by engineer. */
+"SKUPurchaseProcessing" = "Pembayaran anda sedang diproses…";
+
+/* No comment provided by engineer. */
+"SKUPurchaseTitle" = "Sahkan Pembelian";
 
 /* No comment provided by engineer. */
 "TermsOfServiceURL" = "Syarat Perkhidmatan";

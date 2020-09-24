@@ -37,6 +37,8 @@
 			<string>com.brave.ios</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>http</string>
+				<string>https</string>
 				<string>brave</string>
 			</array>
 		</dict>
@@ -86,8 +88,6 @@
 	<string>This lets you take and upload videos.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This lets you save photos.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This lets you save and upload photos.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>org.mozilla.ios.firefox.browsing</string>
@@ -110,7 +110,6 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>audio</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

@@ -86,9 +86,9 @@ class TopToolbarView: UIView, ToolbarProtocol {
         }
     }
     
-    var contentIsSecure: Bool {
-        get { return locationView.contentIsSecure }
-        set { locationView.contentIsSecure = newValue }
+    var secureContentState: TabSecureContentState {
+        get { return locationView.secureContentState }
+        set { locationView.secureContentState = newValue }
     }
     
     // MARK: - Views
@@ -166,12 +166,18 @@ class TopToolbarView: UIView, ToolbarProtocol {
     func refreshShieldsStatus() {
         // Default on
         var shieldIcon = "shields-menu-icon"
+        let shieldsOffIcon = "shields-off-menu-icon"
         if let currentURL = currentURL {
             let isPrivateBrowsing = PrivateBrowsingManager.shared.isPrivateBrowsing
             let domain = Domain.getOrCreate(forUrl: currentURL, persistent: !isPrivateBrowsing)
             if domain.shield_allOff == 1 {
-                shieldIcon = "shields-off-menu-icon"
+                shieldIcon = shieldsOffIcon
             }
+            if currentURL.isLocal || currentURL.isLocalUtility {
+                shieldIcon = shieldsOffIcon
+            }
+        } else {
+            shieldIcon = shieldsOffIcon
         }
         
         locationView.shieldsButton.setImage(UIImage(imageLiteralResourceName: shieldIcon), for: .normal)

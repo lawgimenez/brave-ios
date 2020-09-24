@@ -28,18 +28,26 @@ public class DAU {
         return DAU.calendar.dateComponents([.day, .month, .year, .weekday], from: today)
     }
     
+    /// Date formatted used for passing date strings to the DAU server.
+    static let dateFormatter = { () -> DateFormatter in
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.calendar = Calendar(identifier: .gregorian)
+        return formatter
+    }()
+    
     private static let apiKeyPlistKey = "API_KEY"
     private let apiKey: String?
     
     public init(date: Date = Date()) {
         today = date
-        apiKey = (Bundle.main.infoDictionary?[Self.apiKeyPlistKey] as? String)?.trimmingCharacters(in: .whitespaces)
+        apiKey = (Bundle.main.infoDictionary?[Self.apiKeyPlistKey] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     /// Sends ping to server and returns a boolean whether a timer for the server call was scheduled.
     /// A user needs to be active for a certain amount of time before we ping the server.
     @discardableResult public func sendPingToServer() -> Bool {
-        if AppConstants.buildChannel == .developer {
+        if AppConstants.buildChannel == .debug || AppConstants.buildChannel == .enterprise {
             log.info("Development build detected, no server ping.")
             return false
         }
@@ -144,6 +152,16 @@ public class DAU {
             // Must be after setting up the preferences
             weekOfInstallationParam()
         ]
+        
+        // Installation date for `dtoi` param has a limited lifetime.
+        // After that we clear the install date from the app and always send null `dtoi` param.
+        if let installationDate = Preferences.DAU.installationDate.value,
+            retentionMeasureDatePassed(since: installationDate) {
+            Preferences.DAU.installationDate.value = nil
+        }
+        
+        // Depending on previous check, this will either send proper install date or null.
+        params.append(dtoiParam())
 
         if let referralCode = UserReferralProgram.getReferralCode() {
             params.append(URLQueryItem(name: "ref", value: referralCode))
@@ -159,6 +177,20 @@ public class DAU {
         }
         
         return ParamsAndPrefs(queryParams: params, headers: headers, lastLaunchInfoPreference: lastPingTimestamp)
+    }
+    
+    private func retentionMeasureDatePassed(since date: Date) -> Bool {
+        guard let referenceDateOrdinal = DAU.calendar.ordinality(of: .day, in: .era, for: date),
+            let currentDateOrdinal = DAU.calendar.ordinality(of: .day, in: .era, for: today) else {
+                assertionFailure()
+                // This should never happen but we fallback to true here to avoid sending `dtoi` param
+                // to the server indefinitely.
+                return true
+        }
+        
+        let daysThatMustPassToSkipDtoi = AppConstants.buildChannel == .dev ? 2 : 14
+        
+        return (currentDateOrdinal - referenceDateOrdinal) > daysThatMustPassToSkipDtoi
     }
     
     func channelParam(for channel: AppBuildChannel = AppConstants.buildChannel) -> URLQueryItem {
@@ -203,15 +235,25 @@ public class DAU {
         return URLQueryItem(name: "woi", value: woi)
     }
     
-    private enum PingType {
+    func dtoiParam() -> URLQueryItem {
+        let paramName = "dtoi"
+        
+        guard let installationDate = Preferences.DAU.installationDate.value else {
+            return URLQueryItem(name: paramName, value: "null")
+        }
+        
+        return URLQueryItem(name: paramName, value: DAU.dateFormatter.string(from: installationDate))
+    }
+    
+    private enum PingType: CaseIterable {
         case daily
         case weekly
         case monthly
     }
     
-    private func getPings(forDate date: Date, lastPingDate: Date) -> [PingType] {
+    private func getPings(forDate date: Date, lastPingDate: Date) -> Set<PingType> {
         let calendar = DAU.calendar
-        var pings = [PingType]()
+        var pings = Set<PingType>()
 
         func eraDayOrdinal(_ date: Date) -> Int? {
             return calendar.ordinality(of: .day, in: .era, for: date)
@@ -221,16 +263,23 @@ public class DAU {
         }
         
         if let nowDay = eraDayOrdinal(date), let lastPingDay = eraDayOrdinal(lastPingDate), nowDay > lastPingDay {
-            pings.append(.daily)
+            pings.insert(.daily)
         }
         
         let mondayWeekday = 2
         if let nextMonday = nextDate(matching: DateComponents(weekday: mondayWeekday)), date >= nextMonday {
-            pings.append(.weekly)
+            pings.insert(.weekly)
+            pings.insert(.daily)
         }
         if let nextFirstOfMonth = nextDate(matching: DateComponents(day: 1)), date >= nextFirstOfMonth {
-            pings.append(.monthly)
+            pings.insert(.monthly)
+            pings.insert(.daily)
         }
+        
+        if pings.count > PingType.allCases.count {
+            assertionFailure("Passed more ping types than expected")
+        }
+        
         return pings
     }
     
@@ -284,10 +333,7 @@ extension Date {
         // That's why backward search may sound counter intuitive.
         guard let monday = self.next(.monday, direction: .backward, considerSelf: true) else { return nil }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        return dateFormatter.string(from: monday)
+        return DAU.dateFormatter.string(from: monday)
     }
     
     private func next(_ weekday: Weekday, direction: Calendar.SearchDirection = .forward, considerSelf: Bool = false) -> Date? {

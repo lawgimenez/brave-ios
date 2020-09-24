@@ -5,7 +5,6 @@
 import Foundation
 import Shared
 import Data
-import Deferred
 import BraveShared
 import WebKit
 
@@ -53,7 +52,10 @@ class CookiesAndCacheClearable: Clearable {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: Date(timeIntervalSinceReferenceDate: 0)) {
                 UserDefaults.standard.synchronize()
-                result.fill(Maybe<()>(success: ()))
+                BraveWebView.sharedNonPersistentStore().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: Date(timeIntervalSinceReferenceDate: 0)) {
+                    UserDefaults.standard.synchronize()
+                    result.fill(Maybe<()>(success: ()))
+                }
             }
         }
         return result
@@ -78,8 +80,14 @@ class CacheClearable: Clearable {
                                                        WKWebsiteDataTypeMemoryCache,
                                                        WKWebsiteDataTypeFetchCache]
             WKWebsiteDataStore.default().removeData(ofTypes: localStorageClearables, modifiedSince: Date(timeIntervalSinceReferenceDate: 0)) {
-                ImageCache.shared.clear()
-                result.fill(Maybe<()>(success: ()))
+                WebImageCacheManager.shared.clearDiskCache()
+                WebImageCacheManager.shared.clearMemoryCache()
+                WebImageCacheWithNoPrivacyProtectionManager.shared.clearDiskCache()
+                WebImageCacheWithNoPrivacyProtectionManager.shared.clearMemoryCache()
+                
+                BraveWebView.sharedNonPersistentStore().removeData(ofTypes: localStorageClearables, modifiedSince: Date(timeIntervalSinceReferenceDate: 0)) {
+                    result.fill(Maybe<()>(success: ()))
+                }
             }
         }
         
@@ -156,5 +164,23 @@ class DownloadsClearable: Clearable {
         
         return succeed()
         
+    }
+}
+
+class BraveTodayClearable: Clearable {
+    
+    let feedDataSource: FeedDataSource
+    
+    init(feedDataSource: FeedDataSource) {
+        self.feedDataSource = feedDataSource
+    }
+    
+    var label: String {
+        return Strings.BraveToday.braveToday
+    }
+    
+    func clear() -> Success {
+        feedDataSource.clearCachedFiles()
+        return succeed()
     }
 }

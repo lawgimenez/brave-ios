@@ -1,5 +1,86 @@
 # Changelog
 
+## [1.19.2](https://github.com/brave/brave-ios/releases/tag/v1.19.2)
+
+ - Implemented URL scheme handlers for both "HTTP" and "HTTPS". ([#2784](https://github.com/brave/brave-ios/issues/2784))
+ - Removed Sync UI from settings. ([#2718](https://github.com/brave/brave-ios/issues/2718))
+ 
+## [1.19](https://github.com/brave/brave-ios/releases/tag/v1.19)
+
+ - Implemented "Brave Firewall + VPN". ([#2739](https://github.com/brave/brave-ios/issues/2739))
+ - Updated Brave Rewards to display BAT values to three decimal places. ([#2596](https://github.com/brave/brave-ios/issues/2596))
+ - Fixed favorite list not updating on New Tab Page when an existing favorite is deleted. ([#2685](https://github.com/brave/brave-ios/issues/2685))
+
+## [1.18.1](https://github.com/brave/brave-ios/releases/tag/v1.18.1)
+
+ - Fixed pre-roll ads being shown on YouTube videos. ([#511](https://github.com/brave/brave-ios/issues/511))
+ - Fixed crash when loading favicons for bookmarks in certain cases. ([#2697](https://github.com/brave/brave-ios/issues/2697))
+ - Fixed crash in certain cases when Ad-block list is updated. ([#2699](https://github.com/brave/brave-ios/issues/2699))
+
+## [1.18](https://github.com/brave/brave-ios/releases/tag/v1.18)
+
+ - Implemented enhancements to New Tab Page and favorites overlay. ([#2578](https://github.com/brave/brave-ios/issues/2578))
+ - Implemented enhancements to favorites to use fallback monogram letters instead of low-resolution icons. ([#2579](https://github.com/brave/brave-ios/issues/2579))
+ - Fixed an issue where favorites icon mismatch when they are reordered. ([#2099](https://github.com/brave/brave-ios/issues/2099))
+ - Fixed New Tab Page from loading new images when switching between tabs. ([#2071](https://github.com/brave/brave-ios/issues/2071))
+ - Fixed fuzzy/low-resolution favicons for favorites. ([#528](https://github.com/brave/brave-ios/issues/528)) 
+
+## [1.17](https://github.com/brave/brave-ios/releases/tag/v1.17)
+
+ - Implemented super referral improvements. ([#2539](https://github.com/brave/brave-ios/issues/2539))
+ - Fixed an issue where grants were not claimed in first attempt. ([#2146](https://github.com/brave/brave-ios/issues/2146))
+ - Fixed an issue where Javascript URLs should only work for bookmarklets. ([#2463](https://github.com/brave/brave-ios/issues/2463))
+
+
+## [1.16.2](https://github.com/brave/brave-ios/releases/tag/v1.16.2)
+
+ - Fixed an issue where total balance did not include old promotions in certain scenarios. ([#2556](https://github.com/brave/brave-ios/issues/2556)
+
+## [1.16.1](https://github.com/brave/brave-ios/releases/tag/v1.16.1)
+
+ - Implemented pagination for publisher list. ([#2529](https://github.com/brave/brave-ios/issues/2529))
+ - Fixed users not receiving ad promotion due to empty public key in certain cases. ([#2536](https://github.com/brave/brave-ios/issues/2536))
+ - Fixed missing estimated ads payout details. ([#2531](https://github.com/brave/brave-ios/issues/2531))
+ - Fixed ads initialization between app relaunch. ([#2541](https://github.com/brave/brave-ios/issues/2541))
+
+
+## [1.16](https://github.com/brave/brave-ios/releases/tag/v1.16)
+
+ - Added support for referral background images and top sites on the New Tab Page. ([#2324](https://github.com/brave/brave-ios/issues/2324))
+ - Fixed missing urlbar icons for certificate errors. ([#1963](https://github.com/brave/brave-ios/issues/1963))
+ - Fixed certain websites not being classified correctly for Brave ads. ([#2444](https://github.com/brave/brave-ios/issues/2444))
+ - Fixed monthly contributions panel still editable when Brave Rewards is disabled. [#2401](https://github.com/brave/brave-ios/issues/2401))
+ - Fixed all tabs being destroyed when partially clearing data using "Clear Private Data". ([#2155](https://github.com/brave/brave-ios/issues/2155))
+ - Fixed alignment issue in urlbar. ([#1964](https://github.com/brave/brave-ios/issues/1964))
+ - Updated text from "Allow contribution to non-verified sites" to "Show non-verified sites in list" under auto-contribution settings. ([#2402](https://github.com/brave/brave-ios/issues/2402))
+
+## [1.15.2](https://github.com/brave/brave-ios/releases/tag/v1.15.2)
+
+ - Fixed crash on certain devices when downloading publisher list by improving load times. ([#2378](https://github.com/brave/brave-ios/issues/2477))
+
+## [1.15.1](https://github.com/brave/brave-ios/releases/tag/v1.15.1)
+
+ - Migrated rewards database to new code base to improve stability and performance. ([#2378](https://github.com/brave/brave-ios/issues/2378))
+ - [Security] Updated Minimist package. ([#2423](https://github.com/brave/brave-ios/issues/2423))
+ - Fixed claiming grant from the rewards panel not always working on the first attempt. ([#2329](https://github.com/brave/brave-ios/issues/2329))
+
+## [1.15](https://github.com/brave/brave-ios/releases/tag/v1.15)
+ 
+ - Implemented Safari / iOS User Agent. ([#2210](https://github.com/brave/brave-ios/issues/2210))
+ - Added haptic feedback. ([#2283](https://github.com/brave/brave-ios/issues/2283))
+ - Added detailed view of pending contributions for rewards. ([#1670](https://github.com/brave/brave-ios/issues/1670))
+ - Added ability to restore individual publishers from the "Sites Excluded" list. ([#1674](https://github.com/brave/brave-ios/issues/1674))
+ - Added "Open Brave Rewards Settings" under rewards settings. ([#1966](https://github.com/brave/brave-ios/issues/1966))
+ - Improved New Tab Page Sponsored Images modals. ([#2363](https://github.com/brave/brave-ios/issues/2363))
+ - Changed settings header from "BRAVE SHIELD DEFAULTS" to "SHIELDS DEFAULTS". ([#1196](https://github.com/brave/brave-ios/issues/1196))
+ - Fixed crash when downloading New Tab Page Sponsored Images in certain cases. ([#2375](https://github.com/brave/brave-ios/issues/2375))
+ - Fixed tabs opened using "window.open" not being restored when restarting Brave. ([#1397](https://github.com/brave/brave-ios/issues/1397))
+ - Fixed "Claim my rewards" button under the New Tab Page Sponsored Images modal not always working on the first attempt. ([#2280](https://github.com/brave/brave-ios/issues/2280))
+ - Fixed custom images not being displayed under the publisher tipping banner. ([#2164](https://github.com/brave/brave-ios/issues/2164))
+ - Fixed on-screen keyboard being dismissed while typing. ([#2016](https://github.com/brave/brave-ios/issues/2016))
+ - Fixed rendering glitch affecting the tab bar on iPadOS. ([#2124](https://github.com/brave/brave-ios/issues/2124))
+ - Fixed spacing issues between sync text and warning message under "Enter the sync code" screen. ([#2006](https://github.com/brave/brave-ios/issues/2006))
+
 ## [1.14.3](https://github.com/brave/brave-ios/releases/tag/v1.14.3)
  
   - Added New Tab Page Sponsored Images. ([#2151](https://github.com/brave/brave-ios/issues/2151))

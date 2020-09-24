@@ -33,18 +33,28 @@ extension Preferences {
         // We need to translate that to use the new `firstPingParam` preference.
         static let firstPingParam: Option<Bool> =
             Option<Bool>(key: "dau.first-ping", default: Preferences.DAU.lastLaunchInfo.value == nil)
+        /// Date of installation, this preference is removed after 14 days of usage.
+        public static let installationDate = Option<Date?>(key: "dau.installation-date", default: nil)
     }
-    final class URP {
+    public final class URP {
         static let nextCheckDate = Option<TimeInterval?>(key: "urp.next-check-date", default: nil)
         static let retryCountdown = Option<Int?>(key: "urp.retry-countdown", default: nil)
         static let customHeaderData = Option<Data?>(key: "urp.custom-header-data", default: nil)
         static let downloadId = Option<String?>(key: "urp.referral.download-id", default: nil)
-        static let referralCode = Option<String?>(key: "urp.referral.code", default: nil)
+        public static let referralCode = Option<String?>(key: "urp.referral.code", default: nil)
         static let referralCodeDeleteDate = Option<TimeInterval?>(key: "urp.referral.delete-date", default: nil)
+        /// Whether the ref code lookup has still yet to occur
+        public static let referralLookupOutstanding = Option<Bool?>(key: "urp.referral.lookkup-completed", default: nil)
     }
     
     public final class NTP {
         public static let ntpCheckDate = Option<TimeInterval?>(key: "ntp.next-check-date", default: nil)
+    }
+    
+    public final class BraveToday {
+        public static let isEnabled = Option<Bool>(key: "brave-today.enabled", default: true)
+        public static let languageChecked = Option<Bool>(key: "brave-today.language-checked", default: false)
+        public static let isShowingIntroCard = Option<Bool>(key: "brave-today.showing-intro-card", default: true)
     }
     
     public final class Review {
@@ -90,14 +100,17 @@ extension Preferences {
         public static let useRegionAdBlock = Option<Bool>(key: "shields.regional-adblock", default: true)
         /// Version of downloaded data file for adblock stats.
         public static let adblockStatsDataVersion = Option<Int?>(key: "stats.adblock-data-version", default: nil)
+        /// Whether or not advanced controls in the shields UI are visible by default
+        public static let advancedControlsVisible = Option<Bool>(key: "shields.advanced-controls-visible", default: false)
     }
     
     public final class Rewards {
         public static let myFirstAdShown = Option<Bool>(key: "rewards.ads.my-first-ad-shown", default: false)
-        public static let hideRewardsIcon = Option<Bool>(key: "rewards.hide-rewards-icon", default: false)
+        public static let hideRewardsIcon = Option<Bool>(key: "rewards.hide-rewards-icon", default: true)
         public static let panelOpened = Option<Bool>(key: "rewards.rewards-panel-opened", default: false)
         public static let isUsingBAP = Option<Bool?>(key: "rewards.is-using-bap", default: nil)
         public static let checkedPreviousCycleForAdsViewing = Option<Bool>(key: "rewards.checked-previous-ads-cycle", default: false)
+        public static let seenDataMigrationFailureError = Option<Bool>(key: "rewards.seen-data-migration-failure-error", default: false)
         
         public enum EnvironmentOverride: Int {
             case none

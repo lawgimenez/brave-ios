@@ -69,7 +69,7 @@ class MonthlyTipsDetailViewController: UIViewController {
     let dateFormatter = DateFormatter().then {
       $0.dateFormat = Strings.autoContributeDateFormat
     }
-    let date = Date(timeIntervalSince1970: TimeInterval(state.ledger.autoContributeProps.reconcileStamp))
+    let date = Date(timeIntervalSince1970: TimeInterval(state.ledger.autoContributeProperties.reconcileStamp))
     view.label.text = dateFormatter.string(from: date)
     view.bounds = CGRect(origin: .zero, size: view.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize))
     return view
@@ -184,10 +184,7 @@ extension MonthlyTipsDetailViewController: UITableViewDataSource {
       cell.siteNameLabel.attributedText = attrName
       cell.siteImageView.image = UIImage(frameworkResourceNamed: "defaultFavicon")
       if let url = URL(string: publisher.url) {
-        state.dataSource?.retrieveFavicon(for: url, faviconURL: URL(string: publisher.faviconUrl)) { data in
-          cell.siteImageView.image = data?.image ?? UIImage(frameworkResourceNamed: "defaultFavicon")
-          cell.siteImageView.backgroundColor = data?.backgroundColor
-        }
+        state.dataSource?.retrieveFavicon(for: url, on: cell.siteImageView)
       }
       cell.verifiedStatusImageView.isHidden = publisher.status == .notVerified
       let contribution = publisher.weight

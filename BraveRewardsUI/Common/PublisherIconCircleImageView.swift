@@ -3,10 +3,12 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import UIKit
+import BraveUI
 
 class PublisherIconCircleImageView: UIView {
   
-  private var imageView = UIImageView()
+  private(set) var imageView = UIImageView()
+  private var backgroundColorObserver: NSKeyValueObservation?
   
   init(size: CGFloat, inset: CGFloat = 7.0) {
     super.init(frame: .zero)
@@ -29,9 +31,13 @@ class PublisherIconCircleImageView: UIView {
     
     layer.do {
       $0.cornerRadius = size / 2.0
-      $0.borderColor = Colors.neutral800.cgColor
+      $0.borderColor = Colors.neutral100.cgColor
       $0.borderWidth = 1.0 / UIScreen.main.scale
     }
+    
+    backgroundColorObserver = imageView.observe(\.backgroundColor, options: [.initial, .new], changeHandler: { [weak self] imageView, _ in
+      self?.backgroundColor = imageView.backgroundColor ?? .white
+    })
   }
   
   @available(*, unavailable)

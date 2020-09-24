@@ -1,17 +1,48 @@
+/* The body of the screen explaining Brave Shields
+   The title of the screen explaining Brave Shields */
+"AboutBraveShields" = "Informazioni su Brave Shields";
+
+/* No comment provided by engineer. */
+"BraveShieldsAdvancedControls" = "Comandi avanzati";
+
+/* The number of ads and trackers blocked will be next to this */
+"BraveShieldsBlockedCountLabel" = "Pubblicità e altre scocciature bloccate";
+
+/* What the screen reader will read out when the user has VoiceOver on and taps on the question-mark info button on the shields panel */
+"BraveShieldsBlockedInfoButtonAccessibilityLabel" = "Scopri di più";
+
+/* No comment provided by engineer. */
+"BraveShieldsGlobalChangeButton" = "Modifica le impostazioni generali di Shields";
+
+/* No comment provided by engineer. */
+"BraveShieldsGlobalControls" = "Comandi generali";
+
+/* No comment provided by engineer. */
+"BraveShieldsSiteBroken" = "Se il sito si vede male, prova Shields";
+
+/* Context: 'Brave Shields Up' or 'Brave Shields Down' */
+"BraveShieldsStatusTitle" = "Brave Shields";
+
+/* Context: The 'Down' in 'Brave Shields Down' */
+"BraveShieldsStatusValueDown" = "Su";
+
+/* Context: The 'Up' in 'Brave Shields Up' */
+"BraveShieldsStatusValueUp" = "Giù";
+
 /* The body of the notification that goes out monthly to users who can claim an ads grant */
-"MonthlyAdsClaimNotificationBody" = "È il momento di ricevere un premio per le pubblicità che hai visto su Brave.";
+"MonthlyAdsClaimNotificationBody" = "Tocca per ricevere i token gratuiti.";
 
 /* The title of the notification that goes out monthly to users who can claim an ads grant */
-"MonthlyAdsClaimNotificationTitle" = "Richiedi i premi per le pubblicità su Brave";
+"MonthlyAdsClaimNotificationTitle" = "Brave Rewards 💵🎁";
 
 /* For search suggestions prompt. This string should be short so it fits nicely on the prompt row. */
 "No" = "No";
 
 /* Message when opting into brave Ads when region becomes available */
-"OBAdsOptInMessage" = "Guadagna token guardando annunci che rispettano la privacy.";
+"OBAdsOptInMessage" = "Ottieni dei token e mentre navighi potrai premiare gli autori per i contenuti che hanno creato.";
 
 /* Message when opting into brave Ads when region becomes available */
-"OBAdsOptInMessageJapan" = "Guadagna punti guardando annunci che rispettano la privacy. ";
+"OBAdsOptInMessageJapan" = "Ottieni dei punti e mentre navighi potrai premiare gli autori per i contenuti che hanno creato.";
 
 /* Title when opting into brave Ads when region becomes available */
 "OBAdsOptInTitle" = "Brave Ads è disponibile!";
@@ -40,6 +71,21 @@
 /* Button to join Brave Rewards. */
 "OBJoinButton" = "Iscriviti";
 
+/* No comment provided by engineer. */
+"OBPrivacyConsentClipboardPermission" = "Autorizzo Brave a verificare i miei appunti per cercare il codice di sponsorizzazione";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentDetail" = "Forse hai scaricato Brave per sostenere il tuo sponsor. Per individuare il tuo sponsor, Brave esegue una verifica una tantum mei tuoi appunti e cerca il codice collegato allo sponsor. La verifica si limita al codice e non saranno inviati altri dati personali. Se rinunci, il tuo sponsor non riceverà ricompense da Brave.";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentNoButton" = "Non autorizzo questa verifica";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentTitle" = "Verifica del codice di sponsorizzazione anonimo";
+
+/* No comment provided by engineer. */
+"OBPrivacyConsentYesButton" = "Autorizzo la verifica una tantum degli appunti";
+
 /* Detail text for rewards agreement onboarding screen */
 "OBRewardsAgreementDetail" = "Attivando Rewards, accetti";
 
@@ -50,10 +96,10 @@
 "OBRewardsAgreementTitle" = "Brave Rewards";
 
 /* Detail text for rewards onboarding screen */
-"OBRewardsDetailInAdRegion" = "Guadagna token guardando annunci che rispettano la privacy. Utilizzali per supportare i tuoi siti e creatori preferiti.";
+"OBRewardsDetailInAdRegion" = "Ottieni dei token e mentre navighi potrai premiare gli autori per i contenuti che hanno creato.";
 
 /* Detail text for rewards onboarding screen */
-"OBRewardsDetailInAdRegionJapan" = "Guadagna punti guardando annunci che rispettano la privacy. Utilizzali per supportare i tuoi siti e creatori preferiti.";
+"OBRewardsDetailInAdRegionJapan" = "Ottieni dei punti e mentre navighi potrai premiare gli autori per i contenuti che hanno creato.";
 
 /* Detail text for rewards onboarding screen */
 "OBRewardsDetailOutsideAdRegion" = "Supporta i tuoi siti web e creatori preferiti in base alla tua attenzione.";
@@ -88,11 +134,242 @@
 /* Skip button to skip onboarding and start using the app. */
 "OnboardingSkipButton" = "Salta";
 
+/* Description for closing a popover menu that is displayed. */
+"PopoverDefaultClose" = "Chiudi il menu Contesto";
+
+/* Description for closing the `Brave Shields` popover menu that is displayed. */
+"PopoverShieldsMenuClose" = "Chiudi il menu Scudi";
+
+/* No comment provided by engineer. */
+"ReportABrokenSite" = "Segnala un sito malfunzionante";
+
 /* Name of folder where restored bookmarks are retrieved */
 "RestoredBookmarksFolderName" = "Segnalibri ripristinati";
 
 /* Name of folder where restored favorites are retrieved */
 "RestoredFavoritesFolderName" = "Preferiti ripristinati";
+
+/* No comment provided by engineer. */
+"RewardsInternalsAmount" = "Importo";
+
+/* No comment provided by engineer. */
+"RewardsInternalsAnonymous" = "Anonimo";
+
+/* No comment provided by engineer. */
+"RewardsInternalsBalanceInfoHeader" = "Informazioni sul saldo";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClaimedAt" = "Data della richiesta:";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClaimID" = "ID utilizzato";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClearLogsConfirmation" = "Vuoi davvero cancellare tutti i log di Rewards?";
+
+/* No comment provided by engineer. */
+"RewardsInternalsClearLogsTitle" = "Cancella i log";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionAmount" = "Importo del contributo";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorBraveTokens" = "Token Brave";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorNone" = "Niente";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorUphold" = "Conferma";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionProcessorUserFunds" = "Fondi dell’utente";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepACOff" = "Contributo automatico disattivato";
+
+/* 'AC' refers to Auto-Contribute */
+"RewardsInternalsContributionsStepACTableEmpty" = "Tabella “Contributo automatico” vuota";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepCompleted" = "Operazione completata";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepCreds" = "Credenziali";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepExternalTransaction" = "Transazione esterna";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepFailed" = "Operazione non riuscita";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepNotEnoughFunds" = "Fondi insufficienti";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepPrepare" = "Prepara";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepReserve" = "Prenota";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepRewardsOff" = "Rewards disattivati";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsStepStart" = "Inizia";
+
+/* No comment provided by engineer. */
+"RewardsInternalsContributionsTitle" = "Contributi";
+
+/* No comment provided by engineer. */
+"RewardsInternalsCreatedAt" = "Data di creazione:";
+
+/* No comment provided by engineer. */
+"RewardsInternalsDeviceInfoHeader" = "Informazioni sul dispositivo";
+
+/* No comment provided by engineer. */
+"RewardsInternalsEnrolled" = "Iscritto";
+
+/* No comment provided by engineer. */
+"RewardsInternalsEnrollmentState" = "Stato dell’iscrizione";
+
+/* No comment provided by engineer. */
+"RewardsInternalsExpiresAt" = "Scadenza:";
+
+/* No comment provided by engineer. */
+"RewardsInternalsInvalid" = "Informazione non valida";
+
+/* No comment provided by engineer. */
+"RewardsInternalsKeyInfoSeed" = "Origine informazioni chiave";
+
+/* No comment provided by engineer. */
+"RewardsInternalsLegacyPromotion" = "Promozione legacy";
+
+/* %d will be the number of logs currently being shown, i.e. '10 logs shown' */
+"RewardsInternalsLogsCount" = "%d log mostrati";
+
+/* No comment provided by engineer. */
+"RewardsInternalsLogsTitle" = "Log";
+
+/* No comment provided by engineer. */
+"RewardsInternalsNotEnrolled" = "Non iscritto";
+
+/* No comment provided by engineer. */
+"RewardsInternalsNotSupported" = "Non supportato";
+
+/* No comment provided by engineer. */
+"RewardsInternalsProcessor" = "Processore";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusActive" = "Attivo";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusAttested" = "Confermato";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusCorrupted" = "Corrotto";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusFinished" = "Completato";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionStatusOver" = "Scaduta";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPromotionsTitle" = "Promozioni";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPublisher" = "Editore";
+
+/* No comment provided by engineer. */
+"RewardsInternalsPublishers" = "Editori";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRetryCount" = "Conteggia di nuovo";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRewardsTypeAutoContribute" = "Contributo automatico";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRewardsTypeOneTimeTip" = "Mancia una tantum";
+
+/* No comment provided by engineer. */
+"RewardsInternalsRewardsTypeRecurringTip" = "Mancia ricorrente";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableBasicDescription" = "Informazioni su portafoglio, dispositivo e saldo (sempre condivise)";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableBasicTitle" = "Informazioni di base";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableContributionsDescription" = "Qualsiasi contributo inviato agli editori tramite mance o in modo automatico";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableDatabaseDescription" = "Archivio dei dati interni";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableDatabaseTitle" = "Database Rewards";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharableLogsDescription" = "Log Rewards";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharablePromotionsDescription" = "Ogni promozione BAT richiesta o in sospeso da Ads o Grants";
+
+/* No comment provided by engineer. */
+"RewardsInternalsShare" = "Condividi";
+
+/* 'Rewards' as in 'Brave Rewards' */
+"RewardsInternalsShareInternalsTitle" = "Condividi dati interni Rewards";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharingWarningMessage" = "In questa pagina potrebbero essere presenti dati sensibili. Trattali come faresti con le chiavi private del tuo portafoglio e presta attenzione alle persone con cui li condividi.";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSharingWarningTitle" = "Avviso";
+
+/* No comment provided by engineer. */
+"RewardsInternalsStatus" = "Stato";
+
+/* i.e. 'Step: Started' */
+"RewardsInternalsStep" = "Fase";
+
+/* No comment provided by engineer. */
+"RewardsInternalsSupported" = "Supportato";
+
+/* 'Rewards' as in 'Brave Rewards' */
+"RewardsInternalsTitle" = "Dati interni Rewards";
+
+/* No comment provided by engineer. */
+"RewardsInternalsTotalAmount" = "Importo totale";
+
+/* No comment provided by engineer. */
+"RewardsInternalsTotalBalance" = "Saldo totale";
+
+/* No comment provided by engineer. */
+"RewardsInternalsType" = "Tipo";
+
+/* No comment provided by engineer. */
+"RewardsInternalsValid" = "Valido";
+
+/* No comment provided by engineer. */
+"RewardsInternalsVersion" = "Versione";
+
+/* No comment provided by engineer. */
+"RewardsInternalsWalletCreationDate" = "Data di creazione del portafoglio";
+
+/* No comment provided by engineer. */
+"RewardsInternalsWalletInfoHeader" = "Informazioni sul portafoglio";
+
+/* No comment provided by engineer. */
+"RewardsInternalsWalletPaymentID" = "ID di pagamento del portafoglio";
+
+/* No comment provided by engineer. */
+"ShieldsDownDisclaimer" = "Stai navigando sul sito senza le protezioni alla privacy di Brave. Non funziona bene con Shields attivato?";
+
+/* Text that informs a user about Brave Sync service deprecation. */
+"sync.syncV1DeprecationText" = "È in arrivo una nuova versione di Brave Sync che apporterà delle modifiche alla tua configurazione. Preparati all’upgrade.";
 
 /* Prompt shown before enabling provider search queries */
 "Turn on search suggestions?" = "Attivare i suggerimenti di ricerca?";
@@ -114,6 +391,243 @@
 
 /* No comment provided by engineer. */
 "UserWalletGenericErrorTitle" = "Purtroppo si è verificato un errore";
+
+/* Button text to buy Brave VPN */
+"vpn.buyButton" = "Acquista";
+
+/* Title for screen to buy the VPN. */
+"vpn.buyVPNTitle" = "Firewall di Brave + VPN";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxBlockAds" = "Blocca connessioni di rete non desiderate";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxEncryption" = "Usa il tunnel VPN con crittografia IKEv2";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxFast" = "Supporta velocità fino a 100 Mbps";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxNoIPLog" = "Mantieni l’anonimato online";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxNoSellout" = "Con condividiamo e non vendiamo mai i tuoi dati";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.checkboxProtectConnections" = "Ti protegge dalle connessioni indesiderate";
+
+/* AppStore Receipt field for customer support contact form. */
+"vpn.contactFormAppStoreReceipt" = "Ricevuta App Store";
+
+/* App Version field for customer support contact form. */
+"vpn.contactFormAppVersion" = "Versione dell’app";
+
+/* Cellular Carrier field for customer support contact form. */
+"vpn.contactFormCarrier" = "Operatore cellulare";
+
+/* Text to tell user to not modify support info below email's body. */
+"vpn.contactFormDoNotEditText" = "Non modificare le informazioni sottostanti";
+
+/* Footer for customer support contact form. */
+"vpn.contactFormFooter" = "Seleziona i dati che vuoi condividere con noi.\n\nPiù dati condividi con noi dall’inizio, più facile sarà per l’assistenza aiutarti a risolvere il tuo problema.";
+
+/* Footer for customer support contact form. */
+"vpn.contactFormFooterSharedWithGuardian" = "Assistenza in collaborazione con il team di Guardian.";
+
+/* VPN Hostname field for customer support contact form. */
+"vpn.contactFormHostname" = "Hostname VPN";
+
+/* Specific issue field for customer support contact form. */
+"vpn.contactFormIssue" = "Problema";
+
+/* Connection problems for contact form issue field. */
+"vpn.contactFormIssueConnectionReliability" = "Problema di affidabilità della connessione";
+
+/* No internet problem for contact form issue field. */
+"vpn.contactFormIssueNoInternet" = "Nessun collegamento a internet durante la connessione";
+
+/* Other problem for contact form issue field. */
+"vpn.contactFormIssueOther" = "Altro";
+
+/* Other connection problem for contact form issue field. */
+"vpn.contactFormIssueOtherConnectionError" = "Connessione alla VPN non riuscita (altro errore)";
+
+/* Slow connection problem for contact form issue field. */
+"vpn.contactFormIssueSlowConnection" = "Connessione lenta";
+
+/* Website problem for contact form issue field. */
+"vpn.contactFormIssueWebsiteProblems" = "Il sito web non funziona";
+
+/* Network Type field for customer support contact form. */
+"vpn.contactFormNetworkType" = "Tipo di rete";
+
+/* Button name to send contact form. */
+"vpn.contactFormSendButton" = "Invia";
+
+/* Subscription Type field for customer support contact form. */
+"vpn.contactFormSubscriptionType" = "Tipo di abbonamento";
+
+/* iOS Timezone field for customer support contact form. */
+"vpn.contactFormTimezone" = "Fuso orario iOS";
+
+/* Title for contact form email. */
+"vpn.contactFormTitle" = "Problema con firewall di Brave + VPN";
+
+/* Button text to enable Brave VPN */
+"vpn.enableButton" = "Attiva";
+
+/* Message for an alert when the VPN can't get prices from the App Store */
+"vpn.errorCantGetPricesBody" = "Connessione all’App Store non riuscita. Riprova tra qualche minuto.";
+
+/* Title for an alert when the VPN can't get prices from the App Store */
+"vpn.errorCantGetPricesTitle" = "Errore App Store";
+
+/* No comment provided by engineer. */
+"vpn.freeTrial" = "Tutti i piani includono una prova gratuita di 7 giorni!";
+
+/* Disclaimer about free trial */
+"vpn.freeTrialDisclaimer" = "Prova gratuitamente per 7 giorni. Dopo i 7 giorni, ti verrà addebitato il prezzo previsto dal piano.";
+
+/* Disclaimer about in app subscription */
+"vpn.iapDisclaimer" = "Tutti gli abbonamenti si rinnovano automaticamente ma possono essere annullati prima del rinnovo.";
+
+/* Text explaining how the VPN works. */
+"vpn.installProfileBody" = "Questo profilo permette l’attivazione automatica della VPN, per tenere sempre protetti i dati scambiati sul dispositivo. La connessione della VPN sarà criptata e verrà utilizzato il firewall intelligente di Brave per bloccare le connessioni potenzialmente dannose e invasive.";
+
+/* Text for 'install vpn profile' button */
+"vpn.installProfileButtonText" = "Installa profilo per VPN";
+
+/* No comment provided by engineer. */
+"vpn.installProfileTitle" = "Brave installerà subito un profilo per la VPN.";
+
+/* Popup that shows after user installs the vpn for the first time. */
+"vpn.installSuccessPopup" = "La VPN ora è attiva";
+
+/* Title for screen to install the VPN. */
+"vpn.installTitle" = "Installa VPN";
+
+/* Used in context: 'Monthly subscription, (it) renews monthly' */
+"vpn.monthlySubDetail" = "Rinnovo mensile";
+
+/* No comment provided by engineer. */
+"vpn.monthlySubTitle" = "Abbonamento mensile";
+
+/* Text to show user when their vpn plan has expired */
+"vpn.planExpired" = "Scaduto";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.popupCheckmark247Support" = "Assistenza 24/7";
+
+/* Text for a checkbox to present the user benefits for using Brave VPN */
+"vpn.popupCheckmarkSecureConnections" = "Protegge tutte le connessioni";
+
+/* It is used in context: 'Powered by BRAND_NAME' */
+"vpn.poweredBy" = "Servizio fornito da";
+
+/* Message to show when vpn configuration reset fails. */
+"vpn.resetVPNErrorBody" = "La configurazione della VPN purtroppo non è stata reimpostata, riprova più tardi.";
+
+/* Title for error message when vpn configuration reset fails. */
+"vpn.resetVPNErrorTitle" = "Errore";
+
+/* No comment provided by engineer. */
+"vpn.restorePurchases" = "Ripristina";
+
+/* No comment provided by engineer. */
+"vpn.settingHeaderBody" = "Proteggi la tua connessione e blocca i sistemi di tracciamento invasivi.";
+
+/* Button to contact tech support */
+"vpn.settingsContactSupport" = "Contatta l’assistenza tecnica";
+
+/* Button for FAQ */
+"vpn.settingsFAQ" = "Assistenza VPN";
+
+/* Button to manage your VPN subscription */
+"vpn.settingsManageSubscription" = "Gestisci l’abbonamento";
+
+/* Button to reset VPN configuration */
+"vpn.settingsResetConfiguration" = "Reimposta la configurazione";
+
+/* Table cell title for vpn's server host */
+"vpn.settingsServerHost" = "Host";
+
+/* Table cell title for vpn's server location */
+"vpn.settingsServerLocation" = "Posizione";
+
+/* Header title for vpn settings server section. */
+"vpn.settingsServerSection" = "Server";
+
+/* Table cell title for cell that shows when the VPN subscription expires. */
+"vpn.settingsSubscriptionExpiration" = "Scadenza";
+
+/* Header title for vpn settings subscription section. */
+"vpn.settingsSubscriptionSection" = "Abbonamento";
+
+/* Table cell title for status of current VPN subscription. */
+"vpn.settingsSubscriptionStatus" = "Stato";
+
+/* Whether the VPN is enabled or not */
+"vpn.settingsVPNDisabled" = "Disattivata";
+
+/* Whether the VPN is enabled or not */
+"vpn.settingsVPNEnabled" = "Attivata";
+
+/* Whether the VPN plan has expired */
+"vpn.settingsVPNExpired" = "Scaduto";
+
+/* Notification title to tell user that the vpn is turned on even in background */
+"vpn.vpnBackgroundNotificationBody" = "Anche quando sarà in background, Brave continuerà a proteggerti.";
+
+/* Notification title to tell user that the vpn is turned on even in background */
+"vpn.vpnBackgroundNotificationTitle" = "Il firewall di Brave e la VPN sono attivi";
+
+/* Message for an alert when the VPN can't be configured. */
+"vpn.vpnConfigGenericErrorBody" = "Si è verificato un problema con l’inizializzazione della VPN. Riprova oppure reimposta la configurazione dalla pagina delle impostazioni della VPN.";
+
+/* Title for an alert when the VPN can't be configured */
+"vpn.vpnConfigGenericErrorTitle" = "Errore";
+
+/* Title for an alert when the user didn't allow to install VPN profile */
+"vpn.vpnConfigPermissionDeniedErrorBody" = "Per il funzionamento del firewall di Brave e della VPN è necessario installare sul dispositivo un profilo per la VPN.";
+
+/* Title for an alert when the user didn't allow to install VPN profile */
+"vpn.vpnConfigPermissionDeniedErrorTitle" = "Autorizzazione negata";
+
+/* Message for error when VPN could not be purchased. */
+"vpn.vpnErrorPurchaseFailedBody" = "Impossibile completare l’acquisto. Riprova o controlla i dati di pagamento usati per Apple e riprova.";
+
+/* Title for error when VPN could not be purchased. */
+"vpn.vpnErrorPurchaseFailedTitle" = "Errore";
+
+/* Disclaimer for user purchasing the VPN plan. */
+"vpn.vpnIAPBoilerPlate" = "I costi di abbonamento saranno addebitati sull’account iTunes.\n\nQuando si acquista l’abbonamento, le porzioni non utilizzate dell’eventuale prova gratuita andranno perse.\n\nSe non viene disdetto almeno 24 ore prima della scadenza, l’abbonamento si rinnoverà automaticamente.\n\nGli abbonamenti possono essere gestiti tramite la sezione Impostazioni.\n\nUtilizzando Brave, se ne accettano i termini d’uso e le norme sulla privacy.";
+
+/* Title Brave VPN menu item. */
+"vpn.vpnMenuItemTitle" = "VPN di Brave";
+
+/* Message for alert to reset vpn configuration */
+"vpn.vpnResetAlertBody" = "Con quest’operazione sarà reimpostata la configurazione del firewall di Brave e della VPN e saranno corretti eventuali errori. Potrebbero servire alcuni minuti.";
+
+/* Title for alert to reset vpn configuration */
+"vpn.vpnResetAlertTitle" = "Reimposta la configurazione";
+
+/* Button name to reset vpn configuration */
+"vpn.vpnResetButton" = "Reimposta";
+
+/* Name of monthly subscription in VPN Settings */
+"vpn.vpnSettingsMonthlySubName" = "Abbonamento mensile";
+
+/* Name of annual subscription in VPN Settings */
+"vpn.vpnSettingsYearlySubName" = "Abbonamento annuale";
+
+/* Used in context: 'yearly subscription, renew annually (to) save 16%'. The placeholder is for percent value */
+"vpn.yearlySubDetail" = "Rinnovo annuale con risparmio di %@";
+
+/* It's like when there's few subscription plans, and one plan has the best value to price ratio, so this label says next to that plan: '(plan) - Best value' */
+"vpn.yearlySubDisclaimer" = "Miglior rapporto qualità-prezzo";
+
+/* One year lenght vpn subcription */
+"vpn.yearlySubTitle" = "Un anno";
 
 /* For search suggestions prompt. This string should be short so it fits nicely on the prompt row. */
 "Yes" = "Sì";

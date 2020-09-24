@@ -217,6 +217,9 @@
 /* No comment provided by engineer. */
 "CancelButtonTitle" = "取消";
 
+/* No comment provided by engineer. */
+"ClearData" = "正在清除資料";
+
 /* Button in settings that clears private data for the selected items. Also used as section title in settings panel */
 "ClearPrivateData" = "清除隱私資料";
 
@@ -293,13 +296,16 @@
 "DDGCalloutEnable" = "是";
 
 /* DuckDuckGo message. */
-"DDGCalloutMessage" = "您在隱私分頁中搜尋時，Brave 會使用 DuckDuckGo 回應您的搜尋要求。DuckDuckGo 搜尋引擎不會收集您的搜尋記錄，可以保護您的搜尋隱私。";
+"DDGCalloutMessage" = "在隱私分頁中執行私密搜尋時，Brave 會使用 DuckDuckGo 回應您的搜尋要求。DuckDuckGo 搜尋引擎不會收集您的搜尋記錄，藉以保護您的搜尋隱私。";
 
 /* DuckDuckGo callout no action. */
 "DDGCalloutNo" = "否";
 
 /* DuckDuckGo callout title. */
 "DDGCalloutTitle" = "使用 DuckDuckGo 執行隱私搜尋？";
+
+/* Name for default Brave theme. */
+"defaultThemeName" = "Brave 預設";
 
 /* No comment provided by engineer. */
 "Delete" = "刪除";
@@ -547,6 +553,9 @@
 /* Reveal password text selection menu item */
 "MenuItemRevealPasswordTitle" = "顯示";
 
+/* Abbreviation for 'Month', use full word' Month' if this word can't be shortened in your language */
+"monthAbbreviation" = "月";
+
 /* Bookmark title / Device name */
 "Name" = "名稱";
 
@@ -574,71 +583,80 @@
 /* New Tab title */
 "NewTab" = "新增分頁";
 
-/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
-"NewTabPageSettingsAutoOpenKeyboard" = "自動打開鍵盤";
-
-/* A setting to enable or disable background images on the main screen. */
-"NewTabPageSettingsBackgroundImages" = "顯示背景圖片";
-
-/* A setting to enable or disable sponsored images from showing on the main screen. */
-"NewTabPageSettingsSponsoredImages" = "顯示贊助圖片";
-
-/* Title on settings page to adjust the primary home screen functionality. */
-"NewTabPageSettingsTitle" = "新增分頁";
-
-/* A button title to show more bookmarks, that opens a new menu. */
-"NewTabPageShowMoreFavorites" = "顯示更多";
-
 /* Sync Alert */
 "NotEnoughWordsDescription" = "請輸入所有詞語並重試。";
 
 /* Sync Alert */
 "NotEnoughWordsTitle" = "沒有足够詞語";
 
-/* The placeholder says 'hide sponsored images'. So full sentence goes like: 'You can also choose to hide sponsored images.' */
-"ntp.chooseToHideSponsoredImages" = "您也可選擇 %@。";
+/* Bookmark title for Brave Support */
+"ntp.braveSupportFavoriteTitle" = "Brave 支援";
 
 /* No comment provided by engineer. */
-"ntp.claimRewards" = "領取我的獎勵";
+"ntp.claimRewards" = "領取代幣";
 
-/* Placeholder example: 'You earned 42 BAT last month from viewing privacy-respecting ads.' */
-"ntp.earningsReport" = "您上個月由觀看尊重隱私的廣告賺取了 %@。";
-
-/* No comment provided by engineer. */
-"ntp.earnTokensByViewingAds" = "觀看尊重隱私的廣告以賺取代幣。";
+/* Placeholder example: 'You earned 42 BAT by browsing with Brave.' */
+"ntp.earningsReport" = "您使用 Brave 瀏覽期間，一共賺取了 %@。";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnAds" = "查看此背景圖片並獲得報酬。 啟用 Brave Ads 以領取您的部份。";
+"ntp.getPaidForThisImageTurnAds" = "查看此圖片即可賺取代幣。立即啟用 Brave Ads，開始支持創作者。";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnRewards" = "查看此背景圖片並獲得報酬。 啟用 Brave Rewards 以領取您的部份。";
+"ntp.getPaidForThisImageTurnRewards" = "查看此圖片即可賺取代幣。立即啟用 Brave Rewards，開始支持創作者。";
 
 /* No comment provided by engineer. */
-"ntp.getPaidToSeeThisImage" = "查看此背景圖片並獲得報酬。";
+"ntp.getPaidToSeeThisImage" = "查看此圖片即可賺取代幣。";
 
 /* The context is to praise the user that they did a good job, to keep it up. It is used in full sentence like: 'Way to go! You earned 40 BAT last month.' */
 "ntp.goodJob" = "做得很好！";
 
-/* This sentence is not capitalized on purpose, it is a part of a bigger sentence which goes like this: 'You can also choose to hide sponsored images.' */
+/* No comment provided by engineer. */
 "ntp.hideSponsoredImages" = "隱藏贊助圖片";
 
-/* The placeholder says 'Learn more'. So full sentence goes like: 'Learn more about sponsored images in Brave Rewards.' */
-"ntp.learnMoreAboutBrandedImages" = "%@ 關於 Brave Rewards 中的贊助圖片";
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutBrandedImages" = "查看贊助圖片即可賺取代幣，支持創作者。啟用 Brave Ads 後，畫面顯示什麼廣告全由您掌控。";
 
 /* No comment provided by engineer. */
-"ntp.supportWebCreatorsWithTokens" = "您可以用代幣來贊助網路創作者。";
+"ntp.learnMoreAboutRewards" = "深入了解 Brave Rewards";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutSI" = "深入了解贊助圖片";
+
+/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
+"ntp.settingsAutoOpenKeyboard" = "自動開啟鍵盤";
+
+/* A setting to enable or disable background images on the main screen. */
+"ntp.settingsBackgroundImages" = "顯示背景圖片";
+
+/* A button that leads to a 'more' menu, letting users configure additional settings. */
+"ntp.settingsBackgroundImageSubMenu" = "背景圖片";
+
+/* A selection to let the users only see a set of predefined, default images on the background of the app. */
+"ntp.settingsDefaultImagesOnly" = "僅顯示預設圖片";
+
+/* A selection to let the users see sponsored image backgrounds when opening a new tab. */
+"ntp.settingsSponsoredImagesSelection" = "贊助圖片";
+
+/* Title on settings page to adjust the primary home screen functionality. */
+"ntp.settingsTitle" = "新增分頁";
+
+/* A button title to show more bookmarks, that opens a new menu. */
+"ntp.showMoreFavorites" = "顯示更多";
+
+/* No comment provided by engineer. */
+"ntp.supportWebCreatorsWithTokens" = "一邊瀏覽，一邊賺取代幣，獎勵優質的內容創作者。";
 
 /* No comment provided by engineer. */
 "ntp.turnOnBraveAds" = "啟用 Brave Ads";
 
 /* No comment provided by engineer. */
-"ntp.turnOnBraveRewards" = "啟用 Rewards";
+"ntp.turnOnBraveRewards" = "啟用 Brave Rewards";
 
-/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turnin Rewards, you agree to the Terms of Service'. */
+/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turning Rewards, you agree to the Terms of Service'. */
 "ntp.turnRewardsTos" = "開啟「獎勵」即表示您同意%@。";
 
 /* No comment provided by engineer. */
-"ntp.youArePaidToSeeThisImage" = "您查看此背景圖片時將獲得報酬。";
+"ntp.youArePaidToSeeThisImage" = "查看此圖片立即賺取代幣。";
 
 /* Context menu item for opening all folder bookmarks */
 "OpenAllBookmarks" = "開啟全部 (%i)";
@@ -713,7 +731,7 @@
 "PrivateTabDetails" = "使用隱私分頁只會變更 Brave 可在您裝置上執行的作業，無法改變他人行為。\n\n當您造訪網站時，網站能得知您的 IP 位置。根據這項資訊，網站可以大略猜出您的所在位置，通常能知道您所在的城市，有時猜測的位置會更精確。網站也會收集您明確提供的所有內容，像是搜尋內容。當您登入網站時，網站也會知道您是該帳戶的所有人。若關閉隱私分頁，Brave 會捨棄那些協助您保持登入的 Cookie，因此系統依然會將您隨即登出。\n\n提供您網際網路連線的公司 (您的 ISP 業者) 可以查看您在網路上的所有活動。很多時候，這會是您的行動網路業者；如果您使用的是 WiFi 網路，該網路的所有者可以看到您的活動；如果您是使用 VPN 上網，則運作該 VPN 的一方可以看到活動。您的 ISP 業者可以在您造訪網站時，瞭解您瀏覽了哪些網站。如果這些網站使用 HTTPS，ISP 業者只能大略猜測您在網站上的活動；但如果網站僅使用 HTTP，則 ISP 業者可以看到所有活動，包括搜尋內容、讀取的頁面以及追蹤的連結。\n\n如果您的裝置是由雇主所管理，他們可能會追蹤您的裝置使用情形。即使您使用隱私分頁，雇主仍可知道您曾瀏覽過哪些網站。能存取您裝置的其他人士，可能也會安裝軟體以監控您的活動。這類情形下，即使使用隱私分頁，也不會有太大意義。";
 
 /* Private tab information link */
-"PrivateTabLink" = "深入瞭解隱私分頁。";
+"PrivateTabLink" = "深入了解隱私分頁。";
 
 /* Default engine for private search. */
 "PrivateTabSearch" = "隱私分頁";
@@ -977,13 +995,13 @@
 "SyncAddDeviceScan" = "Sync Chain 二維碼";
 
 /* Sync add device description */
-"SyncAddDeviceScanDescription" = "在第二部行動裝置上導向至設定面板中的同步並點選「掃描同步代碼」按鈕。使用相機掃描下方的 QR 碼。\n\n將此代碼視為密碼。如某人取得此密碼，將可讀取並修改您同步的資料。";
+"SyncAddDeviceScanDescription" = "在第二部行動裝置上，瀏覽到「設定」面板中的「同步」，並點選「掃描同步代碼」按鈕。使用相機掃描下方的 QR 碼。\n\n不妨將此代碼視為密碼。要是他人取得此代碼，將能讀取及修改您同步的資料。";
 
 /* Add device to sync with code words */
 "SyncAddDeviceWords" = "輸入同步代碼";
 
 /* Sync add device description */
-"SyncAddDeviceWordsDescription" = "在裝置上導向至設定面板中的同步並點選「%@」按鈕。輸入下方顯示的同步鏈代碼字組。\n\n將此代碼視為密碼。如某人取得此密碼，將可讀取並修改您同步的資料。";
+"SyncAddDeviceWordsDescription" = "在裝置上，瀏覽到「設定」面板中的「同步」，並點選「%@」按鈕。輸入下方顯示的同步鏈代碼字組。\n\n不妨將此代碼視為密碼。要是他人取得此代碼，將能讀取及修改您同步的資料。";
 
 /* Add device to sync with code words navigation title */
 "SyncAddDeviceWordsTitle" = "輸入代碼字組";
@@ -1156,6 +1174,12 @@
 /* Show Brave Browser TOS page from the Privacy section in the settings. */
 "TermsOfUse" = "使用條款";
 
+/* Text for button to share referral's QR code. */
+"themeQRCodeShareButton" = "分享...";
+
+/* Title for QR popup encouraging users to share the code with their friends. */
+"themeQRCodeShareTitle" = "與好友分享 Brave！";
+
 /* Selection to automatically color/style the user interface. */
 "ThemesAutomaticOption" = "自動";
 
@@ -1170,6 +1194,9 @@
 
 /* Selection to color/style the user interface with a light theme. */
 "ThemesLightOption" = "亮";
+
+/* Name for app theme settings */
+"themesSettings" = "主題";
 
 /* History tableview section header */
 "Today" = "今天";
@@ -1206,6 +1233,9 @@
 
 /* Word count title */
 "WordCount" = "字數：%i";
+
+/* Abbreviation for 'Year', use full word' Yeara' if this word can't be shortened in your language */
+"yearAbbreviation" = "年";
 
 /* Button title to confirm the deletion of a bookmarks folder */
 "YesDeleteButtonTitle" = "是的，刪除";

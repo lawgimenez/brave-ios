@@ -88,3 +88,8 @@ Client/Configuration/Local/
 
 adblock-regions.txt
 yubikit.log
+*.p8
+
+# Fastlane Env
+.env
+.env.*

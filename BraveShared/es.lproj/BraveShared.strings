@@ -217,6 +217,9 @@
 /* No comment provided by engineer. */
 "CancelButtonTitle" = "Cancelar";
 
+/* No comment provided by engineer. */
+"ClearData" = "Borrar datos";
+
 /* Button in settings that clears private data for the selected items. Also used as section title in settings panel */
 "ClearPrivateData" = "Borrar datos privados";
 
@@ -293,13 +296,16 @@
 "DDGCalloutEnable" = "Sí";
 
 /* DuckDuckGo message. */
-"DDGCalloutMessage" = "Con la búsqueda privada, Brave utilizará DuckDuckGo para atender sus búsquedas mientras navegue en esta pestaña privada. DuckDuckGo es un buscador que no rastrea su historial de búsqueda, permitiéndole así realizar búsquedas con total privacidad.";
+"DDGCalloutMessage" = "Con la búsqueda privada, Brave utilizará DuckDuckGo para atender tus búsquedas mientras navegas en esta pestaña privada. DuckDuckGo es un buscador que no rastrea tu historial de búsqueda, lo que te permite realizar búsquedas con total privacidad.";
 
 /* DuckDuckGo callout no action. */
 "DDGCalloutNo" = "No";
 
 /* DuckDuckGo callout title. */
 "DDGCalloutTitle" = "¿Búsqueda privada con DuckDuckGo?";
+
+/* Name for default Brave theme. */
+"defaultThemeName" = "Predeterminado de Brave";
 
 /* No comment provided by engineer. */
 "Delete" = "Eliminar";
@@ -547,6 +553,9 @@
 /* Reveal password text selection menu item */
 "MenuItemRevealPasswordTitle" = "Desvelar";
 
+/* Abbreviation for 'Month', use full word' Month' if this word can't be shortened in your language */
+"monthAbbreviation" = "mes";
+
 /* Bookmark title / Device name */
 "Name" = "Nombre";
 
@@ -574,59 +583,68 @@
 /* New Tab title */
 "NewTab" = "Nueva pestaña";
 
-/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
-"NewTabPageSettingsAutoOpenKeyboard" = "Abrir teclado automáticamente";
-
-/* A setting to enable or disable background images on the main screen. */
-"NewTabPageSettingsBackgroundImages" = "Mostrar imágenes de fondo";
-
-/* A setting to enable or disable sponsored images from showing on the main screen. */
-"NewTabPageSettingsSponsoredImages" = "Mostrar imágenes de patrocinadores";
-
-/* Title on settings page to adjust the primary home screen functionality. */
-"NewTabPageSettingsTitle" = "Página de pestaña nueva";
-
-/* A button title to show more bookmarks, that opens a new menu. */
-"NewTabPageShowMoreFavorites" = "Mostrar más";
-
 /* Sync Alert */
 "NotEnoughWordsDescription" = "Introduce todas las palabras e inténtalo de nuevo.";
 
 /* Sync Alert */
 "NotEnoughWordsTitle" = "No hay suficientes palabras";
 
-/* The placeholder says 'hide sponsored images'. So full sentence goes like: 'You can also choose to hide sponsored images.' */
-"ntp.chooseToHideSponsoredImages" = "También puedes optar por %@.";
+/* Bookmark title for Brave Support */
+"ntp.braveSupportFavoriteTitle" = "Asistencia de Brave";
 
 /* No comment provided by engineer. */
-"ntp.claimRewards" = "Reclamar mis recompensas";
+"ntp.claimRewards" = "Reclamar tokens";
 
-/* Placeholder example: 'You earned 42 BAT last month from viewing privacy-respecting ads.' */
-"ntp.earningsReport" = "El mes pasado, ganaste %@ por ver anuncios respetuosos con tu privacidad.";
-
-/* No comment provided by engineer. */
-"ntp.earnTokensByViewingAds" = "Gana tokens por ver anuncios respetuosos con tu privacidad.";
+/* Placeholder example: 'You earned 42 BAT by browsing with Brave.' */
+"ntp.earningsReport" = "Has ganado %@ por navegar con Brave.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnAds" = "Cobra por ver esta imagen de fondo. Activa Brave Ads para reclamar tu parte.";
+"ntp.getPaidForThisImageTurnAds" = "Gana tokens por ver esta imagen. Activa Brave Ads y empieza a apoyar a los creadores.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnRewards" = "Cobra por ver esta imagen de fondo. Activa Brave Rewards para reclamar tu parte.";
+"ntp.getPaidForThisImageTurnRewards" = "Gana tokens por ver esta imagen. Activa Brave Rewards y empieza a apoyar a los creadores.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidToSeeThisImage" = "Cobra por ver esta imagen de fondo.";
+"ntp.getPaidToSeeThisImage" = "Gana tokens por ver esta imagen.";
 
 /* The context is to praise the user that they did a good job, to keep it up. It is used in full sentence like: 'Way to go! You earned 40 BAT last month.' */
 "ntp.goodJob" = "¡Sigue así!";
 
-/* This sentence is not capitalized on purpose, it is a part of a bigger sentence which goes like this: 'You can also choose to hide sponsored images.' */
-"ntp.hideSponsoredImages" = "ocultar las imágenes de patrocinadores";
-
-/* The placeholder says 'Learn more'. So full sentence goes like: 'Learn more about sponsored images in Brave Rewards.' */
-"ntp.learnMoreAboutBrandedImages" = "%@ sobre las imágenes de patrocinadores de Brave Rewards";
+/* No comment provided by engineer. */
+"ntp.hideSponsoredImages" = "Ocultar las imágenes de patrocinadores";
 
 /* No comment provided by engineer. */
-"ntp.supportWebCreatorsWithTokens" = "Puedes apoyar a los creadores web con tokens.";
+"ntp.learnMoreAboutBrandedImages" = "Cuando ves una imagen de un patrocinador, ganas tokens con los que puedes apoyar a los creadores. Con Brave Ads, siempre podrás controlar los anuncios que ves.";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutRewards" = "Más información sobre Brave Rewards";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutSI" = "Más información sobre las imágenes de patrocinadores";
+
+/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
+"ntp.settingsAutoOpenKeyboard" = "Abrir teclado automáticamente";
+
+/* A setting to enable or disable background images on the main screen. */
+"ntp.settingsBackgroundImages" = "Mostrar imágenes de fondo";
+
+/* A button that leads to a 'more' menu, letting users configure additional settings. */
+"ntp.settingsBackgroundImageSubMenu" = "Imágenes de fondo";
+
+/* A selection to let the users only see a set of predefined, default images on the background of the app. */
+"ntp.settingsDefaultImagesOnly" = "Solo imágenes predeterminadas";
+
+/* A selection to let the users see sponsored image backgrounds when opening a new tab. */
+"ntp.settingsSponsoredImagesSelection" = "Imágenes de patrocinadores";
+
+/* Title on settings page to adjust the primary home screen functionality. */
+"ntp.settingsTitle" = "Página de pestaña nueva";
+
+/* A button title to show more bookmarks, that opens a new menu. */
+"ntp.showMoreFavorites" = "Mostrar más";
+
+/* No comment provided by engineer. */
+"ntp.supportWebCreatorsWithTokens" = "Gana tokens y recompensa a los creadores por su fantástico contenido mientras navegas.";
 
 /* No comment provided by engineer. */
 "ntp.turnOnBraveAds" = "Activar Brave Ads";
@@ -634,11 +652,11 @@
 /* No comment provided by engineer. */
 "ntp.turnOnBraveRewards" = "Activar Brave Rewards";
 
-/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turnin Rewards, you agree to the Terms of Service'. */
+/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turning Rewards, you agree to the Terms of Service'. */
 "ntp.turnRewardsTos" = "Al activar Brave Rewards, aceptas los %@.";
 
 /* No comment provided by engineer. */
-"ntp.youArePaidToSeeThisImage" = "Vas a cobrar por ver esta imagen de fondo.";
+"ntp.youArePaidToSeeThisImage" = "Estás ganando tokens por ver esta imagen.";
 
 /* Context menu item for opening all folder bookmarks */
 "OpenAllBookmarks" = "Abrir todo (%i)";
@@ -1156,6 +1174,12 @@
 /* Show Brave Browser TOS page from the Privacy section in the settings. */
 "TermsOfUse" = "Términos de uso";
 
+/* Text for button to share referral's QR code. */
+"themeQRCodeShareButton" = "Compartir…";
+
+/* Title for QR popup encouraging users to share the code with their friends. */
+"themeQRCodeShareTitle" = "¡Habla de Brave con tus amigos!";
+
 /* Selection to automatically color/style the user interface. */
 "ThemesAutomaticOption" = "Automático";
 
@@ -1170,6 +1194,9 @@
 
 /* Selection to color/style the user interface with a light theme. */
 "ThemesLightOption" = "Claro";
+
+/* Name for app theme settings */
+"themesSettings" = "Temas";
 
 /* History tableview section header */
 "Today" = "Hoy";
@@ -1206,6 +1233,9 @@
 
 /* Word count title */
 "WordCount" = "Recuento de palabras: %i";
+
+/* Abbreviation for 'Year', use full word' Yeara' if this word can't be shortened in your language */
+"yearAbbreviation" = "año";
 
 /* Button title to confirm the deletion of a bookmarks folder */
 "YesDeleteButtonTitle" = "Sí, eliminar";

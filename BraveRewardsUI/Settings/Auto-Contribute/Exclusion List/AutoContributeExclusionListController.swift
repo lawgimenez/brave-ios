@@ -4,6 +4,7 @@
 
 import UIKit
 import BraveRewards
+import BraveUI
 
 final class AutoContributeExclusionListController: UIViewController {
   private let state: RewardsState
@@ -78,7 +79,7 @@ final class AutoContributeExclusionListController: UIViewController {
   }
   
   @objc private func tappedRestoreAll(_ sender: UIBarButtonItem) {
-    let numberOfExcludedSites = state.ledger.numberOfExcludedPublishers
+    let numberOfExcludedSites = publishers.count
     let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     if let presenter = alert.popoverPresentationController {
       presenter.barButtonItem = sender
@@ -157,10 +158,7 @@ extension AutoContributeExclusionListController: UITableViewDataSource {
     }
     let cell = tableView.dequeueReusableCell(for: indexPath) as ExclusionListCell
     if let url = URL(string: publisher.url) {
-      state.dataSource?.retrieveFavicon(for: url, faviconURL: URL(string: publisher.faviconUrl)) { data in
-        cell.siteImageView.image = data?.image ?? UIImage(frameworkResourceNamed: "defaultFavicon")
-        cell.siteImageView.backgroundColor = data?.backgroundColor
-      }
+      state.dataSource?.retrieveFavicon(for: url, on: cell.siteImageView.imageView)
     }
     
     cell.verifiedStatusImageView.isHidden = publisher.status == .notVerified
@@ -182,7 +180,7 @@ extension AutoContributeExclusionListController: UITableViewDataSource {
         handler(true)
       }
     )
-    action.backgroundColor = Colors.blurple400
+    action.backgroundColor = Colors.blurple500
     let config = UISwipeActionsConfiguration(
       actions: [
         action

@@ -21,11 +21,16 @@ public extension Logger {
     static let rewardsLogger: RollingFileLogger = {
         let logger = RollingFileLogger(filenameRoot: "rewards", logDirectoryPath: nil)
         logger.identifier = "BraveRewards"
+        logger.newLogWithDate(Date(), configureDestination: { destination in
+            // Same as debug log, Rewards framework handles function names in message
+            destination.showFunctionName = false
+            destination.showThreadName = false
+        })
         
         if !AppConstants.buildChannel.isPublic {
             // For rewards logs we want to show it only using the Apple System Log to make it visible
             // via console.app
-            logger.destinations.removeAll()
+            logger.destinations.removeAll(where: { ($0 is ConsoleDestination) })
             
             // Create a destination for the system console log (via NSLog)
             let systemDestination = AppleSystemLogDestination(identifier: "com.brave.ios.logs")
@@ -34,12 +39,10 @@ public extension Logger {
             systemDestination.showLogIdentifier = true
             systemDestination.showLevel = true
             
-            // Since we redirect from Rewards framework we can't show proper filenames and threads.
-            // Rewards logs do that already for us.
+            // Since we redirect from Rewards framework we don't have function
+            // name's or thread names
             systemDestination.showFunctionName = false
             systemDestination.showThreadName = false
-            systemDestination.showFileName = false
-            systemDestination.showLineNumber = false
             
             logger.add(destination: systemDestination)
         }

@@ -62,19 +62,19 @@
 "AuthenticationImmediately" = "Umiddelbart";
 
 /* Error message displayed when user enters incorrect passcode when trying to enter a protected section of the app with attempts remaining */
-"AuthenticationIncorrectAttemptsRemaining" = "Ugyldig passkode. Prøv igjen. (Gjenværende forsøk: %d).";
+"AuthenticationIncorrectAttemptsRemaining" = "Ugyldig passkode. Prøv igjen (Gjenværende forsøk: %d).";
 
 /* Touch ID prompt subtitle when accessing logins */
 "AuthenticationLoginsTouchReason" = "Bruk fingeravtrykket ditt for å få tilgang til innlogginger nå.";
 
 /* Error message displayed when user enters incorrect passcode and has reached the maximum number of attempts. */
-"AuthenticationMaximumAttemptsReached" = "For mange mislykkede forsøk.\nPrøv igjen om %d minutter.";
+"AuthenticationMaximumAttemptsReached" = "For mange mislykkede forsøk.\n Prøv igjen om %d minutter.";
 
 /* Error message displayed when user enters incorrect passcode and has reached the maximum number of attempts. */
 "AuthenticationMaximumAttemptsReachedNoTime" = "Maksimalt antall forsøk nådd. Vennligst prøv igjen senere.";
 
 /* Error message displayed when user enters incorrect passcode and has reached the maximum number of attempts. */
-"AuthenticationMaximumAttemptsReachedOneMinute" = "For mange mislykkede forsøk.\nPrøv igjen om 1 minutt.";
+"AuthenticationMaximumAttemptsReachedOneMinute" = "For mange mislykkede forsøk.\n Prøv igjen om 1 minutt.";
 
 /* Label for the Passcode item in Settings */
 "AuthenticationPasscode" = "Passkode for innlogging";
@@ -217,6 +217,9 @@
 /* No comment provided by engineer. */
 "CancelButtonTitle" = "Avbryt";
 
+/* No comment provided by engineer. */
+"ClearData" = "Sletter data";
+
 /* Button in settings that clears private data for the selected items. Also used as section title in settings panel */
 "ClearPrivateData" = "Fjern private data";
 
@@ -293,13 +296,16 @@
 "DDGCalloutEnable" = "Ja";
 
 /* DuckDuckGo message. */
-"DDGCalloutMessage" = "Med privat søk bruker Brave DuckDuckGo for å finne resultater på søket ditt så lenge du er i denne private fanen. DuckDuckGo er en søkemotor som ikke sporer søkehistorikken din, slik at du kan søke helt privat.";
+"DDGCalloutMessage" = "Med privat søk vil Brave bruke DuckDuckGo til å besvare søkene dine mens du er i denne private fanen. DuckDuckGo er en søkemotor som ikke sporer søkeloggen din, slik at du kan søke privat.";
 
 /* DuckDuckGo callout no action. */
 "DDGCalloutNo" = "Nei";
 
 /* DuckDuckGo callout title. */
 "DDGCalloutTitle" = "Søke privat med DuckDuckGo?";
+
+/* Name for default Brave theme. */
+"defaultThemeName" = "Brave standard";
 
 /* No comment provided by engineer. */
 "Delete" = "Slett";
@@ -374,10 +380,10 @@
 "EditFolderTitle" = "Rediger mappe";
 
 /* Sync enter code words */
-"EnterCodeWords" = "Skriv kodeord";
+"EnterCodeWords" = "Skriv inn kodeord";
 
 /* Enter sync code words below */
-"EnterCodeWordsBelow" = "Skriv kodeord under";
+"EnterCodeWordsBelow" = "Skriv inn kodeord under";
 
 /* Description for new folder popup */
 "EnterFolderName" = "Tast inn navn på mappe";
@@ -410,7 +416,7 @@
 "ErrorPagesVisitOnceButton" = "Besøk siden allikevel";
 
 /* Shields Time Saved Stat */
-"EstTimerSaved" = "Est. tid \nspart";
+"EstTimerSaved" = "Est. tid \nSpart";
 
 /* %@ will launch an external application */
 "ExternalAppURLAlertMessage" = "%@ vil starte en ekstern app";
@@ -437,7 +443,7 @@
 "FindInPageDoneButtonAccessibilityLabel" = "Ferdig";
 
 /* Find %@ text in page. */
-"FindInPageFormat" = "Finn «%@\"";
+"FindInPageFormat" = "Finn «%@»";
 
 /* Accessibility label for next result button in Find in Page Toolbar. */
 "FindInPageNextResultButtonAccessibilityLabel" = "Neste resultat på side";
@@ -506,7 +512,7 @@
 "LearnAboutPrivateSearchrwithDuckDuckGo" = "Finn ut mer om private søk \nmed DuckDuckGo";
 
 /* No comment provided by engineer. */
-"learnMore" = "Få mer informasjon";
+"learnMore" = "Lær mer";
 
 /* Footer label describing when the current login was last modified with the timestamp as the parameter. */
 "LoginDetailLastModifiedCellFormatTitle" = "Sist modifisert %@";
@@ -547,6 +553,9 @@
 /* Reveal password text selection menu item */
 "MenuItemRevealPasswordTitle" = "Vis";
 
+/* Abbreviation for 'Month', use full word' Month' if this word can't be shortened in your language */
+"monthAbbreviation" = "mnd.";
+
 /* Bookmark title / Device name */
 "Name" = "Navn";
 
@@ -574,71 +583,80 @@
 /* New Tab title */
 "NewTab" = "Ny fane";
 
-/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
-"NewTabPageSettingsAutoOpenKeyboard" = "Åpne tastatur automatisk";
-
-/* A setting to enable or disable background images on the main screen. */
-"NewTabPageSettingsBackgroundImages" = "Vis bakgrunnsbilder";
-
-/* A setting to enable or disable sponsored images from showing on the main screen. */
-"NewTabPageSettingsSponsoredImages" = "Vis sponsede bilder";
-
-/* Title on settings page to adjust the primary home screen functionality. */
-"NewTabPageSettingsTitle" = "Ny faneside";
-
-/* A button title to show more bookmarks, that opens a new menu. */
-"NewTabPageShowMoreFavorites" = "Vis mer";
-
 /* Sync Alert */
 "NotEnoughWordsDescription" = "Skriv alle ordene og prøv igjen.";
 
 /* Sync Alert */
 "NotEnoughWordsTitle" = "Ikke nok ord";
 
-/* The placeholder says 'hide sponsored images'. So full sentence goes like: 'You can also choose to hide sponsored images.' */
-"ntp.chooseToHideSponsoredImages" = "Du kan også velge å %@.";
+/* Bookmark title for Brave Support */
+"ntp.braveSupportFavoriteTitle" = "Brave-kundestøtte";
 
 /* No comment provided by engineer. */
-"ntp.claimRewards" = "Gjør krav på mine belønninger";
+"ntp.claimRewards" = "Krev inn tokener";
 
-/* Placeholder example: 'You earned 42 BAT last month from viewing privacy-respecting ads.' */
-"ntp.earningsReport" = "Du tjente %@ sist måned for å se på annonser som respekterer personvernet.";
-
-/* No comment provided by engineer. */
-"ntp.earnTokensByViewingAds" = "Tjene tokens for å se på annonser som respekterer personvernet.";
+/* Placeholder example: 'You earned 42 BAT by browsing with Brave.' */
+"ntp.earningsReport" = "Du tjente %@ ved å surfe med Brave.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnAds" = "Få betalt for å se dette bakgrunnsbildet. Slå på Brave-annonser for å kreve andelen din.";
+"ntp.getPaidForThisImageTurnAds" = "Tjen tokener ved å vise dette bildet. Slå på Brave-annonser og begynn å støtte skaperne.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidForThisImageTurnRewards" = "Få betalt for å se dette bakgrunnsbildet. Slå på Brave-annonser for å kreve andelen din.";
+"ntp.getPaidForThisImageTurnRewards" = "Tjen tokener for å vise dette bildet. Slå på Brave Rewards og begynn å støtte skaperne.";
 
 /* No comment provided by engineer. */
-"ntp.getPaidToSeeThisImage" = "Få betalt for å se dette bakgrunnsbildet.";
+"ntp.getPaidToSeeThisImage" = "Tjen opp tokens for å se dette bildet.";
 
 /* The context is to praise the user that they did a good job, to keep it up. It is used in full sentence like: 'Way to go! You earned 40 BAT last month.' */
 "ntp.goodJob" = "Bra jobba!";
 
-/* This sentence is not capitalized on purpose, it is a part of a bigger sentence which goes like this: 'You can also choose to hide sponsored images.' */
-"ntp.hideSponsoredImages" = "skjul sponsede bilder";
-
-/* The placeholder says 'Learn more'. So full sentence goes like: 'Learn more about sponsored images in Brave Rewards.' */
-"ntp.learnMoreAboutBrandedImages" = "%@ om sponsede bilder i Brave Rewards";
+/* No comment provided by engineer. */
+"ntp.hideSponsoredImages" = "Skjul sponsede bilder";
 
 /* No comment provided by engineer. */
-"ntp.supportWebCreatorsWithTokens" = "Du kan skape nettskapere med tokens.";
+"ntp.learnMoreAboutBrandedImages" = "Når du viser et sponset bilde, tjener du tokener som kan brukes til å støtte skaperne. Med Brave-annonser har du alltid kontroll over annonsene du ser.";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutRewards" = "Lær mer om Brave Rewards";
+
+/* No comment provided by engineer. */
+"ntp.learnMoreAboutSI" = "Lær mer om sponsede bilder";
+
+/* A setting to enable or disable the device's keyboard from opening automatically when creating a new tab. */
+"ntp.settingsAutoOpenKeyboard" = "Åpne tastatur automatisk";
+
+/* A setting to enable or disable background images on the main screen. */
+"ntp.settingsBackgroundImages" = "Vis bakgrunnsbilder";
+
+/* A button that leads to a 'more' menu, letting users configure additional settings. */
+"ntp.settingsBackgroundImageSubMenu" = "Bakgrunnsbilder";
+
+/* A selection to let the users only see a set of predefined, default images on the background of the app. */
+"ntp.settingsDefaultImagesOnly" = "Kun standardbilder";
+
+/* A selection to let the users see sponsored image backgrounds when opening a new tab. */
+"ntp.settingsSponsoredImagesSelection" = "Sponsede bilder";
+
+/* Title on settings page to adjust the primary home screen functionality. */
+"ntp.settingsTitle" = "Ny faneside";
+
+/* A button title to show more bookmarks, that opens a new menu. */
+"ntp.showMoreFavorites" = "Vis mer";
+
+/* No comment provided by engineer. */
+"ntp.supportWebCreatorsWithTokens" = "Tjen tokener og belønn skaperne for supert innhold mens du surfer.";
 
 /* No comment provided by engineer. */
 "ntp.turnOnBraveAds" = "Slå på Brave-annonser";
 
 /* No comment provided by engineer. */
-"ntp.turnOnBraveRewards" = "Slå på belønninger";
+"ntp.turnOnBraveRewards" = "Slå på Brave Rewards";
 
-/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turnin Rewards, you agree to the Terms of Service'. */
+/* The placeholder says 'Terms of Service'. So full sentence goes like: 'By turning Rewards, you agree to the Terms of Service'. */
 "ntp.turnRewardsTos" = "Ved å slå på Rewards, godtar du %@.";
 
 /* No comment provided by engineer. */
-"ntp.youArePaidToSeeThisImage" = "Du får betalt for å se dette bakgrunnsbildet.";
+"ntp.youArePaidToSeeThisImage" = "Du tjener tokens for å se dette bildet.";
 
 /* Context menu item for opening all folder bookmarks */
 "OpenAllBookmarks" = "Åpne alle (%i)";
@@ -713,7 +731,7 @@
 "PrivateTabDetails" = "Det å bruke private faner påvirker kun det Brave gjør på enheten din, det forandrer ikke andres adferd.\n\nNettsteder får alltid vite IP-adressen din når du besøker dem. Ut ifra dette kan de ofte gjette omtrent hvor du befinner deg, men vanligvis er ikke dette mer nøyaktig enn hvilken by du er i. Noen ganger kan imidlertid posisjonen de anslår, være mer spesifikk. Nettsteder får også vite alt du spesifikt oppgir til dem, som søkeord. Hvis du logger på et nettsted, vet nettstedet at du eier den gjeldende kontoen. Du blir likevel logget ut når du lukker de private fanene, for Brave kaster informasjonskapselen som holder deg pålogget.\n\nDen som kobler deg til internett (vanligvis internettleverandøren din) kan se all aktiviteten på nettverket ditt. Ofte er internettleverandøren mobilleverandøren din. Hvis du er koblet til et WiFi-nettverk, er internettleverandøren eieren av nettverket, og hvis du bruker en VPN, er det den som drifter VPN-en. Internettleverandøren din kan se hvilke nettsteder du besøker, samtidig som du besøker dem. Hvis disse nettstedene bruker HTTPS, kan internettleverandøren gjøre mer enn en kvalifisert gjetning angående hva du foretar deg på slike nettsteder. Hvis et nettsted kun bruker HTTP, kan imidlertid internettleverandøren din se alt: søkeordene dine, hvilke sider du leser, og hvilke lenker du følger.\n\nHvis arbeidsgiveren din administrerer enheten din, kan arbeidsgiveren også se hva du gjør med den. Det å bruke private faner vil sannsynligvis ikke hindre at de finner ut hvilke nettsteder du har besøkt. Andre som har tilgang til enheten din, kan også ha installert programvare som overvåker aktiviteten din, og private faner beskytter deg heller ikke mot dette.";
 
 /* Private tab information link */
-"PrivateTabLink" = "Finn ut mer om private faner.";
+"PrivateTabLink" = "Lær om private faner.";
 
 /* Default engine for private search. */
 "PrivateTabSearch" = "Privat fane";
@@ -755,7 +773,7 @@
 "ReaderModeFontTypeButtonAccessibilityHint" = "Endrer fonttypen.";
 
 /* Message displayed when the reader mode page is loading. This message will appear only when sharing to Brave reader mode from another app. */
-"ReaderModeLoadingContentDisplayText" = "Laster innhold...";
+"ReaderModeLoadingContentDisplayText" = "Laster innhold ...";
 
 /* Link for going to the non-reader page when the reader view could not be loaded. This message will appear only when sharing to Brave reader mode from another app. */
 "ReaderModeLoadOriginalLinkText" = "Last inn original side";
@@ -767,7 +785,7 @@
 "ReaderModeSmallerFontButtonAccessibilityLabel" = "Reduser tekststørrelse";
 
 /* Button for smaller reader font size. Keep this extremely short! This is shown in the reader mode toolbar. */
-"ReaderModeSmallerFontButtonTitle" = "-";
+"ReaderModeSmallerFontButtonTitle" = "–";
 
 /* Accessibility hint for the color theme setting buttons in reader mode display settings */
 "ReaderModeThemeButtonAccessibilityHint" = "Endrer fargetema.";
@@ -893,7 +911,7 @@
 "ShareLinkActionTitle" = "Del lenke";
 
 /* Title for sharing url menu item */
-"ShareWithMenuItem" = "Lagre med...";
+"ShareWithMenuItem" = "Lagre med ...";
 
 /* Section title for adbblock, tracking protection, HTTPS-E, and cookies */
 "ShieldsDefaults" = "Shield standardverdier";
@@ -977,13 +995,13 @@
 "SyncAddDeviceScan" = "QR-kode for synkkjede";
 
 /* Sync add device description */
-"SyncAddDeviceScanDescription" = "På den andre mobilenheten går du til Sync på panelet Innstillinger på enheten og trykker på knappen «Skann synkkode». Bruk kameraet til å skanne QR-koden som er vist nedenfor.\n\nDu må behandle koden som et passord. Hvis noen får tak i den, kan de lese og endre de synkroniserte dataene.";
+"SyncAddDeviceScanDescription" = "Gå til Sync i innstillingene på den andre mobilenheten din, og trykk på knappen for «Skann synkkode». Bruk kameraet ditt til å skanne QR-koden nedenfor.\n\n Behandle denne koden som et passord. Hvis noen får tak i det, kan de lese og endre de synkroniserte dataene dine.";
 
 /* Add device to sync with code words */
 "SyncAddDeviceWords" = "Angi synkkoden";
 
 /* Sync add device description */
-"SyncAddDeviceWordsDescription" = "Naviger til Sync på panelet Innstillinger på enheten, og trykk på knappen «%@». Skriv inn ordene for synkroniseringskoden som er vist nedenfor. \n\nDu må behandle koden som et passord. Hvis noen får tak i den, kan de lese og endre de synkroniserte dataene.";
+"SyncAddDeviceWordsDescription" = "Gå til Sync i innstillingene på mobilenheten din, og trykk på knappen for «%@». Legg inn synklenke-kodeordene som vises nedenfor\n\n Behandle denne koden som et passord. Hvis noen får tak i det, kan de lese og endre de synkroniserte dataene dine.";
 
 /* Add device to sync with code words navigation title */
 "SyncAddDeviceWordsTitle" = "Skriv inn kodeord";
@@ -1055,7 +1073,7 @@
 "SyncSettingsHeader" = "På oversikten under ser du alle enhetene i synkkjeden din. Alle enhetene kan administreres fra enhver av de andre enhetene.";
 
 /* Switch back to camera button */
-"SyncSwitchBackToCameraButton" = "Jeg bruker kameraet mitt…";
+"SyncSwitchBackToCameraButton" = "Jeg bruker kameraet mitt …";
 
 /* Tablet or phone button title */
 "SyncTabletOrMobileDevice" = "Nettbrett eller telefon";
@@ -1156,6 +1174,12 @@
 /* Show Brave Browser TOS page from the Privacy section in the settings. */
 "TermsOfUse" = "Bruksvilkår";
 
+/* Text for button to share referral's QR code. */
+"themeQRCodeShareButton" = "Del ...";
+
+/* Title for QR popup encouraging users to share the code with their friends. */
+"themeQRCodeShareTitle" = "Del Brave med vennene dine!";
+
 /* Selection to automatically color/style the user interface. */
 "ThemesAutomaticOption" = "Automatisk";
 
@@ -1171,11 +1195,14 @@
 /* Selection to color/style the user interface with a light theme. */
 "ThemesLightOption" = "Lyst";
 
+/* Name for app theme settings */
+"themesSettings" = "Temaer";
+
 /* History tableview section header */
 "Today" = "I dag";
 
 /* Shields Trackers Stat */
-"TrackersrBlocked" = "Sporingsprogrammer \nblokkert";
+"TrackersrBlocked" = "Sporingsprogrammer \nBlokkert";
 
 /* Sync Alert */
 "UnableToConnectDescription" = "Kan ikke bli med i synkgruppen. Sjekk ordene du skrev inn, og prøv igjen.";
@@ -1206,6 +1233,9 @@
 
 /* Word count title */
 "WordCount" = "Antall ord: %i";
+
+/* Abbreviation for 'Year', use full word' Yeara' if this word can't be shortened in your language */
+"yearAbbreviation" = "år";
 
 /* Button title to confirm the deletion of a bookmarks folder */
 "YesDeleteButtonTitle" = "Ja, slett";

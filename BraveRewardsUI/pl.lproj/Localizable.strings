@@ -62,6 +62,18 @@
 "BraveRewardsAdsPayoutDateFormat" = "MMM d";
 
 /* No comment provided by engineer. */
+"BraveRewardsAdsSubdivisionTargeting" = "Targetowanie reklam na poziomie stanu";
+
+/* No comment provided by engineer. */
+"BraveRewardsAdsSubdivisionTargetingAutoDetect" = "Autowykrywanie";
+
+/* No comment provided by engineer. */
+"BraveRewardsAdsSubdivisionTargetingDisable" = "Wyłącz";
+
+/* No comment provided by engineer. */
+"BraveRewardsAdsSubdivisionTargetingDisabled" = "Wyłączone";
+
+/* No comment provided by engineer. */
 "BraveRewardsAdsUnsupportedDvice" = "Usługa Brave Rewards and Ads nie jest obecnie dostępna na Twoim urządzeniu.";
 
 /* No comment provided by engineer. */
@@ -104,7 +116,7 @@
 "BraveRewardsAutoContributeSupportedSites" = "Obsługiwane strony";
 
 /* No comment provided by engineer. */
-"BraveRewardsAutoContributeToUnverifiedSites" = "Zezwól na przekazywanie darowizn na rzecz niezweryfikowanych stron";
+"BraveRewardsAutoContributeToUnverifiedSites" = "Pokaż niezweryfikowane strony na liście";
 
 /* No comment provided by engineer. */
 "BraveRewardsAutoContributeToVideos" = "Zezwól na przekazywanie darowizn na rzecz filmów";
@@ -311,10 +323,10 @@
 "BraveRewardsSettings" = "Ustawienia";
 
 /* No comment provided by engineer. */
-"BraveRewardsSettingsAdsBody" = "Zarabiaj tokeny oglądając reklamy w Brave. Reklamy prezentowane są w oparciu o Twoje zainteresowania, co wynika z Twojego zachowania podczas przeglądania stron internetowych. Żadne dane osobowe ani historia przeglądania nie opuszczają przeglądarki.";
+"BraveRewardsSettingsAdsBody" = "Włącz Brave Ads i zacznij zarabiać tokeny, dzięki którym możesz wspierać ulubionych twórców! W górnej części przeglądarki będą się pojawiały małe reklamy nienaruszające prywatności.";
 
 /* No comment provided by engineer. */
-"BraveRewardsSettingsAdsBodyJapan" = "Zdobywaj punkty, oglądając reklamy w Brave. Reklamy prezentowane są w oparciu o Twoje zainteresowania, co wynika z Twojego zachowania podczas przeglądania stron internetowych. Żadne dane osobowe ani historia przeglądania nie opuszczają przeglądarki.";
+"BraveRewardsSettingsAdsBodyJapan" = "Włącz Brave Ads i zacznij zarabiać punkty, dzięki którym możesz wspierać ulubionych twórców! W górnej części przeglądarki będą się pojawiały małe reklamy nienaruszające prywatności.";
 
 /* No comment provided by engineer. */
 "BraveRewardsSettingsAdsComingSoonText" = "Już wkrótce.";
@@ -338,10 +350,10 @@
 "BraveRewardsSettingsAutoContributeUpToValue" = "Nawet %@";
 
 /* No comment provided by engineer. */
-"BraveRewardsSettingsDisabledBody1" = "W swojej starej przeglądarce, płaciłeś za przeglądanie stron internetowych Twoją cenną uwagą poprzez przeglądanie reklam. Twój cenny czas był wykorzystywany na pobieranie inwazyjnych technologii reklamowych, które przesyłały Twoje cenne dane osobowe do reklamodawców – bez Twojej zgody.";
+"BraveRewardsSettingsDisabledBody1" = "Twórcy potrzebują Twojego wsparcia, a dzięki Brave jest ono możliwe całkowicie bezpłatnie. Teraz możesz gromadzić tokeny podczas przeglądania i wpłacać je twórcom, których lubisz.";
 
 /* No comment provided by engineer. */
-"BraveRewardsSettingsDisabledBody2" = "W którym ceniony jest Twój czas, Twoje dane osobowe są przechowywane w tajemnicy, a Ty rzeczywiście otrzymujesz wynagrodzenie za swoją uwagę.";
+"BraveRewardsSettingsDisabledBody2" = "W którym ceniony jest Twój czas, Twoje dane osobowe są przechowywane w tajemnicy, a Ty czujesz się dobrze, wspierając twórców treści.";
 
 /* No comment provided by engineer. */
 "BraveRewardsSettingsDisabledTitle1" = "Dlaczego Brave Rewards?";
@@ -416,7 +428,7 @@
 "BraveRewardsTippingOneTimeTitle" = "Właśnie udało Ci się wysłać napiwek do:";
 
 /* No comment provided by engineer. */
-"BraveRewardsTippingOverviewBody" = "Możesz wesprzeć tego twórcę treści, wysyłając napiwek. Jest to sposób podziękowania mu za tworzenie wspaniałych treści. Zweryfikowani twórcy otrzymują zapłatę za swoje napiwki w pierwszym tygodniu każdego miesiąca kalendarzowego.\n\nJeśli chcesz, możesz zaplanować comiesięczne napiwki, aby wspierać tego twórcę w sposób ciągły.";
+"BraveRewardsTippingOverviewBody" = "Możesz wesprzeć tego twórcę treści, wysyłając mu kilka tokenów. Jest to sposób podziękowania mu za tworzenie wspaniałych treści. Zweryfikowani twórcy otrzymują tokeny w pierwszym tygodniu każdego miesiąca kalendarzowego.\n\nJeśli chcesz, możesz zaplanować comiesięczne wpłaty, aby wspierać tego twórcę w sposób ciągły.";
 
 /* No comment provided by engineer. */
 "BraveRewardsTippingOverviewTitle" = "Witamy!";
@@ -437,7 +449,7 @@
 "BraveRewardsTippingTitle" = "Wyślij napiwek";
 
 /* No comment provided by engineer. */
-"BraveRewardsTippingUnverifiedDisclaimer" = "UWAGA: Ten twórca nie zapisał się jeszcze do otrzymywania wpłat od użytkowników Brave. Twoja przeglądarka będzie starała się przekazać darowiznę aż do momentu weryfikacji lub do upływu 90 dni. ";
+"BraveRewardsTippingUnverifiedDisclaimer" = "UWAGA: Ten twórca nie zapisał się jeszcze do otrzymywania tokenów od użytkowników Brave. Twoja przeglądarka będzie starała się przekazać darowiznę aż do momentu weryfikacji lub do upływu 90 dni. ";
 
 /* No comment provided by engineer. */
 "BraveRewardsTippingWalletBalanceTitle" = "saldo portfela";
@@ -464,7 +476,7 @@
 "BraveRewardsTwoAdsPerHour" = "2 reklamy na godzinę";
 
 /* No comment provided by engineer. */
-"BraveRewardsUnverifiedPublisherDisclaimer" = "Ten twórca nie zapisał się jeszcze do otrzymywania datków od użytkowników Brave. Wszelkie napiwki, które wyślesz, pozostaną w Twoim portfelu, dopóki nie przejdzie on weryfikacji.";
+"BraveRewardsUnverifiedPublisherDisclaimer" = "Ten twórca nie zapisał się jeszcze do otrzymywania tokenów od użytkowników Brave. Wszelkie tokeny, które wyślesz, pozostaną w Twoim portfelu, dopóki nie przejdzie on weryfikacji.";
 
 /* No comment provided by engineer. */
 "BraveRewardsVerified" = "Zweryfikowany twórca Brave";
@@ -499,6 +511,12 @@
 /* Message that is displayed when user disables auto-contribute */
 "DisabledAutoContributeMessage" = "Nagradzaj twórców za treści, które uwielbiasz. Twoja miesięczna opłata jest rozprowadzana wśród stron, które odwiedzasz.";
 
+/* Message that is displayed on monthly contribution section when user disables rewards */
+"DisabledMonthlyContributionMessage" = "Twoje miesięczne wpłaty będą wysyłane co 30 dni.";
+
+/* Message that is displayed on tips section when user disables rewards */
+"DisabledTipsMessage" = "Przekazuj napiwki od razu, gdy znajdziesz klejnoty. Jeśli chcesz, poinformuj innych krótkim tweetem.";
+
 /* No comment provided by engineer. */
 "DisclaimerInformation" = "Kliknięcie „Dołącz do Nagród” oznacza przeczytanie i akceptację Warunków świadczenia usług i Polityki prywatności.";
 
@@ -513,6 +531,12 @@
 
 /* The title of the screen that shows a list of excluded sites for Auto-Contribute */
 "ExclusionListTitle" = "Wyłączone strony";
+
+/* No comment provided by engineer. */
+"LedgerDatabaseMigrationFailedBody" = "Pojawił się problem z wczytaniem informacji o nagrodach. Twoje dane dotyczące aktywności związanej z nagrodami zostaną ponownie uruchomione.\n\nW razie jakichkolwiek problemów lub wątpliwości skontaktuj się z nami pod adresem support@brave.com.";
+
+/* No comment provided by engineer. */
+"LedgerInitializationFailedTitle" = "Niestety, coś poszło nie tak…";
 
 /* No comment provided by engineer. */
 "MyFirstAdBody" = "Dotknij tutaj, aby dowiedzieć się więcej.";
@@ -545,7 +569,7 @@
 "NotificationContributeTipError" = "Nie można wysłać napiwku. Spróbuj ponownie później.";
 
 /* Panel notification text for Ads grant */
-"NotificationEarningsClaimDefault" = "Twoje nagrody z Ads już tu są!";
+"NotificationEarningsClaimDefault" = "Nowe tokeny są gotowe do odbioru.";
 
 /* Title for an error notification */
 "NotificationErrorTitle" = "Ojej!";
@@ -608,10 +632,10 @@
 "RecurringText" = "Powtarzające się";
 
 /* No comment provided by engineer. */
-"RewardsOptInDescription" = "Teraz możesz zarabiać tokeny za oglądanie reklam szanujących prywatność.";
+"RewardsOptInDescription" = "Zarabiaj tokeny i, przeglądając, nagradzaj twórców za tworzenie świetnych treści";
 
 /* No comment provided by engineer. */
-"RewardsOptInDescriptionJapan" = "Teraz możesz zdobywać punkty za oglądanie reklam szanujących prywatność.";
+"RewardsOptInDescriptionJapan" = "Zarabiaj punkty i, przeglądając, nagradzaj twórców za tworzenie świetnych treści";
 
 /* No comment provided by engineer. */
 "RewardsOptInJoinTitle" = "Dołącz do nagród";
@@ -621,6 +645,51 @@
 
 /* No comment provided by engineer. */
 "RewardsOptInPrefix" = "Przygotuj się na kolejną odsłonę Internetu.";
+
+/* No comment provided by engineer. */
+"SKUEnableRewardsBody" = "Potrzebujesz tokenów, aby kupić ten przedmiot. Włącz Brave Rewards, aby je zdobyć.";
+
+/* No comment provided by engineer. */
+"SKUEnableRewardsButtonTitle" = "Włącz Brave Rewards";
+
+/* No comment provided by engineer. */
+"SKUEnableRewardsDisclaimer" = "Stukając w przycisk Włącz Brave Rewards, akceptujesz warunki świadczenia usługi Brave Reward.";
+
+/* The hyperlinked portion of the copy: 'By tapping Enable Brave Rewards, you agree to Brave Reward’s Terms of Service.' */
+"SKUEnableRewardsDisclaimerLink" = "Warunki świadczenia usług.";
+
+/* No comment provided by engineer. */
+"SKUEnableRewardsTitle" = "Włącz Brave Rewards, aby kontynuować.";
+
+/* '%@' becomes 'BAT' or 'BAP' based on region */
+"SKUPurchaseBuyWithBAT" = "Kup za %@";
+
+/* No comment provided by engineer. */
+"SKUPurchaseCompletedBody" = "Ciesz się swoim zakupem.";
+
+/* No comment provided by engineer. */
+"SKUPurchaseCompletedTitle" = "Wszystko gotowe!";
+
+/* First '%@' becomes 'Buy with BAT' or 'Buy with BAP' based on region. Second '%@' becomes 'Brave’s Terms of Sale' */
+"SKUPurchaseDisclaimerInformation" = "Klikając '%1$@', akceptujesz %2$@.";
+
+/* Should be the same text as shown */
+"SKUPurchaseDisclaimerInformationLink" = "Warunki sprzedaży Brave";
+
+/* '%@' becomes 'BAT' or 'BAP' based on region' */
+"SKUPurchaseInsufficientFunds" = "Nie masz wystarczająco dużo %@, aby dokonać tego zakupu.";
+
+/* No comment provided by engineer. */
+"SKUPurchaseItemSelected" = "Wybrano przedmiot";
+
+/* No comment provided by engineer. */
+"SKUPurchaseOrderTotal" = "Zamówienie ogółem";
+
+/* No comment provided by engineer. */
+"SKUPurchaseProcessing" = "Twoja płatność jest przetwarzana…";
+
+/* No comment provided by engineer. */
+"SKUPurchaseTitle" = "Potwierdź zakup";
 
 /* No comment provided by engineer. */
 "TermsOfServiceURL" = "Warunki świadczenia usług";

@@ -49,15 +49,13 @@ class TipsDetailViewController: UIViewController {
   }
   
   private func loadData() {
-    _ = getTipsThisMonth().then {
-      
-      if let oneTimeTips = BATValue(probi: "\($0.oneTimeDonation)"),
-        let recurringTips = BATValue(probi: "\($0.recurringDonation)") {
-        totalBatTips = oneTimeTips.doubleValue + recurringTips.doubleValue
-      }
+    getTipsThisMonth { [weak self] report in
+      guard let self = self else { return }
+      self.totalBatTips = report.oneTimeDonation + report.recurringDonation
+      (self.view as? SettingsTableView)?.tableView.reloadData()
     }
     
-    state.ledger.listOneTimeTips {[weak self] infoList in
+    state.ledger.listOneTimeTips { [weak self] infoList in
       guard let self = self else { return }
       infoList.forEach({$0.category = Int32(RewardsType.oneTimeTip.rawValue)})
       self.tipsList.append(contentsOf: infoList)
@@ -154,49 +152,24 @@ extension TipsDetailViewController: UITableViewDataSource, UITableViewDelegate {
       cell.siteNameLabel.attributedText = attrName
       
       cell.siteImageView.image = UIImage(frameworkResourceNamed: "defaultFavicon")
-      setFavicon(identifier: tip.id, pageURL: tip.url, faviconURL: tip.faviconUrl)
+      if let url = URL(string: tip.url) {
+        state.dataSource?.retrieveFavicon(for: url, on: cell.siteImageView)
+      }
       cell.verifiedStatusImageView.isHidden = tip.status == .notVerified
-      let value = BATValue(probi: "\(tip.weight)")
       cell.typeNameLabel.text = Strings.oneTimeText + Date.stringFrom(reconcileStamp: tip.reconcileStamp)
-      cell.tokenView.batContainer.amountLabel.text = value?.displayString
-      cell.tokenView.usdContainer.amountLabel.text = state.ledger.dollarStringForBATAmount(value?.doubleValue ?? 0, includeCurrencyCode: false)
+      cell.tokenView.batContainer.amountLabel.text = "\(tip.weight)"
+      cell.tokenView.usdContainer.amountLabel.text = state.ledger.dollarStringForBATAmount(tip.weight, includeCurrencyCode: false)
       return cell
     }
   }
 }
 
 extension TipsDetailViewController {
-  fileprivate func getTipsThisMonth() -> BalanceReportInfo {
+  fileprivate func getTipsThisMonth(_ completion: @escaping (BalanceReportInfo) -> Void) {
     let month = Date().currentMonthNumber
     let year = Date().currentYear
-    var report = BalanceReportInfo()
     state.ledger.balanceReport(for: ActivityMonth(rawValue: month) ?? .any, year: Int32(year)) {
-      if let balance = $0 { report = balance }
-    }
-    return report
-  }
-  
-  fileprivate func setFavicon(identifier: String, pageURL: String, faviconURL: String?) {
-    if let pageURL = URL(string: pageURL) {
-      state.dataSource?.retrieveFavicon(for: pageURL, faviconURL: URL(string: faviconURL ?? ""), completion: {[weak self] favData in
-        guard let self = self,
-          let image = favData?.image  else {
-            return
-        }
-        
-        let indices = self.tipsList.enumerated().compactMap({ $0.element.id == identifier ? $0.offset : nil })
-        if indices.isEmpty {
-          return
-        }
-
-        if let tableView = (self.view as? SettingsTableView)?.tableView {
-          for index in indices {
-            if let cell = tableView.cellForRow(at: IndexPath(row: index, section: Section.tips.rawValue)) as? TipsTableCell {
-              cell.siteImageView.image = image
-            }
-          }
-        }
-      })
+      completion($0 ?? .init())
     }
   }
   

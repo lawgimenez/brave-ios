@@ -25,9 +25,9 @@ internal extension Strings {
   static let rewardsOptInLearnMore = NSLocalizedString("RewardsOptInLearnMore", bundle: .rewardsUI, value: "Learn More", comment: "")
   static var settingsAdsBody: String {
     if Preferences.Rewards.isUsingBAP.value == true {
-      return NSLocalizedString("BraveRewardsSettingsAdsBodyJapan", bundle: .rewardsUI, value: "Earn points by viewing ads in Brave. Ads presented are based on your interests, as inferred from your browsing behavior. No personal data or browsing history ever leaves your browser.", comment: "")
+      return NSLocalizedString("BraveRewardsSettingsAdsBodyJapan", bundle: .rewardsUI, value: "Turn on Brave Ads and start earning points that you can use to support your favorite creators! Small, privacy preserving ads will appear at the top of the browser as you browse.", comment: "")
     }
-    return NSLocalizedString("BraveRewardsSettingsAdsBody", bundle: .rewardsUI, value: "Earn tokens by viewing ads in Brave. Ads presented are based on your interests, as inferred from your browsing behavior. No personal data or browsing history ever leaves your browser.", comment: "")
+    return NSLocalizedString("BraveRewardsSettingsAdsBody", bundle: .rewardsUI, value: "Turn on Brave Ads and start earning tokens that you can use to support your favorite creators! Small, privacy preserving ads will appear at the top of the browser as you browse.", comment: "")
   }
   static var walletHeaderGrants: String {
     if Preferences.Rewards.isUsingBAP.value == true {
@@ -89,7 +89,7 @@ internal extension Strings {
   static let notificationRecurringTipTitle = NSLocalizedString("BraveRewardsNotificationRecurringTipTitle", bundle: .rewardsUI, value: "Recurring tips", comment: "")
   static let emptyWalletTitle = NSLocalizedString("BraveRewardsEmptyWalletTitle", bundle: .rewardsUI, value: "Your wallet is ready for action.", comment: "")
   static let recurringTipTitle = NSLocalizedString("BraveRewardsRecurringTipTitle", bundle: .rewardsUI, value: "Recurring tip", comment: "")
-  static let unverifiedPublisherDisclaimer = NSLocalizedString("BraveRewardsUnverifiedPublisherDisclaimer", bundle: .rewardsUI, value: "This creator has not yet signed up to receive contributions from Brave users. Any tips you send will remain in your wallet until they verify.", comment: "")
+  static let unverifiedPublisherDisclaimer = NSLocalizedString("BraveRewardsUnverifiedPublisherDisclaimer", bundle: .rewardsUI, value: "This creator has not yet signed up to receive tokens from Brave users. Any tokens you send will remain in your wallet until they verify.", comment: "")
   static let connectedPublisherDisclaimer = NSLocalizedString("BraveRewardsConnectedPublisherDisclaimer", bundle: .rewardsUI, value: "This Brave Verified Creator has not yet configured their account to receive contributions from Brave Users. Any tips you send will remain in your wallet until they complete this process.", comment: "")
   static let settingsGrantClaimButtonTitle = NSLocalizedString("BraveRewardsSettingsGrantClaimButtonTitle", bundle: .rewardsUI, value: "Claim", comment: "")
   static let autoContributeMinimumLength = NSLocalizedString("BraveRewardsAutoContributeMinimumLength", bundle: .rewardsUI, value: "Minimum Page Time", comment: "")
@@ -102,7 +102,7 @@ internal extension Strings {
     return NSLocalizedString("BraveRewardsNotificationTokenGrantTitle", bundle: .rewardsUI, value: "Token Grants", comment: "")
   }
   static let learnMoreBraveAdsBody = NSLocalizedString("BraveRewardsLearnMoreBraveAdsBody", bundle: .rewardsUI, value: "Get paid to view relevant ads that respect your privacy.", comment: "")
-  static let autoContributeToUnverifiedSites = NSLocalizedString("BraveRewardsAutoContributeToUnverifiedSites", bundle: .rewardsUI, value: "Allow contribution to non-verified sites", comment: "")
+  static let autoContributeToUnverifiedSites = NSLocalizedString("BraveRewardsAutoContributeToUnverifiedSites", bundle: .rewardsUI, value: "Show non-verified sites in list", comment: "")
   static let learnMoreWhyTitle = NSLocalizedString("BraveRewardsLearnMoreWhyTitle", bundle: .rewardsUI, value: "Why Brave Rewards?", comment: "")
   static let attention = NSLocalizedString("BraveRewardsAttention", bundle: .rewardsUI, value: "Attention", comment: "")
   static let exclude = NSLocalizedString("BraveRewardsExclude", bundle: .rewardsUI, value: "Exclude", comment: "")
@@ -158,7 +158,7 @@ internal extension Strings {
   static let disabledTitle = NSLocalizedString("BraveRewardsDisabledTitle", bundle: .rewardsUI, value: "Welcome Back!", comment: "")
   static let learnMoreCreateWallet1 = NSLocalizedString("BraveRewardsLearnMoreCreateWallet1", bundle: .rewardsUI, value: "Yes, I'm In!", comment: "")
   static let learnMoreBraveAdsTitle = NSLocalizedString("BraveRewardsLearnMoreBraveAdsTitle", bundle: .rewardsUI, value: "Ads", comment: "")
-  static let tippingUnverifiedDisclaimer = NSLocalizedString("BraveRewardsTippingUnverifiedDisclaimer", bundle: .rewardsUI, value: "NOTE: This creator has not yet signed up to receive contributions from Brave users. Your browser will keep trying to contribute until they verify, or until 90 days have passed.", comment: "")
+  static let tippingUnverifiedDisclaimer = NSLocalizedString("BraveRewardsTippingUnverifiedDisclaimer", bundle: .rewardsUI, value: "NOTE: This creator has not yet signed up to receive tokens from Brave users. Your browser will keep trying to contribute until they verify, or until 90 days have passed.", comment: "")
   static let tippingNotConnectedDisclaimer = NSLocalizedString("BraveRewardsTippingNotConnectedDisclaimer", bundle: .rewardsUI, value: "NOTE: This Brave Verified Creator has not yet signed up to receive contributions from Brave users. Your browser will keep trying to contribute until they verify, or until 90 days have passed.", comment: "")
   static let settingsTipsBody = NSLocalizedString("BraveRewardsSettingsTipsBody", bundle: .rewardsUI, value: "Tip content creators directly as you browse by using the Rewards Panel.", comment: "")
   static let settingsMonthlyTipsBody = NSLocalizedString("BraveRewardsSettingsMonthlyTipsBody", bundle: .rewardsUI, value: "Set up recurring monthly contributions so you can support sites continuously.", comment: "")
@@ -173,16 +173,16 @@ internal extension Strings {
   static let privacyPolicyURL = NSLocalizedString("PrivacyPolicyURL", bundle: .rewardsUI, value: "Privacy Policy", comment: "")
   static let addFundsTokenWalletAddress = NSLocalizedString("BraveRewardsAddFundsTokenWalletAddress", bundle: .rewardsUI, value: "Wallet Address", comment: "")
   static let autoContributeToVideos = NSLocalizedString("BraveRewardsAutoContributeToVideos", bundle: .rewardsUI, value: "Allow contribution to videos", comment: "")
-  static let settingsDisabledBody2 = NSLocalizedString("BraveRewardsSettingsDisabledBody2", bundle: .rewardsUI, value: "One where your time is valued, your personal data is kept private, and you actually get paid for your attention.", comment: "")
+  static let settingsDisabledBody2 = NSLocalizedString("BraveRewardsSettingsDisabledBody2", bundle: .rewardsUI, value: "One where your time is valued, your personal data is kept private, and you can feel good about supporting content creators.", comment: "")
   static let contributingToUnverifiedSites = NSLocalizedString("BraveRewardsContributingToUnverifiedSites", bundle: .rewardsUI, value: "You've designated %@ for creators who haven't yet signed up to recieve contributions. Your browser will keep trying to contribute until they verify, or until 90 days have passed.", comment: "")
-  static let settingsDisabledBody1 = NSLocalizedString("BraveRewardsSettingsDisabledBody1", bundle: .rewardsUI, value: "With your old browser, you paid to browse the web by viewing ads with your valuable attention. You spent your valuable time downloading invasive ad technology that transmitted your valuable private data to advertisers — without your consent.", comment: "")
+  static let settingsDisabledBody1 = NSLocalizedString("BraveRewardsSettingsDisabledBody1", bundle: .rewardsUI, value: "Because creators need your support and Brave makes it completely free. Now you can collect tokens while you browse and contribute them back to the creators you love.", comment: "")
   static let panelTitle = NSLocalizedString("BraveRewardsPanelTitle", bundle: .rewardsUI, value: "Rewards", comment: "")
   static let creatingWallet = NSLocalizedString("BraveRewardsCreatingWallet", bundle: .rewardsUI, value: "Creating wallet", comment: "")
   static var rewardsOptInDescription: String {
     if Preferences.Rewards.isUsingBAP.value == true {
-      return NSLocalizedString("RewardsOptInDescriptionJapan", bundle: .rewardsUI, value: "You can now earn points for watching privacy-respecting ads.", comment: "")
+      return NSLocalizedString("RewardsOptInDescriptionJapan", bundle: .rewardsUI, value: "Earn points and reward creators for great content while you browse", comment: "")
     }
-    return NSLocalizedString("RewardsOptInDescription", bundle: .rewardsUI, value: "You can now earn tokens for watching privacy-respecting ads.", comment: "")
+    return NSLocalizedString("RewardsOptInDescription", bundle: .rewardsUI, value: "Earn tokens and reward creators for great content while you browse", comment: "")
   }
   static var walletHeaderTitle: String {
     if Preferences.Rewards.isUsingBAP.value == true {
@@ -215,12 +215,16 @@ internal extension Strings {
   static let remove = NSLocalizedString("BraveRewardsRemove", bundle: .rewardsUI, value: "Remove", comment: "")
   static let learnMoreWhyBody = NSLocalizedString("BraveRewardsLearnMoreWhyBody", bundle: .rewardsUI, value: "With your old browser, you paid to browse the web by viewing ads with your valuable attention. You spent your valuable time downloading invasive ad technology that transmitted your valuable private data to advertisers — without your consent.\n\nToday, Brave welcomes you to the new Internet. One where your time is valued, your personal data is kept private, and you actually get paid for your attention.", comment: "")
   static let disabledEnableButton = NSLocalizedString("BraveRewardsDisabledEnableButton", bundle: .rewardsUI, value: "Enable Brave Rewards", comment: "")
-  static let tippingOverviewBody = NSLocalizedString("BraveRewardsTippingOverviewBody", bundle: .rewardsUI, value: "You can support this content creator by sending a tip. It’s a way of thanking them for making great content. Verified creators get paid for their tips during the first week of each calendar month.\n\nIf you like, you can schedule monthly tips to support this creator on a continuous basis.", comment: "")
+  static let tippingOverviewBody = NSLocalizedString("BraveRewardsTippingOverviewBody", bundle: .rewardsUI, value: "You can support this content creator by sending them a few tokens. It’s a way of thanking them for making great content. Verified creators receive their tokens during the first week of each calendar month.\n\nIf you like, you can schedule a monthly contribution to support this creator on an ongoing basis.", comment: "")
   static let tippingSendTip = NSLocalizedString("BraveRewardsTippingSendTip", bundle: .rewardsUI, value: "Send my Tip", comment: "")
   static let tippingSendMonthlyTip = NSLocalizedString("BraveRewardsTippingSendMonthlyTip", bundle: .rewardsUI, value: "Set monthly tip", comment: "")
   static let noActivitiesYet = NSLocalizedString("BraveRewardsNoActivitiesYet", bundle: .rewardsUI, value: "No activities yet…", comment: "")
   static let adsMaxPerHour = NSLocalizedString("BraveRewardsAdsMaxPerDay", bundle: .rewardsUI, value: "Maximum number of ads displayed", comment: "")
   static let numberOfAdsPerHourOptionsTitle = NSLocalizedString("BraveRewardsNumberOfAdsPerHourOptionsTitle", bundle: .rewardsUI, value: "Ads per hour", comment: "")
+  static let adsSubdivisionTargeting = NSLocalizedString("BraveRewardsAdsSubdivisionTargeting", bundle: .rewardsUI, value: "State level ad targeting", comment: "")
+  static let adsSubdivisionTargetingAutoDetect = NSLocalizedString("BraveRewardsAdsSubdivisionTargetingAutoDetect", bundle: .rewardsUI, value: "Auto-detect", comment: "")
+  static let adsSubdivisionTargetingDisabled = NSLocalizedString("BraveRewardsAdsSubdivisionTargetingDisabled", bundle: .rewardsUI, value: "Disabled", comment: "")
+  static let adsSubdivisionTargetingDisable = NSLocalizedString("BraveRewardsAdsSubdivisionTargetingDisable", bundle: .rewardsUI, value: "Disable", comment: "")
   static let adsEstimatedEarnings = NSLocalizedString("BraveRewardsAdsEstimatedEarnings", bundle: .rewardsUI, value: "Estimated pending rewards", comment: "")
   static let nextPaymentDate = NSLocalizedString("BraveRewardsPaymentDate", bundle: .rewardsUI, value: "Next payment date", comment: "")
   static let adNotificationsReceived = NSLocalizedString("BraveRewardsAdNotificationsReceived", bundle: .rewardsUI, value: "Ad notifications received this month", comment: "")
@@ -260,7 +264,7 @@ internal extension Strings {
   static let notificationContributeNotificationError = NSLocalizedString("NotificationContributeNotificationError", bundle: .rewardsUI, value: "There was a problem processing your contribution.", comment: "We show this string in notification when contribution fails")
   static let notificationPendingNotEnoughFunds = NSLocalizedString("NotificationPendingNotEnoughFunds", bundle: .rewardsUI, value: "You have pending tips due to insufficient funds", comment: "Notification text that tells user his wallet is under funded for pending contribution to complete")
   static let notificationInsufficientFunds = NSLocalizedString("NotificationinsufficientFunds", bundle: .rewardsUI, value: "Your Brave Rewards account is waiting for a deposit.", comment: "Description for new insufficient funds notification")
-  static let notificationEarningsClaimDefault = NSLocalizedString("NotificationEarningsClaimDefault", bundle: .rewardsUI, value: "Your rewards from Ads are here!", comment: "Panel notification text for Ads grant")
+  static let notificationEarningsClaimDefault = NSLocalizedString("NotificationEarningsClaimDefault", bundle: .rewardsUI, value: "New tokens are ready to claim.", comment: "Panel notification text for Ads grant")
   static let notificationGrantNotification = NSLocalizedString("NotificationGrantNotification", bundle: .rewardsUI, value: "You have a grant waiting for you.", comment: "Description for new grant notification")
   static let notificationErrorTitle = NSLocalizedString("NotificationErrorTitle", bundle: .rewardsUI, value: "Uh oh!", comment: "Title for an error notification")
   static let noNetworkTitle = NSLocalizedString("NoNetworkTitle", bundle: .rewardsUI, value: "Uh oh!", comment: "Title for a no network notification")
@@ -274,6 +278,8 @@ internal extension Strings {
   
   static let disabledAutoContributeMessage = NSLocalizedString("DisabledAutoContributeMessage", bundle: .rewardsUI, value: "Reward creators for the content you love. Your monthly payment gets distributed across the sites you visit.", comment: "Message that is displayed when user disables auto-contribute")
   static let disabledAdsMessage = NSLocalizedString("DisabledAdsMessage", bundle: .rewardsUI, value: "Earnings are paid every month. Set your desired frequency to increase or decrease earnings.", comment: "Message that is displayed when user disables ads")
+  static let disabledTipsMessage = NSLocalizedString("DisabledTipsMessage", bundle: .rewardsUI, value: "Tip on the spot as you find gems. If you like, let people know with a quick tweet.", comment: "Message that is displayed on tips section when user disables rewards")
+  static let disabledMonthlyContributionMessage = NSLocalizedString("DisabledMonthlyContributionMessage", bundle: .rewardsUI, value: "Your monthly contributions will be sent every 30 days.", comment: "Message that is displayed on monthly contribution section when user disables rewards")
   static let userWalletOnboardingTitle =  NSLocalizedString("UserWalletTitle", bundle: .rewardsUI, value: "Verifying your wallet is optional", comment: "The title of the user wallet onboarding screen")
   static let userWalletOnboardingBenefitsTitle =  NSLocalizedString("UserWalletOnboardingBenefitsTitle", bundle: .rewardsUI, value: "But if you verify, you can…", comment: "The title above the list of benefits after verifying")
   static let userWalletOnboardingBenefitsOne =  NSLocalizedString("UserWalletOnboardingBenefitsOne", bundle: .rewardsUI, value: "Withdraw BAT that you earn from viewing privacy-respecting ads", comment: "The first benefit of verifying with Uphold")
@@ -306,5 +312,22 @@ internal extension Strings {
   static let pendingContributionType = NSLocalizedString("PendingContributionDetailType", bundle: .rewardsUI, value: "Type", comment: "")
   static let pendingContributionAmount = NSLocalizedString("PendingContributionDetailAmount", bundle: .rewardsUI, value: "Amount", comment: "")
   static let pendingContributionPendingUntil = NSLocalizedString("PendingContributionDetailPendingUntil", bundle: .rewardsUI, value: "Pending Until", comment: "")
+  static let ledgerInitializationFailedTitle = NSLocalizedString("LedgerInitializationFailedTitle", bundle: .rewardsUI, value: "Sorry, something went wrong…", comment: "")
+  static let ledgerDatabaseMigrationFailedBody = NSLocalizedString("LedgerDatabaseMigrationFailedBody", bundle: .rewardsUI, value: "There was a problem loading your Rewards information. Your rewards activity details will be restarted.\n\nPlease contact support@brave.com for any issues or concerns", comment: "")
+  static let SKUPurchaseTitle = NSLocalizedString("SKUPurchaseTitle", bundle: .rewardsUI, value: "Confirm Purchase", comment: "")
+  static let SKUPurchaseItemSelected = NSLocalizedString("SKUPurchaseItemSelected", bundle: .rewardsUI, value: "Item Selected", comment: "")
+  static let SKUPurchaseOrderTotal = NSLocalizedString("SKUPurchaseOrderTotal", bundle: .rewardsUI, value: "Order Total", comment: "")
+  static let SKUPurchaseBuyWithBAT = NSLocalizedString("SKUPurchaseBuyWithBAT", bundle: .rewardsUI, value: "Buy with %@", comment: "'%@' becomes 'BAT' or 'BAP' based on region")
+  static let SKUPurchaseDisclaimerInformation = NSLocalizedString("SKUPurchaseDisclaimerInformation", bundle: .rewardsUI, value: "By clicking '%@', you agree to %@.", comment: "First '%@' becomes 'Buy with BAT' or 'Buy with BAP' based on region. Second '%@' becomes 'Brave’s Terms of Sale'")
+  static let SKUPurchaseDisclaimerInformationLink = NSLocalizedString("SKUPurchaseDisclaimerInformationLink", bundle: .rewardsUI, value: "Brave’s Terms of Sale", comment: "Should be the same text as shown")
+  static let SKUPurchaseInsufficientFunds = NSLocalizedString("SKUPurchaseInsufficientFunds", bundle: .rewardsUI, value: "You don’t have enough %@ to make this purchase.", comment: "'%@' becomes 'BAT' or 'BAP' based on region'")
+  static let SKUPurchaseProcessing = NSLocalizedString("SKUPurchaseProcessing", bundle: .rewardsUI, value: "You're payment is being processed…", comment: "")
+  static let SKUPurchaseCompletedTitle = NSLocalizedString("SKUPurchaseCompletedTitle", bundle: .rewardsUI, value: "You’re good to go!", comment: "")
+  static let SKUPurchaseCompletedBody = NSLocalizedString("SKUPurchaseCompletedBody", bundle: .rewardsUI, value: "Enjoy your purchase.", comment: "")
+  static let SKUEnableRewardsTitle = NSLocalizedString("SKUEnableRewardsTitle", bundle: .rewardsUI, value: "Enable Brave Rewards to Continue.", comment: "")
+  static let SKUEnableRewardsBody = NSLocalizedString("SKUEnableRewardsBody", bundle: .rewardsUI, value: "To purchase this item, you need to earn tokens. Turn on Brave Rewards to earn.", comment: "")
+  static let SKUEnableRewardsButtonTitle = NSLocalizedString("SKUEnableRewardsButtonTitle", bundle: .rewardsUI, value: "Enable Brave Rewards", comment: "")
+  static let SKUEnableRewardsDisclaimer = NSLocalizedString("SKUEnableRewardsDisclaimer", bundle: .rewardsUI, value: "By tapping Enable Brave Rewards, you agree to Brave Reward’s Terms of Service.", comment: "")
+  static let SKUEnableRewardsDisclaimerLink = NSLocalizedString("SKUEnableRewardsDisclaimerLink", bundle: .rewardsUI, value: "Terms of Service.", comment: "The hyperlinked portion of the copy: 'By tapping Enable Brave Rewards, you agree to Brave Reward’s Terms of Service.'")
 }
 
